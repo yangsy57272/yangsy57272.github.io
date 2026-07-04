@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiyi Yang (Wendy) — Debater · Mathematician · Engineer</title>
+<meta name="description" content="Shiyi Yang (Wendy) — National debate champion, AIME qualifier, 2× FRC regional champion, and HIMCM global finalist (Top 4%). IB Class of 2027, Shanghai Pinghe Bilingual School.">
+<meta name="theme-color" content="#0f1f3d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shiyi Yang (Wendy) — Personal Website">
+<meta property="og:description" content="National debate champion · AIME qualifier · 2× FRC regional champion · HIMCM Top 4% globally · NYT-recognized writer. IB Class of 2027.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1f3d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e8c96a' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-light: #1a3060;
+    --gold: #c8a84b;
+    --gold-light: #e8c96a;
+    --bg: #f8f6f0;
+    --bg-card: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+    --text-light: #8a8a8a;
+    --border: #e2ddd5;
+    --accent-blue: #2d5a9e;
+    --accent-teal: #1a7a6e;
+    --accent-red: #b5342a;
+    --accent-purple: #5b3fa8;
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15, 31, 61, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+    border-bottom: 1px solid rgba(200,168,75,0.25);
+  }
+  nav .logo {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+  nav ul {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  nav a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  #hero {
+    background: var(--navy);
+    color: white;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 100px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(200,168,75,0.06) 100%);
+    pointer-events: none;
+  }
+  #hero::after {
+    content: '';
+    position: absolute; bottom: -1px; left: 0; right: 0;
+    height: 80px;
+    background: var(--bg);
+    clip-path: ellipse(55% 100% at 30% 100%);
+  }
+  .hero-inner { max-width: 820px; position: relative; z-index: 1; }
+  .hero-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-label::before {
+    content: ''; display: block; width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-chinese {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: rgba(200,168,75,0.7);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.6rem;
+  }
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-size: 1.9rem; font-weight: bold; color: var(--gold-light);
+    display: block; letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.45); margin-top: 2px;
+  }
+  .hero-badges {
+    display: flex; gap: 0.7rem; flex-wrap: wrap;
+  }
+  .badge {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.72rem; font-weight: 600;
+    padding: 5px 14px; border-radius: 999px;
+    letter-spacing: 0.06em;
+    border: 1px solid;
+  }
+  .badge-gold { border-color: var(--gold); color: var(--gold-light); }
+  .badge-white { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 5%; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-size: 2rem; font-weight: normal;
+    color: var(--navy); margin-bottom: 2rem;
+    letter-spacing: -0.01em;
+  }
+  .divider {
+    width: 48px; height: 2px; background: var(--gold); margin: 0 0 2.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: start;
+  }
+  .about-text p { color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.85; }
+  .about-highlights { display: flex; flex-direction: column; gap: 1.2rem; }
+  .highlight-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.3rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .highlight-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .hi-blue { background: #e8f0fb; }
+  .hi-teal { background: #ddf2ee; }
+  .hi-amber { background: #fef3da; }
+  .hi-purple { background: #ede8f8; }
+  .hi-rose { background: #fce8e8; }
+  .highlight-card h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--navy); margin-bottom: 0.3rem;
+  }
+  .highlight-card p {
+    font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--navy); color: white; }
+  #education .section-title { color: white; }
+  .edu-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .edu-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  .edu-school { font-size: 1.15rem; font-weight: normal; letter-spacing: 0.01em; }
+  .edu-year {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem; color: var(--gold); letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+  .edu-programme {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-light);
+    margin-bottom: 1.2rem;
+  }
+  .score-row {
+    display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.2rem;
+  }
+  .score-box {
+    text-align: center;
+    background: rgba(200,168,75,0.12);
+    border: 1px solid rgba(200,168,75,0.25);
+    border-radius: 8px; padding: 0.7rem 1.2rem;
+  }
+  .score-box .num {
+    font-size: 1.5rem; font-weight: bold; color: var(--gold-light); display: block;
+  }
+  .score-box .lbl {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45); margin-top: 2px;
+  }
+  .ib-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.6rem;
+  }
+  .ib-subject {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 0.5rem 0.8rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem;
+    display: flex; justify-content: space-between;
+    color: rgba(255,255,255,0.75);
+  }
+  .ib-grade { color: var(--gold-light); font-weight: 700; }
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements { background: var(--bg); }
+  .achievement-section { margin-bottom: 3rem; }
+  .achievement-header {
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+  }
+  .achievement-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .achievement-cat {
+    font-size: 1.2rem; color: var(--navy);
+  }
+  .achievement-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .award-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.3rem;
+    position: relative; overflow: hidden;
+  }
+  .award-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px;
+  }
+  .ac-blue::before { background: var(--accent-blue); }
+  .ac-teal::before { background: var(--accent-teal); }
+  .ac-gold::before { background: var(--gold); }
+  .ac-purple::before { background: var(--accent-purple); }
+  .ac-red::before { background: var(--accent-red); }
+  .award-year {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 0.4rem;
+  }
+  .award-title { font-size: 0.9rem; color: var(--text); margin-bottom: 0.25rem; line-height: 1.4; }
+  .award-result {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    display: inline-block;
+    padding: 2px 8px; border-radius: 4px; margin-top: 0.35rem;
+  }
+  .r-gold { background: #fef3da; color: #8a6a10; }
+  .r-silver { background: #f0f0f0; color: #555; }
+  .r-blue { background: #e8f0fb; color: #1a4a8a; }
+  .r-purple { background: #ede8f8; color: #3d2a7a; }
+  .r-teal { background: #ddf2ee; color: #0f5a50; }
+  .r-red { background: #fce8e8; color: #8a1a1a; }
+
+  /* ── RESEARCH ── */
+  #research { background: #f0ece3; }
+  .research-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+  .research-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem 2rem;
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 1.5rem; align-items: start;
+  }
+  .research-num {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 2rem; font-weight: 800; color: var(--border);
+    line-height: 1;
+  }
+  .research-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 4px;
+    margin-bottom: 0.6rem; display: inline-block;
+  }
+  .research-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.4; }
+  .research-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+  .research-meta {
+    display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.8rem;
+  }
+  .meta-pill {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.7rem; padding: 2px 9px; border-radius: 4px;
+    background: var(--bg); border: 1px solid var(--border); color: var(--text-muted);
+  }
+
+  /* ── ACTIVITIES ── */
+  #activities { background: var(--bg-card); }
+  .activities-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .activity-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+  }
+  .activity-card .cat-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 0.5rem; display: block;
+  }
+  .activity-card h4 { font-size: 0.92rem; color: var(--navy); margin-bottom: 0.25rem; }
+  .activity-card .role {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem; color: var(--text-muted); font-style: italic;
+  }
+  .activity-card .detail {
+    font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.5;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+  .skill-group h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--navy); margin-bottom: 0.7rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem; padding: 4px 10px; border-radius: 5px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); color: white; text-align: center; }
+  #contact .section-title { color: white; }
+  #contact .section-label { justify-content: center; }
+  #contact .section-label::before { display: none; }
+  .contact-info {
+    display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .contact-item {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.85rem; color: rgba(255,255,255,0.6);
+  }
+  .contact-item strong { color: var(--gold-light); display: block; font-size: 0.65rem;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080f1e; color: rgba(255,255,255,0.3);
+    text-align: center; padding: 1.5rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem;
+  }
+
+  /* ── SCROLL PROGRESS ── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    z-index: 200; transition: width 0.1s linear;
+  }
+
+  /* ── HERO CANVAS ── */
+  #hero-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; opacity: 0.9;
+  }
+  .hero-roles {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold-light); height: 1.6em; margin-bottom: 1.4rem;
+  }
+  .hero-roles .cursor {
+    display: inline-block; width: 2px; height: 1em; background: var(--gold-light);
+    vertical-align: -0.1em; margin-left: 3px;
+    animation: blink 0.9s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero-scroll-hint {
+    position: absolute; bottom: 90px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.4); font-size: 1.4rem; z-index: 1;
+    animation: bob 2s ease-in-out infinite; cursor: pointer; text-decoration: none;
+  }
+  @keyframes bob { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,10px); } }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── CARD HOVER ── */
+  .award-card, .activity-card, .highlight-card, .research-card, .edu-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .award-card:hover, .activity-card:hover, .highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15,31,61,0.10);
+    border-color: rgba(200,168,75,0.55);
+  }
+  .research-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(15,31,61,0.12);
+    border-color: rgba(200,168,75,0.55);
+  }
+  .edu-card:hover {
+    border-color: rgba(200,168,75,0.45);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  }
+  .skill-tag { transition: all 0.2s ease; cursor: default; }
+  .skill-tag:hover {
+    background: var(--navy); color: #fff; border-color: var(--navy);
+    transform: translateY(-2px);
+  }
+
+  /* ── ACHIEVEMENT FILTERS ── */
+  .filter-bar {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem;
+  }
+  .filter-btn {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 16px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--bg-card);
+    color: var(--text-muted); cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--navy); }
+  .filter-btn.active {
+    background: var(--navy); border-color: var(--navy); color: var(--gold-light);
+  }
+  .filter-btn .count {
+    display: inline-block; margin-left: 6px; padding: 0 7px;
+    border-radius: 999px; background: rgba(200,168,75,0.18);
+    color: inherit; font-size: 0.65rem;
+  }
+  .achievement-section.filtered-out { display: none; }
+
+  /* ── NAV ACTIVE STATE & MOBILE MENU ── */
+  nav a.active { color: var(--gold-light); }
+  nav .github-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid rgba(200,168,75,0.45); border-radius: 999px;
+    padding: 4px 13px; color: var(--gold-light) !important;
+  }
+  nav .github-link:hover { background: rgba(200,168,75,0.12); }
+  #menu-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    color: var(--gold-light); font-size: 1.5rem; line-height: 1;
+  }
+
+  /* ── BACK TO TOP ── */
+  #back-to-top {
+    position: fixed; right: 22px; bottom: 22px; z-index: 150;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--navy); color: var(--gold-light);
+    border: 1px solid rgba(200,168,75,0.5);
+    font-size: 1.1rem; cursor: pointer;
+    opacity: 0; pointer-events: none; transform: translateY(12px);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(15,31,61,0.3);
+  }
+  #back-to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+  #back-to-top:hover { background: var(--navy-light); }
+
+  /* ── CONTACT ACTIONS ── */
+  .contact-actions {
+    display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2.2rem;
+  }
+  .contact-btn {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 22px; border-radius: 999px;
+    text-decoration: none; cursor: pointer; border: 1px solid;
+    transition: all 0.25s ease;
+  }
+  .contact-btn.primary {
+    background: var(--gold); border-color: var(--gold); color: var(--navy);
+  }
+  .contact-btn.primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .contact-btn.ghost {
+    background: transparent; border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8);
+  }
+  .contact-btn.ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+  /* ── UTILITIES ── */
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    #menu-toggle { display: block; }
+    nav ul {
+      display: none;
+      position: absolute; top: 60px; left: 0; right: 0;
+      background: rgba(15,31,61,0.98);
+      flex-direction: column; gap: 0;
+      border-bottom: 1px solid rgba(200,168,75,0.25);
+      padding: 0.5rem 0;
+    }
+    nav ul.open { display: flex; }
+    nav ul li a { display: block; padding: 0.8rem 2rem; }
+    nav .github-link { border: none; padding: 0.8rem 2rem; }
+    #hero { padding-top: 80px; }
+    .research-card { grid-template-columns: 1fr; }
+    .research-num { display: none; }
+    .hero-scroll-hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">Shiyi Yang</div>
+  <button id="menu-toggle" aria-label="Menu">☰</button>
+  <ul id="nav-menu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a class="github-link" href="https://github.com/__GITHUB_USERNAME__" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-label">Shanghai Pinghe Bilingual School &nbsp;·&nbsp; IB Programme</div>
+    <h1>Shiyi Yang</h1>
+    <div class="hero-chinese">杨诗怡 &nbsp;/&nbsp; Wendy</div>
+    <div class="hero-roles"><span id="role-text"></span><span class="cursor"></span></div>
+    <p class="hero-tagline">
+      National debate champion, AIME qualifier, robotics champion, and aspiring engineer —
+      driven by a conviction that clear thinking and bold ideas can shape the world.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">116</span>
+        <span class="stat-label">TOEFL</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">1470</span>
+        <span class="stat-label">SAT</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">135</span>
+        <span class="stat-label">Duolingo</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">10/15</span>
+        <span class="stat-label">AIME Score</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Top 4%</span>
+        <span class="stat-label">HIMCM Global</span>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <span class="badge badge-gold">National Debate Champion</span>
+      <span class="badge badge-gold">FRC Regional Champion</span>
+      <span class="badge badge-gold">AIME Qualified</span>
+      <span class="badge badge-white">NYT Writing Contest</span>
+      <span class="badge badge-white">Conrad Challenge Silver</span>
+    </div>
+  </div>
+  <a class="hero-scroll-hint" href="#about" aria-label="Scroll down">▾</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Who I am</h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I am an IB student at Shanghai Pinghe Bilingual School with a passion for language,
+          logic, and leadership. My academic journey spans competitive debate, olympiad mathematics,
+          chemistry, physics, and robotics — but at the heart of everything I do is a love for
+          clear thinking and compelling communication.
+        </p>
+        <p>
+          As a debater, I have competed on regional and national stages under WSDA and TOC formats,
+          earning the title of national champion and Outstanding Speaker awards at every level.
+          I believe the ability to construct and challenge arguments is one of the most transferable
+          skills a young person can develop.
+        </p>
+        <p>
+          My intellectual curiosity extends to mathematics and the sciences. I qualified for AIME
+          through AMC 10A, earned a Bronze Medal in the Canadian Chemistry Olympiad, and placed
+          in the top 4% globally in the HIMCM mathematical modeling contest.
+        </p>
+        <p>
+          Beyond the classroom, I serve as art director for the school newspaper, produce videos
+          for school events, and represent my school in robotics — our FRC team won the 2025 Halic
+          Regional Championship in Istanbul and the 2026 Shanghai Regional Championship.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon hi-blue">🏆</div>
+          <div>
+            <h4>Debate &amp; Public Speaking</h4>
+            <p>National TOC Champion (2024); WSDA multi-year finalist; Special Grand Prize in ESDP (2026). Outstanding Speaker at every major competition.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon hi-amber">📐</div>
+          <div>
+            <h4>Mathematics &amp; Science</h4>
+            <p>AIME qualifier (AMC 10A Top 5%); AIME 10/15; CCO Bronze + China National Top Gold; Physics Bowl National Gold; HIMCM Finalist Top 4%.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon hi-teal">🤖</div>
+          <div>
+            <h4>Robotics &amp; Innovation</h4>
+            <p>FRC Halic Regional Champion &amp; Istanbul Regional Finalist (2025); FRC Shanghai Regional Champion (2026); Conrad Challenge Silver Award.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon hi-purple">✍️</div>
+          <div>
+            <h4>Writing &amp; Media</h4>
+            <p>Runner-up and twice honorable mention in the NYT Summer Reading Contest. Art director, videographer, and published journalist for school platforms.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon hi-rose">🔬</div>
+          <div>
+            <h4>Research &amp; AI</h4>
+            <p>Independent research in computer vision (face recognition), mathematical modeling, and TENG-based energy harvesting. Gen AI Hackathon Best Skills Award.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="divider" style="background: rgba(200,168,75,0.5);"></div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <div>
+          <div class="edu-school">Shanghai Pinghe Bilingual School</div>
+          <div class="edu-year">Shanghai, China</div>
+        </div>
+        <div class="edu-year" style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">2024 – Present</div>
+      </div>
+      <div class="edu-programme">International Baccalaureate (IB) Programme · Class of 2027</div>
+
+      <div class="score-row">
+        <div class="score-box">
+          <span class="num">116</span>
+          <span class="lbl">TOEFL<br><small style="font-size:0.6rem;">29+30+29+28</small></span>
+        </div>
+        <div class="score-box">
+          <span class="num">1470</span>
+          <span class="lbl">SAT</span>
+        </div>
+        <div class="score-box">
+          <span class="num">135</span>
+          <span class="lbl">Duolingo</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 0.9rem;">
+        <div style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:0.6rem;">
+          Grade 11 — Term A (84% · 69.75% · 82.61% · 68.18% · 71.9% · 68.67%)
+        </div>
+        <div class="ib-grid">
+          <div class="ib-subject">Maths HL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">Physics HL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">English B HL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">CS HL<span class="ib-grade">5</span></div>
+          <div class="ib-subject">Literature SL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">BM SL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">TOK<span class="ib-grade" style="color: var(--gold-light);">B</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:0.6rem;">
+          Grade 11 — Term B (88.8% · 69.11% · 83.82% · 66.45% · 78.44% · 72.32%)
+        </div>
+        <div class="ib-grid">
+          <div class="ib-subject">Maths HL<span class="ib-grade">7</span></div>
+          <div class="ib-subject">Physics HL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">English B HL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">CS HL<span class="ib-grade">5</span></div>
+          <div class="ib-subject">Literature SL<span class="ib-grade">6</span></div>
+          <div class="ib-subject">BM SL<span class="ib-grade">7</span></div>
+          <div class="ib-subject">TOK<span class="ib-grade" style="color: var(--gold-light);">B</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-inner">
+    <div class="section-label">Awards &amp; Competitions</div>
+    <h2 class="section-title">Achievements</h2>
+    <div class="divider"></div>
+    <div class="filter-bar" id="filter-bar"></div>
+
+    <!-- DEBATE -->
+    <div class="achievement-section">
+      <div class="achievement-header">
+        <div class="achievement-icon hi-blue" style="font-size:1.2rem;">🎙️</div>
+        <h3 class="achievement-cat">Debate</h3>
+      </div>
+      <div class="achievement-grid">
+        <div class="award-card ac-blue">
+          <div class="award-year" style="color: var(--accent-blue);">2024</div>
+          <div class="award-title">TOC National Online High School</div>
+          <div><span class="award-result r-gold">Champion (1st Place)</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Outstanding Speaker</span></div>
+        </div>
+        <div class="award-card ac-blue">
+          <div class="award-year" style="color: var(--accent-blue);">2025</div>
+          <div class="award-title">WSDA Regional High School Championship</div>
+          <div><span class="award-result r-silver">Finalist (Runner-up)</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Outstanding Speaker</span></div>
+        </div>
+        <div class="award-card ac-blue">
+          <div class="award-year" style="color: var(--accent-blue);">2024</div>
+          <div class="award-title">WSDA Regional High School Championship</div>
+          <div><span class="award-result r-silver">Semifinalist (3rd Place)</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Outstanding Speaker</span></div>
+        </div>
+        <div class="award-card ac-blue">
+          <div class="award-year" style="color: var(--accent-blue);">2024</div>
+          <div class="award-title">TOC ASIA National High School</div>
+          <div><span class="award-result r-blue">Quarterfinalist</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Outstanding Speaker</span></div>
+        </div>
+        <div class="award-card ac-blue">
+          <div class="award-year" style="color: var(--accent-blue);">2023</div>
+          <div class="award-title">WSDA Regional High School Championship</div>
+          <div><span class="award-result r-silver">Finalist (Runner-up)</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Outstanding Speaker</span></div>
+        </div>
+        <div class="award-card ac-blue">
+          <div class="award-year" style="color: var(--accent-blue);">2025</div>
+          <div class="award-title">PHATE Debate (Pinghe)</div>
+          <div><span class="award-result r-purple">Invited as Judge</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PUBLIC SPEAKING -->
+    <div class="achievement-section">
+      <div class="achievement-header">
+        <div class="achievement-icon hi-purple" style="font-size:1.2rem;">🗣️</div>
+        <h3 class="achievement-cat">Public Speaking</h3>
+      </div>
+      <div class="achievement-grid">
+        <div class="award-card ac-purple">
+          <div class="award-year" style="color: var(--accent-purple);">2026</div>
+          <div class="award-title">ESDP — High School Division</div>
+          <div><span class="award-result r-gold">Special Grand Prize (特等奖)</span></div>
+        </div>
+        <div class="award-card ac-purple">
+          <div class="award-year" style="color: var(--accent-purple);">2024</div>
+          <div class="award-title">ESDP — Middle School Division</div>
+          <div><span class="award-result r-gold">1st Prize</span></div>
+        </div>
+        <div class="award-card ac-purple">
+          <div class="award-year" style="color: var(--accent-purple);">2025</div>
+          <div class="award-title">ESDP — High School Division</div>
+          <div><span class="award-result r-silver">3rd Prize</span></div>
+        </div>
+        <div class="award-card ac-purple">
+          <div class="award-year" style="color: var(--accent-purple);">2025</div>
+          <div class="award-title">WAPI Super Day</div>
+          <div><span class="award-result r-blue">Recognition Award</span></div>
+          <div><span class="award-result r-teal" style="margin-left:4px;">Advanced to National Finals</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATHEMATICS -->
+    <div class="achievement-section">
+      <div class="achievement-header">
+        <div class="achievement-icon hi-amber" style="font-size:1.2rem;">📐</div>
+        <h3 class="achievement-cat">Mathematics</h3>
+      </div>
+      <div class="achievement-grid">
+        <div class="award-card ac-gold">
+          <div class="award-year" style="color: #8a6a10;">2023</div>
+          <div class="award-title">AMC 10A</div>
+          <div><span class="award-result r-gold">Top 5% — AIME Qualified</span></div>
+        </div>
+        <div class="award-card ac-gold">
+          <div class="award-year" style="color: #8a6a10;">2024</div>
+          <div class="award-title">AIME</div>
+          <div><span class="award-result r-gold">Score 10/15</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Certificate of Participation</span></div>
+        </div>
+        <div class="award-card ac-gold">
+          <div class="award-year" style="color: #8a6a10;">2025</div>
+          <div class="award-title">HIMCM (High School Mathematical Contest in Modeling)</div>
+          <div><span class="award-result r-gold">Finalist (Top 4% Globally)</span></div>
+          <div style="display:flex; gap:0.5rem; margin-top:0.75rem; flex-wrap:wrap;">
+            <a href="assets/HiMCM-2025-Certificate.pdf" target="_blank"
+               style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.72rem; font-weight:600;
+                      padding:4px 11px; border-radius:5px; border:1px solid #c8a84b;
+                      color:#8a6a10; background:#fef3da; text-decoration:none;
+                      display:inline-flex; align-items:center; gap:5px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Certificate
+            </a>
+            <a href="assets/HiMCM-2025-Paper.pdf" target="_blank"
+               style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.72rem; font-weight:600;
+                      padding:4px 11px; border-radius:5px; border:1px solid #1a3060;
+                      color:#1a3060; background:#e8f0fb; text-decoration:none;
+                      display:inline-flex; align-items:center; gap:5px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Competition Paper
+            </a>
+          </div>
+        </div>
+        <div class="award-card ac-gold">
+          <div class="award-year" style="color: #8a6a10;">2024</div>
+          <div class="award-title">HIMCM</div>
+          <div><span class="award-result r-silver">Certificate of Achievement</span></div>
+        </div>
+        <div class="award-card ac-gold">
+          <div class="award-year" style="color: #8a6a10;">2025</div>
+          <div class="award-title">Euclid Mathematics Competition</div>
+          <div><span class="award-result r-gold">Distinction (Top 25%)</span></div>
+        </div>
+        <div class="award-card ac-gold">
+          <div class="award-year" style="color: #8a6a10;">2024</div>
+          <div class="award-title">Kangaroo Mathematics Level E</div>
+          <div><span class="award-result r-gold">National Gold Award</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHEMISTRY & PHYSICS -->
+    <div class="achievement-section">
+      <div class="achievement-header">
+        <div class="achievement-icon hi-teal" style="font-size:1.2rem;">⚗️</div>
+        <h3 class="achievement-cat">Chemistry &amp; Physics</h3>
+      </div>
+      <div class="achievement-grid">
+        <div class="award-card ac-teal">
+          <div class="award-year" style="color: var(--accent-teal);">2024</div>
+          <div class="award-title">Canadian Chemistry Olympiad (CCO)</div>
+          <div><span class="award-result r-teal">Bronze Medal</span></div>
+          <div><span class="award-result r-gold" style="margin-left:4px;">China National Top Gold</span></div>
+        </div>
+        <div class="award-card ac-teal">
+          <div class="award-year" style="color: var(--accent-teal);">2024</div>
+          <div class="award-title">Canadian Chemistry Contest (CCC)</div>
+          <div><span class="award-result r-teal">National Bronze</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Special Merit</span></div>
+        </div>
+        <div class="award-card ac-teal">
+          <div class="award-year" style="color: var(--accent-teal);">2024</div>
+          <div class="award-title">Physics Bowl</div>
+          <div><span class="award-result r-gold">National Gold Award</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Division 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROBOTICS & INNOVATION -->
+    <div class="achievement-section">
+      <div class="achievement-header">
+        <div class="achievement-icon hi-teal" style="font-size:1.2rem;">🤖</div>
+        <h3 class="achievement-cat">Robotics &amp; Innovation</h3>
+      </div>
+      <div class="achievement-grid">
+        <div class="award-card ac-teal">
+          <div class="award-year" style="color: var(--accent-teal);">2026</div>
+          <div class="award-title">FRC Shanghai Regional — Team 10541</div>
+          <div><span class="award-result r-gold">Regional Champion 🏆</span></div>
+        </div>
+        <div class="award-card ac-teal">
+          <div class="award-year" style="color: var(--accent-teal);">2025</div>
+          <div class="award-title">FRC Halic Regional (Istanbul) — Team 10541</div>
+          <div><span class="award-result r-gold">Regional Champion 🏆</span></div>
+        </div>
+        <div class="award-card ac-teal">
+          <div class="award-year" style="color: var(--accent-teal);">2025</div>
+          <div class="award-title">FRC Istanbul Regional — Team 10541</div>
+          <div><span class="award-result r-silver">Finalist Alliance Member</span></div>
+        </div>
+        <div class="award-card ac-red">
+          <div class="award-year" style="color: var(--accent-red);">2025</div>
+          <div class="award-title">Conrad Challenge — Energy &amp; Environment</div>
+          <div><span class="award-result r-silver">Silver Award (National Stage)</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Advanced to National Finals</span></div>
+        </div>
+        <div class="award-card ac-red">
+          <div class="award-year" style="color: var(--accent-red);">2024–25</div>
+          <div class="award-title">Generation AI 48-Hour Hackathon</div>
+          <div><span class="award-result r-gold">Best Skills Reward</span></div>
+          <div><span class="award-result r-teal" style="margin-left:4px;">Coze Recommended Product</span></div>
+        </div>
+        <div class="award-card ac-red">
+          <div class="award-year" style="color: var(--accent-red);">2025</div>
+          <div class="award-title">MeckUp Quest (HKU × Intel × XRP)</div>
+          <div><span class="award-result r-teal">Third Place</span></div>
+        </div>
+        <div class="award-card ac-red">
+          <div class="award-year" style="color: var(--accent-red);">2025</div>
+          <div class="award-title">CTB Competition</div>
+          <div><span class="award-result r-blue">Advanced to National Finals</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WRITING -->
+    <div class="achievement-section">
+      <div class="achievement-header">
+        <div class="achievement-icon hi-purple" style="font-size:1.2rem;">✍️</div>
+        <h3 class="achievement-cat">Writing</h3>
+      </div>
+      <div class="achievement-grid">
+        <div class="award-card ac-purple">
+          <div class="award-year" style="color: var(--accent-purple);">2024</div>
+          <div class="award-title">The New York Times — Summer Reading &amp; Writing Contest</div>
+          <div><span class="award-result r-silver">Week 7: Runner-Up</span></div>
+        </div>
+        <div class="award-card ac-purple">
+          <div class="award-year" style="color: var(--accent-purple);">2025</div>
+          <div class="award-title">The New York Times — Summer Reading &amp; Writing Contest</div>
+          <div><span class="award-result r-blue">Week 1: Honorable Mention</span></div>
+          <div><span class="award-result r-blue" style="margin-left:4px;">Week 6: Honorable Mention</span></div>
+        </div>
+        <div class="award-card ac-purple">
+          <div class="award-year" style="color: var(--accent-purple);">Oct 2024</div>
+          <div class="award-title">Apprentice Programme — Linguistics Column</div>
+          <div><span class="award-result r-purple">Published Author</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Independent Projects</h2>
+    <div class="divider"></div>
+    <div class="research-cards">
+
+      <div class="research-card">
+        <div class="research-num">01</div>
+        <div>
+          <span class="research-tag" style="background:#e8f0fb; color:#1a4a8a;">Computer Vision</span>
+          <h3>Facial Expression &amp; Identity Recognition System (Dlib)</h3>
+          <p>
+            Independently designed and built a multimodal biometric system combining face identity
+            verification with real-time emotion classification using Python and Dlib. The system
+            performs facial feature extraction, identity matching, and expression recognition in a
+            single pipeline — a novel combination not available in competing open-source tools.
+            Includes a custom sample database, algorithm optimization across multiple test cycles,
+            and a formal research paper documenting the methodology and results.
+          </p>
+          <div class="research-meta">
+            <span class="meta-pill">Python</span>
+            <span class="meta-pill">Dlib</span>
+            <span class="meta-pill">Computer Vision</span>
+            <span class="meta-pill">CTB Competition (2026)</span>
+            <span class="meta-pill">Generation AI Hackathon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-num">02</div>
+        <div>
+          <span class="research-tag" style="background:#fef3da; color:#8a6a10;">Mathematical Modeling</span>
+          <h3>Emergency Evacuation Strategy Optimization (HIMCM 2024 &amp; 2025)</h3>
+          <p>
+            Two consecutive years of independent research for the High School Mathematical Contest
+            in Modeling, culminating in a Finalist finish (Top 4% globally) in 2025. Research
+            focused on multi-agent dynamic risk modeling and evacuation pathway optimization in
+            complex building scenarios under fire and gas leak conditions. Applied Koschmieder
+            Visibility Model, Gompertz mortality functions, and HPC-environment simulation.
+            Produced full research papers and strategy flow diagrams.
+          </p>
+          <div class="research-meta">
+            <span class="meta-pill">Multi-agent Modeling</span>
+            <span class="meta-pill">Gompertz Functions</span>
+            <span class="meta-pill">HPC Simulation</span>
+            <span class="meta-pill">HIMCM Finalist Top 4%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-num">03</div>
+        <div>
+          <span class="research-tag" style="background:#ddf2ee; color:#0f5a50;">Energy Engineering</span>
+          <h3>TENG-Based Hybrid Wave Energy Harvesting Device (Conrad Challenge)</h3>
+          <p>
+            Designed and prototyped a composite wave energy collection device integrating
+            triboelectric nanogenerators (TENG) and piezoelectric effects to convert ocean wave
+            energy into usable electricity. Completed full SolidWorks mechanical structural design,
+            hardware selection, 3D printing and laser-cut model assembly, partial software
+            programming, and a commercial feasibility analysis. The project incorporated smart
+            remote monitoring and intelligent control integration. Awarded Silver Award at the
+            Conrad Challenge National Stage.
+          </p>
+          <div class="research-meta">
+            <span class="meta-pill">TENG</span>
+            <span class="meta-pill">SolidWorks</span>
+            <span class="meta-pill">3D Printing</span>
+            <span class="meta-pill">Energy Harvesting</span>
+            <span class="meta-pill">Conrad Silver Award</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="section-inner">
+    <div class="section-label">Leadership &amp; Community</div>
+    <h2 class="section-title">Extracurricular Activities</h2>
+    <div class="divider"></div>
+    <div class="activities-grid">
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-blue);">Media &amp; Design</span>
+        <h4>PH Times (School Newspaper)</h4>
+        <div class="role">Art Director · 2024–2025</div>
+        <p class="detail">Designed layouts for Issues 4, 5, 6, 7, 9, and 10 of the school newspaper.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-blue);">Media &amp; Design</span>
+        <h4>PTV — Pinghe Television</h4>
+        <div class="role">Videographer &amp; Editor · 2024–2025</div>
+        <p class="detail">Filmed school anniversary, Jumbo Party alumni event, gratitude campaign, and robotics documentary. Edited "The Decaying Empire 2."</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-blue);">Media &amp; Design</span>
+        <h4>PHocus Magazine</h4>
+        <div class="role">Contributor · 2024–2025</div>
+        <p class="detail">Contributing writer for Issues 4, 5, 6, 7, 9, and 10 of the school English magazine.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-purple);">Leadership</span>
+        <h4>School Alumni Association</h4>
+        <div class="role">Event Coordinator · 2024–2025</div>
+        <p class="detail">Coordinated logistics, designed Jumbo Party invitation, authored official WeChat article.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-teal);">Community</span>
+        <h4>Integirls Shanghai</h4>
+        <div class="role">Official Photographer · March 2025</div>
+        <p class="detail">Official photographer for the Shanghai chapter event celebrating women in mathematics.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-purple);">Leadership</span>
+        <h4>TEDx Pinghe 2025</h4>
+        <div class="role">Media &amp; Copywriting · April 2025</div>
+        <p class="detail">Wrote promotional copy and designed official announcement layouts for the TEDx event.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-teal);">Community</span>
+        <h4>Jinqiao Lantern Festival Outreach</h4>
+        <div class="role">Robotics Club Representative · Jan 2025</div>
+        <p class="detail">Represented school robotics club at community outreach; authored official WeChat coverage article.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-red);">Sports</span>
+        <h4>Rugby — Shanghai International Citizens Tournament</h4>
+        <div class="role">2024</div>
+        <p class="detail">Runner-up (亚军) representing school team in the international tournament.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-red);">Sports</span>
+        <h4>Rowing Machine — School Sports Day</h4>
+        <div class="role">May 2025</div>
+        <p class="detail">1st Place — Class Category Champion.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-red);">Sports</span>
+        <h4>Flag Football with Lincoln High School (USA)</h4>
+        <div class="role">May 2025</div>
+        <p class="detail">Featured in Global Times and PingHe Education; participated in international cultural exchange program.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-blue);">Media &amp; Design</span>
+        <h4>Robotics Club Recruitment Drive</h4>
+        <div class="role">May 2025</div>
+        <p class="detail">Led graphic design, copywriting, and photography for the official club recruitment campaign.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-purple);">Arts</span>
+        <h4>Pinghe Drama Club — "He Xu" Performance</h4>
+        <div class="role">Multimedia Production · May 2025</div>
+        <p class="detail">Created multimedia production elements for the school drama club's production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Skills &amp; Interests</div>
+    <h2 class="section-title">Competencies</h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Mandarin (Native)</span>
+          <span class="skill-tag">English (TOEFL 116)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Debate &amp; Rhetoric</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Parliamentary Debate</span>
+          <span class="skill-tag">Policy Debate</span>
+          <span class="skill-tag">Public Speaking</span>
+          <span class="skill-tag">Competition Judging</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Writing</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Analytical Essays</span>
+          <span class="skill-tag">Creative Nonfiction</span>
+          <span class="skill-tag">Journalism</span>
+          <span class="skill-tag">Copywriting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Programming &amp; Engineering</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">FRC Robotics</span>
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">AI Development</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Media Production</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Video Filming</span>
+          <span class="skill-tag">Video Editing</span>
+          <span class="skill-tag">Graphic Design</span>
+          <span class="skill-tag">Layout Design</span>
+          <span class="skill-tag">Photography</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Mathematics &amp; Science</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Olympiad Mathematics</span>
+          <span class="skill-tag">Mathematical Modeling</span>
+          <span class="skill-tag">Chemistry Olympiad</span>
+          <span class="skill-tag">Physics</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Sports</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Flag Football</span>
+          <span class="skill-tag">Rugby</span>
+          <span class="skill-tag">Rowing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact</h2>
+    <div class="divider" style="background: rgba(200,168,75,0.4); margin: 0 auto 2rem;"></div>
+    <p style="color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; font-size: 0.95rem;">
+      Currently a Grade 11 student at Shanghai Pinghe Bilingual School,
+      applying for university entrance in the Class of 2027.
+    </p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <strong>Email</strong>
+        yangsy.2009@outlook.com
+      </div>
+      <div class="contact-item">
+        <strong>Phone</strong>
+        (+86) 17721272193
+      </div>
+      <div class="contact-item">
+        <strong>School</strong>
+        Shanghai Pinghe Bilingual School
+      </div>
+      <div class="contact-item">
+        <strong>Programme</strong>
+        IB — Class of 2027
+      </div>
+    </div>
+    <div class="contact-actions">
+      <a class="contact-btn primary" href="mailto:yangsy.2009@outlook.com">✉ Email Me</a>
+      <button class="contact-btn ghost" id="copy-email" type="button">⧉ Copy Email</button>
+      <a class="contact-btn ghost" href="https://github.com/__GITHUB_USERNAME__" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Shiyi Yang (Wendy) &nbsp;·&nbsp; Shanghai Pinghe Bilingual School &nbsp;·&nbsp; IB Class of 2027
+  &nbsp;·&nbsp; <a href="https://github.com/__GITHUB_USERNAME__" target="_blank" rel="noopener" style="color: rgba(232,201,106,0.6); text-decoration: none;">GitHub</a>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+(() => {
+  'use strict';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Nav: hide on scroll down, progress bar, back-to-top ── */
+  const nav = document.querySelector('nav');
+  const menu = document.getElementById('nav-menu');
+  const progressBar = document.getElementById('progress-bar');
+  const backToTop = document.getElementById('back-to-top');
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const menuOpen = menu.classList.contains('open');
+    nav.style.transition = 'transform 0.3s ease';
+    nav.style.transform = (y > lastY && y > 200 && !menuOpen) ? 'translateY(-100%)' : 'translateY(0)';
+    lastY = y;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    backToTop.classList.toggle('show', y > 600);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Mobile menu ── */
+  document.getElementById('menu-toggle').addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  /* ── Active nav link ── */
+  const sections = [...document.querySelectorAll('section[id]')];
+  const navLinks = new Map([...menu.querySelectorAll('a[href^="#"]')].map(a => [a.getAttribute('href').slice(1), a]));
+  const activeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(a => a.classList.remove('active'));
+      const link = navLinks.get(e.target.id);
+      if (link) link.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => activeObs.observe(s));
+
+  /* ── Typewriter roles ── */
+  const roles = [
+    'National Debate Champion',
+    'AIME Qualifier · Top 5% AMC 10A',
+    '2× FRC Regional Champion',
+    'HIMCM Global Finalist · Top 4%',
+    'NYT-Recognized Writer',
+    'Independent Researcher',
+  ];
+  const roleEl = document.getElementById('role-text');
+  if (reduceMotion) {
+    roleEl.textContent = roles[0];
+  } else {
+    let ri = 0, ci = 0, deleting = false;
+    (function type() {
+      const word = roles[ri];
+      ci += deleting ? -1 : 1;
+      roleEl.textContent = word.slice(0, ci);
+      let delay = deleting ? 28 : 55;
+      if (!deleting && ci === word.length) { delay = 2000; deleting = true; }
+      else if (deleting && ci === 0) { deleting = false; ri = (ri + 1) % roles.length; delay = 350; }
+      setTimeout(type, delay);
+    })();
+  }
+
+  /* ── Count-up hero stats ── */
+  document.querySelectorAll('.stat-num').forEach(el => {
+    const m = el.textContent.match(/^([^\d]*)(\d+)(.*)$/);
+    if (!m || reduceMotion) return;
+    const [, prefix, numStr, suffix] = m;
+    const target = parseInt(numStr, 10);
+    const dur = 1400, t0 = performance.now();
+    (function tick(t) {
+      const p = Math.min((t - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  });
+
+  /* ── Scroll reveal (staggered) ── */
+  const revealSelectors = [
+    '.section-label', '.section-title', '.divider', '.filter-bar',
+    '.about-text', '.highlight-card', '.edu-card', '.achievement-header',
+    '.award-card', '.research-card', '.activity-card', '.skill-group',
+    '.contact-info', '.contact-actions',
+  ];
+  const revealEls = document.querySelectorAll(revealSelectors.join(','));
+  revealEls.forEach(el => {
+    el.classList.add('reveal');
+    const siblings = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+    el.style.setProperty('--reveal-delay', (Math.min(siblings.indexOf(el), 8) * 0.07) + 's');
+  });
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  /* ── Achievement filters ── */
+  const achSections = [...document.querySelectorAll('.achievement-section')];
+  const filterBar = document.getElementById('filter-bar');
+  if (filterBar && achSections.length) {
+    const cats = achSections.map(s => ({
+      name: s.querySelector('.achievement-cat').textContent.trim(),
+      count: s.querySelectorAll('.award-card').length,
+      el: s,
+    }));
+    const total = cats.reduce((n, c) => n + c.count, 0);
+    const mkBtn = (label, count) => {
+      const b = document.createElement('button');
+      b.className = 'filter-btn';
+      b.innerHTML = label + '<span class="count">' + count + '</span>';
+      filterBar.appendChild(b);
+      return b;
+    };
+    const allBtn = mkBtn('All', total);
+    allBtn.classList.add('active');
+    const select = (btn, filter) => {
+      filterBar.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      achSections.forEach(s => s.classList.toggle('filtered-out', filter !== null && s !== filter));
+    };
+    allBtn.addEventListener('click', () => select(allBtn, null));
+    cats.forEach(c => {
+      const b = mkBtn(c.name, c.count);
+      b.addEventListener('click', () => select(b, c.el));
+    });
+  }
+
+  /* ── 3D tilt on research cards ── */
+  if (!reduceMotion && matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.research-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top) / r.height - 0.5) * -3;
+        const ry = ((e.clientX - r.left) / r.width - 0.5) * 3;
+        card.style.transform = 'translateY(-4px) perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+
+  /* ── Copy email ── */
+  const copyBtn = document.getElementById('copy-email');
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('yangsy.2009@outlook.com').then(() => {
+      const old = copyBtn.textContent;
+      copyBtn.textContent = '✓ Copied!';
+      setTimeout(() => { copyBtn.textContent = old; }, 1600);
+    });
+  });
+
+  /* ── Hero constellation canvas ── */
+  const canvas = document.getElementById('hero-canvas');
+  const hero = document.getElementById('hero');
+  if (canvas && !reduceMotion) {
+    const ctx = canvas.getContext('2d');
+    let W, H, pts = [];
+    const mouse = { x: -9999, y: -9999 };
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      W = hero.offsetWidth; H = hero.offsetHeight;
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      const n = Math.min(Math.floor(W * H / 16000), 110);
+      pts = Array.from({ length: n }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.6 + 0.6,
+        gold: Math.random() < 0.3,
+      }));
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    hero.addEventListener('mousemove', e => {
+      const r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    hero.addEventListener('mouseleave', () => { mouse.x = mouse.y = -9999; });
+    const LINK = 110;
+    (function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of pts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        const dxm = mouse.x - p.x, dym = mouse.y - p.y;
+        const dm = Math.hypot(dxm, dym);
+        if (dm < 140 && dm > 0.01) { p.x -= (dxm / dm) * 0.6; p.y -= (dym / dm) * 0.6; }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.gold ? 'rgba(200,168,75,0.65)' : 'rgba(255,255,255,0.35)';
+        ctx.fill();
+      }
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < LINK * LINK) {
+            const a = (1 - Math.sqrt(d2) / LINK) * 0.14;
+            ctx.strokeStyle = 'rgba(200,168,75,' + a + ')';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
