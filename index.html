@@ -99,7 +99,34 @@
     background: var(--bg);
     clip-path: ellipse(55% 100% at 30% 100%);
   }
-  .hero-inner { max-width: 820px; position: relative; z-index: 1; }
+  .hero-inner {
+    max-width: 1160px; position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 4rem; align-items: center;
+  }
+  .hero-text { max-width: 820px; }
+  .hero-photo {
+    margin: 0; position: relative;
+    transform: rotate(1.5deg);
+    transition: transform 0.4s ease;
+  }
+  .hero-photo:hover { transform: rotate(0deg) scale(1.02); }
+  .hero-photo img {
+    display: block;
+    width: clamp(200px, 24vw, 320px); height: auto;
+    border: 5px solid #fdfcf8;
+    outline: 1px solid rgba(200,168,75,0.8);
+    outline-offset: 6px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 4px 14px rgba(0,0,0,0.3);
+  }
+  .hero-photo::after {
+    content: '杨诗怡 · Wendy';
+    position: absolute; left: 50%; bottom: -2.4rem; transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.25em;
+    color: rgba(200,168,75,0.65);
+  }
   .hero-label {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
@@ -558,10 +585,45 @@
   }
   .contact-btn.ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
 
+  /* ── TEACHER QUOTES ── */
+  .quote-heading {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin: 2.2rem 0 1.2rem;
+  }
+  .quote-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  .quote-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 1.3rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .quote-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.08);
+    border-left-color: var(--gold-light);
+  }
+  .quote-card p {
+    font-style: italic; font-size: 0.9rem;
+    color: rgba(255,255,255,0.8); line-height: 1.7;
+  }
+  .quote-card p::before { content: '“'; color: var(--gold-light); }
+  .quote-card p::after { content: '”'; color: var(--gold-light); }
+  .quote-attr {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gold); margin-top: 0.8rem;
+  }
+  .quote-attr small { color: rgba(255,255,255,0.4); display: block; letter-spacing: 0.05em; text-transform: none; margin-top: 2px; }
+
   /* ── UTILITIES ── */
-  @media (max-width: 700px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1.5rem; }
+  @media (max-width: 950px) {
     #menu-toggle { display: block; }
     nav ul {
       display: none;
@@ -574,11 +636,50 @@
     nav ul.open { display: flex; }
     nav ul li a { display: block; padding: 0.8rem 2rem; }
     nav .github-link { border: none; padding: 0.8rem 2rem; }
+  }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
     #hero { padding-top: 80px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-photo { justify-self: center; margin-bottom: 2.5rem; }
     .research-card { grid-template-columns: 1fr; }
     .research-num { display: none; }
     .hero-scroll-hint { display: none; }
   }
+
+  /* ── PHOTOGRAPHY TEASER ── */
+  #photo-teaser { background: var(--navy); text-align: center; padding: 80px 5%; }
+  #photo-teaser .section-label { justify-content: center; }
+  #photo-teaser .section-label::before { display: none; }
+  #photo-teaser .section-title { color: white; }
+  #photo-teaser p {
+    color: rgba(255,255,255,0.55); max-width: 520px;
+    margin: 0 auto 2.2rem; font-style: italic;
+  }
+  .teaser-row {
+    display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 2.4rem;
+  }
+  .teaser-row a {
+    display: block; background: #fdfcf8; padding: 8px 8px 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease;
+  }
+  .teaser-row a:nth-child(1) { transform: rotate(-2.5deg); }
+  .teaser-row a:nth-child(2) { transform: rotate(1.5deg); }
+  .teaser-row a:nth-child(3) { transform: rotate(-1deg); }
+  .teaser-row a:hover { transform: rotate(0deg) scale(1.06); }
+  .teaser-row img { display: block; width: 190px; height: 130px; object-fit: cover; }
+  .teaser-btn {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 24px; border-radius: 999px;
+    background: var(--gold); color: var(--navy); text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .teaser-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
 </style>
 </head>
 <body>
@@ -595,8 +696,9 @@
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#activities">Activities</a></li>
+    <li><a href="photography.html">Photography</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a class="github-link" href="https://github.com/__GITHUB_USERNAME__" target="_blank" rel="noopener">
+    <li><a class="github-link" href="https://github.com/yangsy57272" target="_blank" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
       GitHub
     </a></li>
@@ -607,6 +709,7 @@
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-inner">
+    <div class="hero-text">
     <div class="hero-label">Shanghai Pinghe Bilingual School &nbsp;·&nbsp; IB Programme</div>
     <h1>Shiyi Yang</h1>
     <div class="hero-chinese">杨诗怡 &nbsp;/&nbsp; Wendy</div>
@@ -644,6 +747,10 @@
       <span class="badge badge-white">NYT Writing Contest</span>
       <span class="badge badge-white">Conrad Challenge Silver</span>
     </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="assets/portrait.jpg" alt="Portrait of Shiyi Yang (Wendy)" fetchpriority="high">
+    </figure>
   </div>
   <a class="hero-scroll-hint" href="#about" aria-label="Scroll down">▾</a>
 </section>
@@ -774,11 +881,37 @@
           <div class="ib-subject">Maths HL<span class="ib-grade">7</span></div>
           <div class="ib-subject">Physics HL<span class="ib-grade">6</span></div>
           <div class="ib-subject">English B HL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">CS HL<span class="ib-grade">5</span></div>
+          <div class="ib-subject">CS HL<span class="ib-grade">6</span></div>
           <div class="ib-subject">Literature SL<span class="ib-grade">6</span></div>
           <div class="ib-subject">BM SL<span class="ib-grade">7</span></div>
           <div class="ib-subject">TOK<span class="ib-grade" style="color: var(--gold-light);">B</span></div>
         </div>
+      </div>
+    </div>
+
+    <div class="quote-heading">In Their Words — from my Grade 11 school report</div>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <p>You are exceptionally gifted and quick-thinking — your IA outline was a revelation to me.
+           Last term's slips have been fully evened out; your real ability clearly goes further still.</p>
+        <div class="quote-attr">Mathematics AA HL — Grade 7<small>Mr. Chengxi Shen · translated from Chinese</small></div>
+      </div>
+      <div class="quote-card">
+        <p>I've noticed significant improvement in her messaging, which has become more focused,
+           precise and structured. Her opinions and thoughts are always valued highly by myself
+           and her classmates.</p>
+        <div class="quote-attr">English B HL — Grade 6<small>Mr. Andrew Szetho</small></div>
+      </div>
+      <div class="quote-card">
+        <p>Intelligent and full of spark, with original insight into questions of knowledge —
+           a serious learner who completed every task this semester to a high standard.</p>
+        <div class="quote-attr">Theory of Knowledge — B<small>Ms. Yinbing Wang · translated from Chinese</small></div>
+      </div>
+      <div class="quote-card">
+        <p>A semester of excellence on every front — steadier grades, and her name and face
+           everywhere in campus life. This feels much closer to Shiyi's true strength.
+           Keep it up; I expect even better.</p>
+        <div class="quote-attr">Advisor Comments<small>Ms. Daiying Liu · translated from Chinese</small></div>
       </div>
     </div>
   </div>
@@ -1268,6 +1401,23 @@
   </div>
 </section>
 
+<!-- PHOTOGRAPHY TEASER -->
+<section id="photo-teaser">
+  <div class="section-inner">
+    <div class="section-label">Photography · 摄影</div>
+    <h2 class="section-title">Through the Lens</h2>
+    <p>Seventy-two photographs in four collections — Istanbul between robotics matches,
+       a forest park at half past four, blue hour on the West Bund — plus the
+       photography workshop I taught for our robotics club.</p>
+    <div class="teaser-row">
+      <a href="photography.html#istanbul"><img src="assets/photos/city/DSC05866.jpg" alt="Hagia Sophia" loading="lazy"></a>
+      <a href="photography.html#istanbul"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower from the water" loading="lazy"></a>
+      <a href="photography.html#gongqing"><img src="assets/photos/gongqing/DSC08102.jpg" alt="Poppy meadow" loading="lazy"></a>
+    </div>
+    <a class="teaser-btn" href="photography.html">Visit the Gallery →</a>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
@@ -1299,7 +1449,7 @@
     <div class="contact-actions">
       <a class="contact-btn primary" href="mailto:yangsy.2009@outlook.com">✉ Email Me</a>
       <button class="contact-btn ghost" id="copy-email" type="button">⧉ Copy Email</button>
-      <a class="contact-btn ghost" href="https://github.com/__GITHUB_USERNAME__" target="_blank" rel="noopener">
+      <a class="contact-btn ghost" href="https://github.com/yangsy57272" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
         GitHub
       </a>
@@ -1309,7 +1459,7 @@
 
 <footer>
   Shiyi Yang (Wendy) &nbsp;·&nbsp; Shanghai Pinghe Bilingual School &nbsp;·&nbsp; IB Class of 2027
-  &nbsp;·&nbsp; <a href="https://github.com/__GITHUB_USERNAME__" target="_blank" rel="noopener" style="color: rgba(232,201,106,0.6); text-decoration: none;">GitHub</a>
+  &nbsp;·&nbsp; <a href="https://github.com/yangsy57272" target="_blank" rel="noopener" style="color: rgba(232,201,106,0.6); text-decoration: none;">GitHub</a>
 </footer>
 
 <button id="back-to-top" aria-label="Back to top">↑</button>
@@ -1362,6 +1512,7 @@
     'HIMCM Global Finalist · Top 4%',
     'NYT-Recognized Writer',
     'Independent Researcher',
+    'Photographer & Videographer',
   ];
   const roleEl = document.getElementById('role-text');
   if (reduceMotion) {
@@ -1399,7 +1550,7 @@
     '.section-label', '.section-title', '.divider', '.filter-bar',
     '.about-text', '.highlight-card', '.edu-card', '.achievement-header',
     '.award-card', '.research-card', '.activity-card', '.skill-group',
-    '.contact-info', '.contact-actions',
+    '.contact-info', '.contact-actions', '.quote-heading', '.quote-card',
   ];
   const revealEls = document.querySelectorAll(revealSelectors.join(','));
   revealEls.forEach(el => {

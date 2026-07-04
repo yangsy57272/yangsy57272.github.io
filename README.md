@@ -4,7 +4,7 @@ Personal portfolio of **Shiyi Yang (Wendy)** — national debate champion, AIME 
 2× FRC regional champion, and HIMCM global finalist (Top 4%). IB Class of 2027,
 Shanghai Pinghe Bilingual School.
 
-**Live site:** https://\_\_GITHUB\_USERNAME\_\_.github.io/
+**Live site:** https://yangsy57272.github.io/
 
 ## Highlights
 
