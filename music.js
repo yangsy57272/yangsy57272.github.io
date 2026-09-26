@@ -8,7 +8,7 @@
   const roots = [...document.querySelectorAll('[data-music-player]')];
   if (!roots.length) return;
   const audio = document.createElement('audio');
-  audio.preload = 'none';
+  audio.preload = 'metadata';
   audio.volume = 0.35;
   audio.id = 'wendy-audio';
   document.body.append(audio);

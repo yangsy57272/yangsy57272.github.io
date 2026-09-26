@@ -103,6 +103,7 @@ footer a { text-decoration: none; }
 .lb-tools { position: absolute; top: 21px; left: 24px; display: flex; gap: 0.7rem; }
 .lb-tool { border: 1px solid #566159; background: none; color: #c6ccc0; padding: 0.5rem 0.8rem; border-radius: 2px; font: 0.64rem 'Helvetica Neue', Arial, sans-serif; }
 .lb-tool:hover, .lb-tool.on { color: #f0d1ae; border-color: #b69874; }
+.lb-tool:disabled { cursor: default; opacity: 0.58; }
 #lb-progress { position: absolute; top: 0; left: 0; width: 0; height: 2px; background: #c2a27e; }
 #lb-strip { display: flex; gap: 7px; margin-top: 1rem; max-width: 100%; overflow: hidden; flex-shrink: 0; }
 #lb-strip button { flex-shrink: 0; width: 52px; height: 35px; background: transparent; border: 1px solid transparent; padding: 2px; opacity: 0.45; }

@@ -44,7 +44,7 @@
     </div>
   </div>
   <figure class="hero-print">
-    <a href="#photo-DSC07053" aria-label="View Galata from the Water"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower above Istanbul’s waterfront and ferries" width="1600" height="900" fetchpriority="high"></a>
+    <a href="#photo-DSC07053" aria-label="View Galata from the Water"><img src="assets/thumbs/city/DSC07053.webp" alt="Galata Tower above Istanbul’s waterfront and ferries" width="1200" height="675" fetchpriority="high" decoding="async"></a>
     <figcaption><span>01 / Istanbul, from the water</span><span>A moment between matches.</span></figcaption>
   </figure>
 </header>
@@ -150,6 +150,7 @@
   <div id="lb-progress"></div><div class="lightbox-music" data-music-player data-compact aria-label="Photo viewer soundtrack"></div>
   <div class="lb-tools">
     <button class="lb-tool" id="lb-play" type="button">▶ Play</button>
+    <button class="lb-tool" id="lb-hd" type="button">↗ Full resolution</button>
     <button class="lb-tool" id="lb-share" type="button">🔗 Copy link</button>
   </div>
   <button class="lb-btn" id="lb-close" aria-label="Close">✕</button>
@@ -262,6 +263,7 @@
   };
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const idOf = p => p.f.split('/').pop().replace('.jpg', '');
+  const thumbOf = file => 'assets/thumbs/' + file.replace(/\.jpe?g$/i, '.webp');
 
   const FEATURED = { istanbul: 'city/DSC05866.jpg', gongqing: 'gongqing/DSC08102.jpg', westbund: 'westbund/DSC08555.jpg', moments: 'moments/DSC07749.jpg' };
   const albumPositions = {};
@@ -275,7 +277,7 @@
     fig.setAttribute('aria-label', 'Open photo: ' + p.t);
     fig.innerHTML =
       '<div class="mat">' +
-        '<img src="assets/photos/' + p.f + '" alt="' + p.t + '" loading="' + (i < 3 ? 'eager' : 'lazy') + '" decoding="async">' +
+        '<img src="' + thumbOf(p.f) + '" data-full="assets/photos/' + p.f + '" alt="' + p.t + '" loading="lazy" decoding="async" fetchpriority="low">' +
         '<figcaption>' +
           '<div class="p-title"><span class="p-number">' + String(number).padStart(2, '0') + '</span>' + p.t + '<span class="photo-expand" aria-hidden="true">↗</span></div>' +
           '<div class="p-desc">' + p.d + '</div>' +
@@ -283,6 +285,11 @@
       '</div>';
     const img = fig.querySelector('img');
     img.addEventListener('error', () => {
+      if (img.dataset.full) {
+        img.src = img.dataset.full;
+        delete img.dataset.full;
+        return;
+      }
       const ph = document.createElement('div');
       ph.className = 'img-err';
       ph.textContent = 'This photo could not load — tap to try again';
@@ -339,6 +346,7 @@
   const lbRetry = document.getElementById('lb-retry');
   const lbStrip = document.getElementById('lb-strip');
   const lbPlay = document.getElementById('lb-play');
+  const lbHd = document.getElementById('lb-hd');
   const lbProg = document.getElementById('lb-progress');
   const SLIDE_MS = 4500;
   let cur = 0, playing = false, playT = null, lastFocus = null;
@@ -365,21 +373,37 @@
     lbImg.classList.add('loading');
     lbSpin.classList.add('show');
     lbRetry.hidden = true;
-    lbImg.onload = () => { lbImg.classList.remove('loading'); lbSpin.classList.remove('show'); };
+    const fullSource = 'assets/photos/' + p.f;
+    lbHd.disabled = false;
+    lbHd.textContent = '↗ Full resolution';
+    lbImg.onload = () => {
+      lbImg.classList.remove('loading');
+      lbSpin.classList.remove('show');
+      if (lbImg.dataset.quality === 'full') lbHd.textContent = '✓ Full resolution';
+    };
     lbImg.onerror = () => {
+      if (lbImg.dataset.quality === 'preview') {
+        lbImg.dataset.quality = 'full';
+        lbHd.disabled = true;
+        lbHd.textContent = 'Loading original…';
+        lbImg.src = fullSource;
+        return;
+      }
       lbSpin.classList.remove('show');
       lbD.textContent = 'This photo could not load. Try again or move to another photo.';
       lbRetry.hidden = false;
       stopPlay();
     };
-    lbImg.src = 'assets/photos/' + p.f + (retry ? '?retry=' + Date.now() : '');
+    lbImg.dataset.quality = 'preview';
+    lbImg.dataset.full = fullSource;
+    lbImg.src = thumbOf(p.f) + (retry ? '?retry=' + Date.now() : '');
     lbImg.alt = p.t;
     lbT.textContent = p.t;
     lbD.textContent = p.d;
     lbN.textContent = (cur + 1) + ' / ' + PHOTOS.length + ' · ' + ALBUM_LABELS[p.a];
     history.replaceState(null, '', '#photo-' + idOf(p));
     // preload neighbours so next/prev feels instant
-    [1, -1].forEach(k => { new Image().src = 'assets/photos/' + PHOTOS[(cur + k + PHOTOS.length) % PHOTOS.length].f; });
+    [1, -1].forEach(k => { new Image().src = thumbOf(PHOTOS[(cur + k + PHOTOS.length) % PHOTOS.length].f); });
     renderStrip();
     if (playing) restartProgress();
   }
@@ -392,7 +416,7 @@
       b.type = 'button';
       b.className = k === 0 ? 'cur' : '';
       b.setAttribute('aria-label', PHOTOS[j].t);
-      b.innerHTML = '<img src="assets/photos/' + PHOTOS[j].f + '" alt="" loading="lazy">';
+      b.innerHTML = '<img src="' + thumbOf(PHOTOS[j].f) + '" alt="" loading="lazy" decoding="async">';
       b.addEventListener('click', e => { e.stopPropagation(); show(j); });
       lbStrip.appendChild(b);
     }
@@ -415,6 +439,25 @@
     lbProg.style.transition = 'none'; lbProg.style.width = '0';
   }
   lbPlay.addEventListener('click', e => { e.stopPropagation(); playing ? stopPlay() : startPlay(); });
+  lbHd.addEventListener('click', e => {
+    e.stopPropagation();
+    if (lbImg.dataset.quality === 'full') return;
+    const fullSource = lbImg.dataset.full;
+    const loader = new Image();
+    lbHd.disabled = true;
+    lbHd.textContent = 'Loading original…';
+    loader.onload = () => {
+      if (lbImg.dataset.full !== fullSource) return;
+      lbImg.dataset.quality = 'full';
+      lbImg.src = fullSource;
+    };
+    loader.onerror = () => {
+      if (lbImg.dataset.full !== fullSource) return;
+      lbHd.disabled = false;
+      lbHd.textContent = '↻ Try full resolution';
+    };
+    loader.src = fullSource;
+  });
   lbRetry.addEventListener('click', e => { e.stopPropagation(); show(cur, true); });
 
   document.getElementById('lb-share').addEventListener('click', e => {
