@@ -10,412 +10,55 @@
 <meta property="og:title" content="Photography — Shiyi Yang (Wendy)">
 <meta property="og:description" content="Four collections: Istanbul between two continents, a forest park at half past four, blue hour on the West Bund, and field notes.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1f3d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e8c96a' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E">
-<style>
-  :root {
-    --navy: #0f1f3d;
-    --navy-light: #1a3060;
-    --gold: #c8a84b;
-    --gold-light: #e8c96a;
-    --bg: #f8f6f0;
-    --bg-card: #ffffff;
-    --text: #1a1a1a;
-    --text-muted: #5a5a5a;
-    --border: #e2ddd5;
-    --radius: 12px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    background: var(--bg); color: var(--text);
-    line-height: 1.7; font-size: 16px;
-  }
-
-  /* ── NAV (same as index) ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(15, 31, 61, 0.97);
-    backdrop-filter: blur(8px);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 60px;
-    border-bottom: 1px solid rgba(200,168,75,0.25);
-  }
-  nav .logo {
-    font-family: 'Georgia', serif; font-size: 1.1rem; font-weight: normal;
-    color: var(--gold-light); letter-spacing: 0.05em;
-    text-decoration: none; text-transform: none;
-  }
-  nav ul { display: flex; gap: 2rem; list-style: none; }
-  nav a {
-    color: rgba(255,255,255,0.75); text-decoration: none;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.78rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  nav a:hover, nav a.active { color: var(--gold-light); }
-  nav .github-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    border: 1px solid rgba(200,168,75,0.45); border-radius: 999px;
-    padding: 4px 13px; color: var(--gold-light) !important;
-  }
-  nav .github-link:hover { background: rgba(200,168,75,0.12); }
-  #menu-toggle {
-    display: none; background: none; border: none; cursor: pointer;
-    color: var(--gold-light); font-size: 1.5rem; line-height: 1;
-  }
-  #progress-bar {
-    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    z-index: 200;
-  }
-
-  /* ── HERO BAND ── */
-  #photo-hero {
-    background: var(--navy); color: white;
-    padding: 150px 5% 90px;
-    position: relative; overflow: hidden;
-    text-align: center;
-  }
-  #photo-hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 120%, rgba(200,168,75,0.14), transparent 55%),
-      radial-gradient(ellipse at 85% -20%, rgba(45,90,158,0.35), transparent 60%);
-    pointer-events: none;
-  }
-  #photo-hero .inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
-  .hero-kicker {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 1.1rem;
-  }
-  #photo-hero h1 {
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    font-weight: normal; line-height: 1.15; margin-bottom: 1.2rem;
-  }
-  #photo-hero .lede {
-    color: rgba(255,255,255,0.65); font-style: italic;
-    max-width: 560px; margin: 0 auto 2rem;
-  }
-  .hero-counts {
-    display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
-  }
-  .hero-counts .c { text-align: center; }
-  .hero-counts .n { font-size: 1.7rem; font-weight: bold; color: var(--gold-light); display: block; }
-  .hero-counts .l {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.45);
-  }
-
-  /* ── ALBUM SECTIONS ── */
-  section.album { padding: 80px 5%; }
-  section.album:nth-of-type(even) { background: #f0ece3; }
-  .album-inner { max-width: 1200px; margin: 0 auto; }
-  .section-label {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 0.6rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-label::before {
-    content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
-  }
-  .section-title {
-    font-size: 2rem; font-weight: normal; color: var(--navy);
-    margin-bottom: 1rem; letter-spacing: -0.01em;
-  }
-  .album-blurb { color: var(--text-muted); max-width: 640px; margin-bottom: 2.5rem; }
-
-  /* ── GALLERY WALL ── */
-  .wall { columns: 3 300px; column-gap: 1.6rem; }
-  .photo-frame {
-    break-inside: avoid;
-    margin: 0 0 1.6rem;
-    background:
-      linear-gradient(145deg, #23345c, #101c38);
-    padding: 10px;
-    border: 1px solid rgba(200,168,75,0.55);
-    border-radius: 3px;
-    box-shadow: 0 10px 26px rgba(15,31,61,0.18), 0 2px 6px rgba(15,31,61,0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: zoom-in;
-  }
-  .photo-frame:hover {
-    transform: translateY(-5px) rotate(-0.4deg);
-    box-shadow: 0 22px 44px rgba(15,31,61,0.28), 0 4px 10px rgba(15,31,61,0.15);
-  }
-  .photo-frame .mat {
-    background: #fdfcf8;
-    padding: 14px 14px 12px;
-    box-shadow: inset 0 0 0 1px rgba(200,168,75,0.7), inset 0 0 0 2px rgba(15,31,61,0.06);
-  }
-  .photo-frame img {
-    display: block; width: 100%; height: auto; aspect-ratio: auto 4 / 3;
-    background: linear-gradient(135deg, #e9e5dc, #f5f2eb);
-    box-shadow: inset 0 0 4px rgba(0,0,0,0.4), 0 0 0 1px rgba(15,31,61,0.18);
-  }
-  .photo-frame figcaption { padding: 11px 4px 2px; text-align: center; }
-  .photo-frame .p-title {
-    font-size: 0.92rem; color: var(--navy); font-style: italic;
-  }
-  .photo-frame .p-desc {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.72rem; color: #8a8272; line-height: 1.5; margin-top: 3px;
-  }
-
-  /* ── REVEAL ── */
-  .reveal {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
-    transition-delay: var(--reveal-delay, 0s);
-  }
-  .reveal.visible { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ── LIGHTBOX ── */
-  #lightbox {
-    position: fixed; inset: 0; z-index: 300;
-    background: rgba(8, 15, 30, 0.94);
-    display: none;
-    align-items: center; justify-content: center;
-    flex-direction: column;
-    padding: 3.5rem 4.5rem;
-  }
-  #lightbox.open { display: flex; }
-  #lb-img {
-    max-width: 100%; max-height: calc(100% - 90px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    border: 6px solid #fdfcf8;
-  }
-  #lb-caption { text-align: center; color: white; margin-top: 1.1rem; max-width: 640px; }
-  #lb-caption .t { font-style: italic; font-size: 1.05rem; color: var(--gold-light); }
-  #lb-caption .d {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 3px;
-  }
-  #lb-caption .n {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.68rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.35); margin-top: 6px;
-  }
-  .lb-btn {
-    position: absolute; background: none; border: none; cursor: pointer;
-    color: rgba(255,255,255,0.65); font-size: 2.2rem; line-height: 1;
-    padding: 0.8rem; transition: color 0.2s, transform 0.2s;
-    user-select: none;
-  }
-  .lb-btn:hover { color: var(--gold-light); transform: scale(1.15); }
-  #lb-close { top: 14px; right: 20px; font-size: 1.9rem; }
-  #lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
-  #lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
-  #lb-prev:hover, #lb-next:hover { transform: translateY(-50%) scale(1.15); }
-
-  /* ── BACK STRIP ── */
-  .back-strip {
-    background: var(--navy); text-align: center; padding: 60px 5%;
-  }
-  .back-strip a {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 24px; border-radius: 999px;
-    background: var(--gold); color: var(--navy); text-decoration: none;
-    transition: all 0.25s ease;
-  }
-  .back-strip a:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-  footer {
-    background: #080f1e; color: rgba(255,255,255,0.3);
-    text-align: center; padding: 1.5rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem;
-  }
-  footer a { color: rgba(232,201,106,0.6); text-decoration: none; }
-
-  /* ── HERO BACKDROP (slow crossfading photos) ── */
-  .hero-bg { position: absolute; inset: 0; z-index: 0; }
-  .hero-bg div {
-    position: absolute; inset: -4%;
-    background-size: cover; background-position: center;
-    opacity: 0; transition: opacity 2.2s ease;
-    filter: saturate(0.7);
-  }
-  .hero-bg div.on { opacity: 0.22; animation: kenburns 12s ease-out forwards; }
-  @keyframes kenburns { from { transform: scale(1.12) translate(1%, 1%); } to { transform: scale(1) translate(0, 0); } }
-  #photo-hero::before { z-index: 0; }
-  .hero-actions { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-  .hero-btn {
-    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; font-weight: 600;
-    letter-spacing: 0.06em; padding: 10px 22px; border-radius: 999px; cursor: pointer;
-    background: var(--gold); color: var(--navy); border: 1px solid var(--gold);
-    transition: all 0.25s ease;
-  }
-  .hero-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .hero-btn.ghost { background: transparent; color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.35); }
-  .hero-btn.ghost:hover { border-color: var(--gold); color: var(--gold-light); }
-
-  /* ── STICKY ALBUM BAR ── */
-  .album-bar {
-    position: sticky; top: 60px; z-index: 90;
-    background: rgba(248,246,240,0.94); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    display: flex; gap: 0.5rem; padding: 0.7rem 5%;
-    overflow-x: auto; scrollbar-width: none;
-  }
-  .album-bar::-webkit-scrollbar { display: none; }
-  .album-bar a {
-    flex-shrink: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-    padding: 6px 14px; border-radius: 999px;
-    border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted);
-    transition: all 0.2s ease;
-  }
-  .album-bar a:hover { border-color: var(--gold); color: var(--navy); }
-  .album-bar a.active { background: var(--navy); border-color: var(--navy); color: var(--gold-light); }
-  .album-bar a .ct { opacity: 0.6; margin-left: 5px; }
-  section.album { scroll-margin-top: 110px; }
-
-  /* Keep the wall legible while lazy images are on their way. */
-  .photo-frame .img-err {
-    padding: 2.5rem 1rem; text-align: center; background: #eee8dc;
-    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; color: #8a8272;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-bg div.on { animation: none; }
-  }
-
-  /* ── LIGHTBOX EXTRAS ── */
-  #lb-img { transition: opacity 0.35s ease; }
-  #lb-img.loading { opacity: 0; }
-  #lb-spinner {
-    position: absolute; top: 50%; left: 50%; width: 36px; height: 36px; margin: -18px;
-    border: 3px solid rgba(255,255,255,0.15); border-top-color: var(--gold-light);
-    border-radius: 50%; animation: spin 0.8s linear infinite; display: none;
-  }
-  #lb-spinner.show { display: block; }
-  #lb-retry {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    border: 1px solid var(--gold-light); border-radius: 999px; padding: 0.75rem 1.2rem;
-    background: var(--navy); color: var(--gold-light); cursor: pointer;
-    font: 600 0.8rem 'Helvetica Neue', Arial, sans-serif;
-  }
-  #lb-retry[hidden] { display: none; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .lb-tools {
-    position: absolute; top: 14px; left: 20px; display: flex; gap: 0.4rem;
-  }
-  .lb-tool {
-    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem;
-    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75);
-    border: 1px solid rgba(255,255,255,0.2); border-radius: 999px;
-    padding: 6px 13px; cursor: pointer; transition: all 0.2s;
-  }
-  .lb-tool:hover, .lb-tool.on { border-color: var(--gold); color: var(--gold-light); }
-  #lb-progress {
-    position: absolute; top: 0; left: 0; height: 3px; width: 0;
-    background: var(--gold-light);
-  }
-  #lb-strip {
-    display: flex; gap: 6px; margin-top: 0.9rem; max-width: 100%;
-    overflow: hidden; justify-content: center;
-  }
-  #lb-strip button {
-    flex-shrink: 0; width: 56px; height: 38px; padding: 0; cursor: pointer;
-    border: 2px solid transparent; background: #000; opacity: 0.45;
-    transition: opacity 0.2s, border-color 0.2s;
-  }
-  #lb-strip button:hover { opacity: 0.85; }
-  #lb-strip button.cur { opacity: 1; border-color: var(--gold-light); }
-  #lb-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  #lightbox { padding-bottom: 1.5rem; }
-  #lb-img { max-height: calc(100% - 150px); }
-  @media (max-width: 700px) {
-    #lb-strip button { width: 42px; height: 30px; }
-    #lb-img { max-height: calc(100% - 170px); }
-    .lb-tools { left: 10px; }
-  }
-
-  @media (max-width: 950px) {
-    #menu-toggle { display: block; }
-    nav ul {
-      display: none;
-      position: absolute; top: 60px; left: 0; right: 0;
-      background: rgba(15,31,61,0.98);
-      flex-direction: column; gap: 0;
-      border-bottom: 1px solid rgba(200,168,75,0.25);
-      padding: 0.5rem 0;
-    }
-    nav ul.open { display: flex; }
-    nav ul li a { display: block; padding: 0.8rem 2rem; }
-    nav .github-link { border: none; padding: 0.8rem 2rem; }
-  }
-  @media (max-width: 700px) {
-    #lightbox { padding: 3.5rem 0.5rem 1.5rem; }
-    #lb-prev, #lb-next { font-size: 1.8rem; }
-  }
-</style>
+<link rel="stylesheet" href="gallery.css">
 </head>
 <body>
 
 <div id="progress-bar"></div>
 
-<nav>
-  <a class="logo" href="index.html">Shiyi Yang</a>
-  <button id="menu-toggle" aria-label="Menu">☰</button>
+<nav aria-label="Main navigation">
+  <a class="logo" href="index.html">Wendy<span> / Shiyi Yang</span></a>
+  <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
   <ul id="nav-menu">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#achievements">Achievements</a></li>
-    <li><a href="index.html#research">Research</a></li>
-    <li><a href="index.html#playground">Playground</a></li>
-    <li><a href="index.html#activities">Activities</a></li>
-    <li><a href="photography.html" class="active">Photography</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-    <li><a class="github-link" href="https://github.com/yangsy57272" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-      GitHub
-    </a></li>
+    <li><a href="index.html#curiosity">Little things</a></li>
+    <li><a href="index.html#research">Projects</a></li>
+    <li><a href="photography.html" aria-current="page">Photographs</a></li>
+    <li><a href="index.html#contact">Say hello ↗</a></li>
   </ul>
 </nav>
 
 <header id="photo-hero">
-  <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
   <div class="inner">
-    <div class="hero-kicker">Photography · 摄影</div>
-    <h1>Through the Lens</h1>
-    <p class="lede">
-      I carry a camera the way I carry a notebook — to pay attention.
-      Four collections: a winter in Istanbul, a Shanghai forest park at half past four,
-      blue hour on the West Bund, and the single frames in between.
-    </p>
-    <div class="hero-counts">
-      <div class="c"><span class="n" id="count-total">72</span><span class="l">Photographs</span></div>
-      <div class="c"><span class="n">4</span><span class="l">Collections</span></div>
-      <div class="c"><span class="n">1</span><span class="l">Workshop Taught</span></div>
-    </div>
+    <div class="hero-kicker">A visual notebook · 摄影</div>
+    <h1>Places I went.<br><em>Things I noticed.</em></h1>
+    <p class="lede">I went to Istanbul with a robotics team. Between matches, I carried a camera. Back in Shanghai, I kept looking: at a forest in the afternoon, at the river after sunset, at the birds in between.</p>
+    <p class="gallery-edition"><span id="count-total">72</span> photographs &nbsp; / &nbsp; four collections</p>
     <div class="hero-actions">
-      <button class="hero-btn" id="btn-slideshow" type="button">▶ Play slideshow</button>
-      <button class="hero-btn ghost" id="btn-random" type="button">🎲 Surprise me</button>
+      <a class="hero-btn" href="#istanbul">Begin wandering <span aria-hidden="true">↓</span></a>
+      <button class="hero-btn ghost" id="btn-random" type="button">Find me a photograph ↗</button>
+      <button class="text-button" id="btn-slideshow" type="button">Play a slow slideshow</button>
     </div>
   </div>
+  <figure class="hero-print">
+    <a href="#photo-DSC07053" aria-label="View Galata from the Water"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower above Istanbul’s waterfront and ferries" width="1600" height="900" fetchpriority="high"></a>
+    <figcaption><span>01 / Istanbul, from the water</span><span>A moment between matches.</span></figcaption>
+  </figure>
 </header>
 
-<div class="album-bar" id="album-bar">
+<div class="gallery-toolbar"><div class="album-bar" id="album-bar" aria-label="Photography collections">
   <a href="#istanbul" data-album="istanbul">Istanbul<span class="ct"></span></a>
   <a href="#gongqing" data-album="gongqing">Gongqing<span class="ct"></span></a>
   <a href="#westbund" data-album="westbund">West Bund<span class="ct"></span></a>
   <a href="#moments" data-album="moments">Field Notes<span class="ct"></span></a>
   <a href="#workshop" data-album="workshop">Workshop</a>
-</div>
+</div><div class="view-switch" role="group" aria-label="Gallery layout">
+  <button type="button" data-view="journal" aria-pressed="true">Journal</button>
+  <button type="button" data-view="contact" aria-pressed="false">Contact sheet</button>
+</div></div>
 
 <section class="album" id="istanbul">
   <div class="album-inner">
+    <div class="album-opening"><header class="album-intro">
     <div class="section-label reveal">Collection 01 · Istanbul</div>
     <h2 class="section-title reveal">Between Two Continents</h2>
     <p class="album-blurb reveal">
@@ -423,12 +66,14 @@
       regionals in Istanbul — domes and minarets in winter light, gulls trailing the
       Bosphorus ferries, and the small quiet corners in between.
     </p>
+    </header><div class="album-feature" id="feature-istanbul"></div></div>
     <div class="wall" id="wall-istanbul"></div>
   </div>
 </section>
 
 <section class="album" id="gongqing">
   <div class="album-inner">
+    <div class="album-opening"><header class="album-intro">
     <div class="section-label reveal">Collection 02 · Shanghai</div>
     <h2 class="section-title reveal">4:30 PM, Gongqing Forest Park</h2>
     <p class="album-blurb reveal">
@@ -436,12 +81,14 @@
       sideways — maple canopies, a toy-like forest train, and gardens holding on to
       every color they have.
     </p>
+    </header><div class="album-feature" id="feature-gongqing"></div></div>
     <div class="wall" id="wall-gongqing"></div>
   </div>
 </section>
 
 <section class="album" id="westbund">
   <div class="album-inner">
+    <div class="album-opening"><header class="album-intro">
     <div class="section-label reveal">Collection 03 · Shanghai</div>
     <h2 class="section-title reveal">Blue Hour on the West Bund</h2>
     <p class="album-blurb reveal">
@@ -449,12 +96,14 @@
       old industrial gantries, half-built towers, and a river that collects
       every light the city spills.
     </p>
+    </header><div class="album-feature" id="feature-westbund"></div></div>
     <div class="wall" id="wall-westbund"></div>
   </div>
 </section>
 
 <section class="album" id="moments">
   <div class="album-inner">
+    <div class="album-opening"><header class="album-intro">
     <div class="section-label reveal">Collection 04 · Single Frames</div>
     <h2 class="section-title reveal">Field Notes</h2>
     <p class="album-blurb reveal">
@@ -462,32 +111,28 @@
       working the shallows, a train sliding out of the hills — frames collected
       one at a time, wherever they happened.
     </p>
+    </header><div class="album-feature" id="feature-moments"></div></div>
     <div class="wall" id="wall-moments"></div>
   </div>
 </section>
 
 <section class="album" id="workshop">
-  <div class="album-inner" style="text-align:center; max-width: 760px;">
-    <div class="section-label reveal" style="justify-content:center;">Teaching · 摄影课</div>
+  <div class="album-inner workshop-inner">
+    <div class="section-label reveal">Teaching · 摄影课</div>
     <h2 class="section-title reveal">“Something About Photography”</h2>
-    <p class="album-blurb reveal" style="margin-left:auto; margin-right:auto;">
+    <p class="album-blurb reveal">
       Photography is also something I teach. I designed and ran a photography workshop
       for my school's robotics club — 25 slides on the exposure triangle, reading the
       direction of light, composition and story, and how to shoot atmosphere in
       low-light and night scenes, illustrated with my own photographs.
     </p>
-    <a class="reveal" href="assets/photography-workshop.pdf" target="_blank" rel="noopener"
-       style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.8rem; font-weight:600;
-              letter-spacing:0.06em; display:inline-flex; align-items:center; gap:8px;
-              padding:10px 24px; border-radius:999px; background:var(--navy); color:var(--gold-light);
-              text-decoration:none; border:1px solid var(--gold);">
-      📖 Open the Workshop Deck (PDF · 5 MB)
+    <a class="hero-btn" href="assets/photography-workshop.pdf" target="_blank" rel="noopener">Open my workshop notebook (PDF) ↗
     </a>
   </div>
 </section>
 
 <div class="back-strip">
-  <a href="index.html">← Back to Main Page</a>
+  <a href="index.html">← Back to my little corner</a>
 </div>
 
 <footer>
@@ -495,7 +140,7 @@
   &nbsp;·&nbsp; <a href="https://github.com/yangsy57272" target="_blank" rel="noopener">GitHub</a>
 </footer>
 
-<div id="lightbox" role="dialog" aria-label="Photo viewer">
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
   <div id="lb-progress"></div>
   <div class="lb-tools">
     <button class="lb-tool" id="lb-play" type="button">▶ Play</button>
@@ -506,7 +151,7 @@
   <button id="lb-retry" type="button" hidden>↻ Retry photo</button>
   <button class="lb-btn" id="lb-prev" aria-label="Previous">‹</button>
   <img id="lb-img" src="" alt="">
-  <div id="lb-caption"><div class="t"></div><div class="d"></div><div class="n"></div></div>
+  <div id="lb-caption" aria-live="polite"><div class="t"></div><div class="d"></div><div class="n"></div></div>
   <div id="lb-strip"></div>
   <button class="lb-btn" id="lb-next" aria-label="Next">›</button>
 </div>
@@ -612,9 +257,13 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const idOf = p => p.f.split('/').pop().replace('.jpg', '');
 
+  const FEATURED = { istanbul: 'city/DSC05866.jpg', gongqing: 'gongqing/DSC08102.jpg', westbund: 'westbund/DSC08555.jpg', moments: 'moments/DSC07749.jpg' };
+  const albumPositions = {};
   PHOTOS.forEach((p, i) => {
     const fig = document.createElement('figure');
-    fig.className = 'photo-frame reveal';
+    const featured = FEATURED[p.a] === p.f;
+    const number = albumPositions[p.a] = (albumPositions[p.a] || 0) + 1;
+    fig.className = 'photo-frame' + (featured ? ' featured' : '');
     fig.tabIndex = 0;
     fig.setAttribute('role', 'button');
     fig.setAttribute('aria-label', 'Open photo: ' + p.t);
@@ -622,7 +271,7 @@
       '<div class="mat">' +
         '<img src="assets/photos/' + p.f + '" alt="' + p.t + '" loading="' + (i < 3 ? 'eager' : 'lazy') + '" decoding="async">' +
         '<figcaption>' +
-          '<div class="p-title">' + p.t + '</div>' +
+          '<div class="p-title"><span class="p-number">' + String(number).padStart(2, '0') + '</span>' + p.t + '<span class="photo-expand" aria-hidden="true">↗</span></div>' +
           '<div class="p-desc">' + p.d + '</div>' +
         '</figcaption>' +
       '</div>';
@@ -635,7 +284,7 @@
     }, { once: true });
     fig.addEventListener('click', () => openLightbox(i));
     fig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
-    walls[p.a].appendChild(fig);
+    (featured ? document.getElementById('feature-' + p.a) : walls[p.a]).appendChild(fig);
   });
 
   /* ── Album bar: counts + scrollspy ── */
@@ -650,32 +299,20 @@
       bar.querySelectorAll('a').forEach(a => {
         const on = a.dataset.album === e.target.id;
         a.classList.toggle('active', on);
-        if (on) a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
       });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('section.album').forEach(s => spy.observe(s));
 
-  /* ── Hero backdrop: crossfade a few favourites ── */
-  const heroBg = document.getElementById('hero-bg');
-  const HERO_PICKS = ['city/DSC05866.jpg', 'westbund/DSC08555.jpg', 'gongqing/DSC08102.jpg', 'city/DSC07158.jpg', 'westbund/DSC08541.jpg'];
-  const layers = HERO_PICKS.map(f => {
-    const d = document.createElement('div');
-    d.dataset.src = 'assets/photos/' + f;
-    heroBg.appendChild(d);
-    return d;
+  /* Let visitors choose a browsing pace without changing the photo order. */
+  document.querySelectorAll('[data-view]').forEach(button => {
+    button.addEventListener('click', () => {
+      document.body.dataset.galleryView = button.dataset.view;
+      document.querySelectorAll('[data-view]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+    });
   });
-  let hb = 0;
-  function heroNext() {
-    const d = layers[hb % layers.length];
-    if (!d.style.backgroundImage) d.style.backgroundImage = 'url(' + d.dataset.src + ')';
-    layers.forEach(x => x.classList.remove('on'));
-    void d.offsetWidth;
-    d.classList.add('on');
-    hb++;
-  }
-  heroNext();
-  if (!reduceMotion) setInterval(heroNext, 6500);
+
   /* ── Scroll reveal ── */
   const revealEls = document.querySelectorAll('.reveal');
   revealEls.forEach((el, i) => el.style.setProperty('--reveal-delay', ((i % 6) * 0.06) + 's'));
@@ -704,12 +341,14 @@
     lastFocus = document.activeElement;
     show(i);
     lb.classList.add('open');
+    document.querySelectorAll('body > :not(#lightbox):not(script)').forEach(el => { el.inert = true; });
     document.body.style.overflow = 'hidden';
     document.getElementById('lb-close').focus({ preventScroll: true });
   }
   function closeLightbox() {
     stopPlay();
     lb.classList.remove('open');
+    document.querySelectorAll('body > [inert]').forEach(el => { el.inert = false; });
     document.body.style.overflow = '';
     history.replaceState(null, '', location.pathname + location.search);
     if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
@@ -786,6 +425,12 @@
   lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
+    if (e.key === 'Tab') {
+      const buttons = [...lb.querySelectorAll('button')].filter(button => !button.hidden);
+      const first = buttons[0], last = buttons[buttons.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
     if (e.key === 'Escape') closeLightbox();
     else if (e.key === 'ArrowLeft') show(cur - 1);
     else if (e.key === 'ArrowRight') show(cur + 1);
@@ -823,7 +468,14 @@
 
   /* ── Nav bits ── */
   const menu = document.getElementById('nav-menu');
-  document.getElementById('menu-toggle').addEventListener('click', () => menu.classList.toggle('open'));
+  document.getElementById('menu-toggle').addEventListener('click', event => {
+    const open = menu.classList.toggle('open');
+    event.currentTarget.setAttribute('aria-expanded', String(open));
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+  }));
   const progressBar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;

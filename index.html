@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shiyi Yang (Wendy) — Debater · Mathematician · Engineer</title>
-<meta name="description" content="Shiyi Yang (Wendy) — National debate champion, AIME qualifier, 2× FRC regional champion, and HIMCM global finalist (Top 4%). IB Class of 2027, Shanghai Pinghe Bilingual School.">
+<title>Shiyi Yang · Wendy — Notes, projects & photographs</title>
+<meta name="description" content="A few things I keep: peeling laptop stickers, unfinished ideas, and photographs from the places in between. The personal website of Shiyi Yang (Wendy).">
 <meta name="theme-color" content="#0f1f3d">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shiyi Yang (Wendy) — Personal Website">
-<meta property="og:description" content="National debate champion · AIME qualifier · 2× FRC regional champion · HIMCM Top 4% globally · NYT-recognized writer. IB Class of 2027.">
+<meta property="og:description" content="Stories, small things, projects, and photographs by Shiyi Yang (Wendy).">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1f3d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e8c96a' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E">
 <style>
@@ -1005,6 +1005,7 @@
     .hero-hint { display: none; }
   }
 </style>
+<link rel="stylesheet" href="personal.css">
 </head>
 <body>
 
@@ -1013,15 +1014,13 @@
 <!-- NAVIGATION -->
 <nav>
   <div class="logo">Shiyi Yang</div>
-  <button id="menu-toggle" aria-label="Menu">☰</button>
+  <button id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
   <ul id="nav-menu">
     <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#research">Research</a></li>
+    <li><a href="#curiosity">Little things</a></li>
+        <li><a href="#research">Research</a></li>
     <li><a href="#playground">Playground</a></li>
-    <li><a href="#activities">Activities</a></li>
-    <li><a href="photography.html">Photography</a></li>
+        <li><a href="photography.html">Photography</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><button class="kbd-btn" id="palette-open" type="button" aria-label="Open quick search">⌘K · Search</button></li>
     <li><a class="github-link" href="https://github.com/yangsy57272" target="_blank" rel="noopener">
@@ -1036,152 +1035,94 @@
   <canvas id="hero-canvas"></canvas>
   <div class="hero-inner">
     <div class="hero-text">
-    <div class="hero-label">Shanghai Pinghe Bilingual School &nbsp;·&nbsp; IB Programme</div>
-    <h1>Shiyi Yang</h1>
-    <div class="hero-chinese">杨诗怡 &nbsp;/&nbsp; Wendy</div>
-    <div class="hero-roles"><span id="role-text"></span><span class="cursor"></span></div>
-    <p class="hero-tagline">
-      National debate champion, AIME qualifier, robotics champion, and aspiring engineer —
-      driven by a conviction that clear thinking and bold ideas can shape the world.
-    </p>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">116</span>
-        <span class="stat-label">TOEFL</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">1470</span>
-        <span class="stat-label">SAT</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">135</span>
-        <span class="stat-label">Duolingo</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">10/15</span>
-        <span class="stat-label">AIME Score</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">Top 4%</span>
-        <span class="stat-label">HIMCM Global</span>
-      </div>
-    </div>
-    <div class="hero-badges">
-      <span class="badge badge-gold" data-jump="TOC National Online">National Debate Champion</span>
-      <span class="badge badge-gold" data-jump="FRC Shanghai Regional">FRC Regional Champion</span>
-      <span class="badge badge-gold" data-jump="AMC 10A">AIME Qualified</span>
-      <span class="badge badge-white" data-jump="The New York Times">NYT Writing Contest</span>
-      <span class="badge badge-white" data-jump="Conrad Challenge">Conrad Challenge Silver</span>
+    <div class="hero-label">Shanghai · a small corner of the internet</div>
+    <h1>Hi, I’m Wendy<span class="hello-dot">.</span></h1>
+    <div class="hero-chinese">Shiyi Yang &nbsp;/&nbsp; 杨诗怡</div>
+    <div class="hero-roles">A work in progress, with a camera.</div>
+    <p class="hero-tagline">There are more than thirty stickers on my laptop. Some are peeling. I keep them anyway: a small red flower, a Citrus Circuits sticker, a reminder to leave the gap in a proof showing.</p>
+    <p class="hero-invitation">Here are a few of the stories I carry with me.</p>
+    <div class="sticker-shortcuts" aria-label="A few ways to get to know me"><a href="#curiosity" aria-label="Read the story of a small red flower"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-flower"/></svg><span>Little things</span></a><a href="photography.html" aria-label="Explore my photographs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-camera"/></svg><span>My camera</span></a><a href="#playground" aria-label="Try my puzzles and playground"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-graph"/></svg><span>A question</span></a></div><div class="personal-actions">
+      <a class="personal-primary" href="#curiosity">Meet the little things <span aria-hidden="true">↘</span></a>
+      <a href="photography.html">Wander through my photographs <span aria-hidden="true">↗</span></a>
     </div>
     </div>
     <figure class="hero-photo">
       <img src="assets/portrait.jpg" alt="Portrait of Shiyi Yang (Wendy)" fetchpriority="high">
     </figure>
   </div>
-  <div class="hero-hint">Click anywhere to add stars ✦</div>
-  <a class="hero-scroll-hint" href="#about" aria-label="Scroll down">▾</a>
+  <div class="hero-hint">A little room for unfinished ideas.</div>
+  <a class="hero-scroll-hint" href="#about" aria-label="Meet Wendy">↓</a>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-inner">
-    <div class="section-label">About Me</div>
-    <h2 class="section-title">Who I am</h2>
-    <div class="divider"></div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          I am an IB student at Shanghai Pinghe Bilingual School with a passion for language,
-          logic, and leadership. My academic journey spans competitive debate, olympiad mathematics,
-          chemistry, physics, and robotics — but at the heart of everything I do is a love for
-          clear thinking and compelling communication.
-        </p>
-        <p>
-          As a debater, I have competed on regional and national stages under WSDA and TOC formats,
-          earning the title of national champion and Outstanding Speaker awards at every level.
-          I believe the ability to construct and challenge arguments is one of the most transferable
-          skills a young person can develop.
-        </p>
-        <p>
-          My intellectual curiosity extends to mathematics and the sciences. I qualified for AIME
-          through AMC 10A, earned a Bronze Medal in the Canadian Chemistry Olympiad, and placed
-          in the top 4% globally in the HIMCM mathematical modeling contest.
-        </p>
-        <p>
-          Beyond the classroom, I serve as art director for the school newspaper, produce videos
-          for school events, and represent my school in robotics — our FRC team won the 2025 Halic
-          Regional Championship in Istanbul and the 2026 Shanghai Regional Championship.
-        </p>
-      </div>
-      <div class="about-highlights">
-        <div class="highlight-card">
-          <div class="highlight-icon hi-blue">🏆</div>
-          <div>
-            <h4>Debate &amp; Public Speaking</h4>
-            <p>National TOC Champion (2024); WSDA multi-year finalist; Special Grand Prize in ESDP (2026). Outstanding Speaker at every major competition.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon hi-amber">📐</div>
-          <div>
-            <h4>Mathematics &amp; Science</h4>
-            <p>AIME qualifier (AMC 10A Top 5%); AIME 10/15; CCO Bronze + China National Top Gold; Physics Bowl National Gold; HIMCM Finalist Top 4%.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon hi-teal">🤖</div>
-          <div>
-            <h4>Robotics &amp; Innovation</h4>
-            <p>FRC Halic Regional Champion &amp; Istanbul Regional Finalist (2025); FRC Shanghai Regional Champion (2026); Conrad Challenge Silver Award.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon hi-purple">✍️</div>
-          <div>
-            <h4>Writing &amp; Media</h4>
-            <p>Runner-up and twice honorable mention in the NYT Summer Reading Contest. Art director, videographer, and published journalist for school platforms.</p>
-          </div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon hi-rose">🔬</div>
-          <div>
-            <h4>Research &amp; AI</h4>
-            <p>Independent research in computer vision (face recognition), mathematical modeling, and TENG-based energy harvesting. Gen AI Hackathon Best Skills Award.</p>
-          </div>
-        </div>
-      </div>
+  <div class="section-inner about-personal">
+    <div>
+      <div class="section-label">A little introduction</div>
+      <h2 class="section-title">Still learning to<br><em>leave the screen open.</em></h2>
+    </div>
+    <div class="about-text">
+      <p>I’m Shiyi Yang, or Wendy, a student in Shanghai. I build things, write, debate, and carry a camera. I also used to sit at the back of the classroom so nobody could read an idea before I was ready to share it.</p>
+      <p>I’m getting more comfortable with the unfinished version. A conversation with my dad about a poem by Du Fu helped: he heard my reading and offered his own. I could take his seriously and still keep mine.</p>
+      <blockquote>“Being heard does not mean being overwritten.”<cite>A thought I’m learning to carry with me.</cite></blockquote>
     </div>
   </div>
 </section>
 
-<!-- CURIOSITY PATHS -->
+<!-- PERSONAL MOMENTS -->
 <section id="curiosity">
   <div class="section-inner">
-    <div class="section-label">Explore my world</div>
-    <h2 class="section-title">Follow a question</h2>
-    <div class="divider"></div>
-    <p class="curiosity-intro">The same curiosity takes me into a debate round, a workshop, or a city street. Choose a question to see where it leads.</p>
+    <div class="section-label">The little things</div>
+    <h2 class="section-title">A few things I keep<span class="hello-dot">.</span></h2>
+    <p class="curiosity-intro">Small objects, ordinary afternoons, and the moments that stayed. Pick one up.</p>
+<svg class="memory-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="memory-flower" viewBox="0 0 120 120"><path d="M59 76 Q61 99 49 113" fill="none" stroke="#60745d" stroke-width="3"/><path d="M59 94 Q82 78 83 91 Q72 106 59 94" fill="#78846c"/><g fill="#ba584b" stroke="#f1d3c3" stroke-width="1.5"><ellipse cx="60" cy="40" rx="16" ry="25"/><ellipse cx="60" cy="40" rx="16" ry="25" transform="rotate(72 60 60)"/><ellipse cx="60" cy="40" rx="16" ry="25" transform="rotate(144 60 60)"/><ellipse cx="60" cy="40" rx="16" ry="25" transform="rotate(216 60 60)"/><ellipse cx="60" cy="40" rx="16" ry="25" transform="rotate(288 60 60)"/></g><circle cx="60" cy="60" r="11" fill="#ebc46e"/></symbol>
+<symbol id="memory-orange" viewBox="0 0 120 120"><rect x="3" y="20" width="114" height="80" rx="8" fill="#fffdf7" stroke="#d8d4c8"/><image href="assets/stickers/citrus-circuits.png" x="8" y="30" width="104" height="60"/><path d="M102 100L117 85V100Z" fill="#ded9cc"/></symbol>
+<symbol id="memory-plums" viewBox="0 0 120 120"><rect x="31" y="23" width="58" height="12" rx="3" fill="#9a8267"/><path d="M36 35L30 47V100Q30 106 37 106H83Q90 106 90 100V47L84 35" fill="#e9e1d1" stroke="#8b8b7c" stroke-width="2"/><circle cx="48" cy="79" r="15" fill="#6a516c"/><circle cx="72" cy="87" r="14" fill="#8c6276"/><circle cx="69" cy="59" r="14" fill="#785a79"/><path d="M67 42L71 49M43 61L47 65" stroke="#60745d" stroke-width="3"/><path d="M38 48V64" stroke="white" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="memory-cafe" viewBox="0 0 120 120"><path d="M28 49H83V78Q80 98 55 98Q31 98 28 78Z" fill="#dfc6a7" stroke="#8b7560" stroke-width="2"/><path d="M84 53H92Q107 54 99 73Q95 82 84 80" fill="none" stroke="#8b7560" stroke-width="4"/><ellipse cx="55" cy="49" rx="27" ry="7" fill="#876351"/><path d="M20 102Q60 113 97 102" fill="none" stroke="#8b7560" stroke-width="3"/><path d="M45 36Q34 25 46 13M63 36Q53 25 65 13" fill="none" stroke="#b5a490" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="memory-camera" viewBox="0 0 120 120"><path d="M15 37H38L45 24H72L81 37H105V93H15Z" fill="#688274" stroke="#fffdf7" stroke-width="7" stroke-linejoin="round"/><circle cx="60" cy="65" r="22" fill="#263e3b" stroke="#e6d5b7" stroke-width="5"/><circle cx="60" cy="65" r="10" fill="#98aaa0"/><path d="M88 47H98" stroke="#e6d5b7" stroke-width="5"/></symbol>
+<symbol id="memory-notebook" viewBox="0 0 120 120"><rect x="25" y="14" width="73" height="94" rx="5" fill="#ad6850" stroke="#fffdf7" stroke-width="6"/><path d="M39 17V104M50 41H83M50 53H83M50 65H73" stroke="#f2dfba" stroke-width="3"/><path d="M64 92L96 49L104 55L72 98Z" fill="#dfb663" stroke="#fffdf7" stroke-width="3"/></symbol>
+<symbol id="memory-graph" viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" fill="#e3d9bc" stroke="#fffdf7" stroke-width="6"/><path d="M31 77L52 32L89 52L73 90L31 77L89 52M52 32L73 90" fill="none" stroke="#678174" stroke-width="2"/><g fill="#ad6850"><circle cx="31" cy="77" r="6"/><circle cx="52" cy="32" r="6"/><circle cx="89" cy="52" r="6"/><circle cx="73" cy="90" r="6"/></g></symbol>
+</defs></svg>
     <div class="curiosity-layout">
-      <div class="curiosity-choices" role="tablist" aria-label="Explore Shiyi's interests">
-        <button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-argue" aria-controls="curiosity-panel" aria-selected="true" tabindex="0" data-path="argue"><span>01 · DEBATE</span>What would I argue?</button>
-        <button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-build" aria-controls="curiosity-panel" aria-selected="false" tabindex="-1" data-path="build"><span>02 · ENGINEERING</span>What would I build?</button>
-        <button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-notice" aria-controls="curiosity-panel" aria-selected="false" tabindex="-1" data-path="notice"><span>03 · PHOTOGRAPHY</span>What would I notice?</button>
-      </div>
-      <div class="curiosity-card" id="curiosity-panel" role="tabpanel" aria-labelledby="curiosity-tab-argue" tabindex="0">
-        <div class="curiosity-overline" id="curiosity-overline">01 / A sharper argument</div>
-        <h3 id="curiosity-title">Start with the other side.</h3>
-        <p id="curiosity-copy">Debate taught me to understand a position before I challenge it. Each round begins with a question, a clock, and a team willing to rethink its first answer.</p>
-        <a id="curiosity-link" href="#achievements">Explore debate achievements →</a>
+      <div class="curiosity-choices" role="tablist" aria-label="Personal moments"><button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-flower" aria-controls="curiosity-panel" aria-selected="true" tabindex="0" data-path="flower"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-flower"></use></svg><span class="memory-tab-label"><small>01</small>A red flower</span></button>
+<button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-orange" aria-controls="curiosity-panel" aria-selected="false" tabindex="-1" data-path="orange"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-orange"></use></svg><span class="memory-tab-label"><small>02</small>Citrus Circuits 1678</span></button>
+<button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-plums" aria-controls="curiosity-panel" aria-selected="false" tabindex="-1" data-path="plums"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-plums"></use></svg><span class="memory-tab-label"><small>03</small>A jar of plums</span></button>
+<button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-cafe" aria-controls="curiosity-panel" aria-selected="false" tabindex="-1" data-path="cafe"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-cafe"></use></svg><span class="memory-tab-label"><small>04</small>A café table</span></button></div>
+      <div class="curiosity-card" id="curiosity-panel" role="tabpanel" aria-labelledby="curiosity-tab-flower" tabindex="0" data-memory="flower">
+        <div class="memory-object" aria-hidden="true"><svg viewBox="0 0 120 120"><use id="memory-art" href="#memory-flower"></use></svg><span id="memory-note">A gift I still keep.</span></div>
+        <div class="memory-story">
+          <div class="curiosity-overline" id="curiosity-overline">01 / The red paper flower</div>
+          <h3 id="curiosity-title">The same question. Three times.</h3>
+          <p id="curiosity-copy">A fifth-grade student asked me the same grammar question three times in one class. Later, when she visited Shanghai from Henan, she gave me a small red flower and thanked me for being patient.</p>
+          <p id="curiosity-reflection">I used to count the lessons I had finished. She remembered whether she could ask again. The flower is easy to miss among the brighter stickers on my laptop. I keep it there.</p>
+          <button type="button" id="memory-next">Another small thing <span aria-hidden="true">→</span></button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
+<section id="photo-teaser">
+  <div class="section-inner">
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-camera"></use></svg><div class="section-label">Photography · 摄影</div>
+    <h2 class="section-title">Through the Lens</h2>
+    <p>Istanbul between robotics matches. A forest park at half past four.
+       The West Bund after sunset. A few places where I stopped to look.</p>
+    <div class="teaser-row">
+      <a href="photography.html#photo-DSC05866" aria-label="Open Hagia Sophia in the photography gallery"><img src="assets/photos/city/DSC05866.jpg" alt="Hagia Sophia" loading="lazy"></a>
+      <a href="photography.html#photo-DSC07053" aria-label="Open Galata Tower in the photography gallery"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower from the water" loading="lazy"></a>
+      <a href="photography.html#photo-DSC08102" aria-label="Open Poppy Afternoon in the photography gallery"><img src="assets/photos/gongqing/DSC08102.jpg" alt="Poppy meadow" loading="lazy"></a>
+    </div>
+    <a class="teaser-btn" href="photography.html">Take a little wander →</a>
+  </div>
+</section>
+
 <section id="education">
   <div class="section-inner">
-    <div class="section-label">Education</div>
-    <h2 class="section-title">Academic Background</h2>
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-notebook"></use></svg><div class="section-label">For the record</div>
+    <h2 class="section-title">Where I’m learning</h2>
     <div class="divider" style="background: rgba(200,168,75,0.5);"></div>
 
     <div class="edu-card">
@@ -1194,7 +1135,7 @@
       </div>
       <div class="edu-programme">International Baccalaureate (IB) Programme · Class of 2027</div>
 
-      <div class="score-row">
+      <details class="record-details"><summary>Open my academic notes &amp; school reports</summary><div class="score-row">
         <div class="score-box">
           <span class="num">116</span>
           <span class="lbl">TOEFL<br><small style="font-size:0.6rem;">29+30+29+28</small></span>
@@ -1237,9 +1178,10 @@
           <div class="ib-subject">TOK<span class="ib-grade" style="color: var(--gold-light);">B</span></div>
         </div>
       </div>
-    </div>
+    </details></div>
 
-    <div class="quote-heading">In Their Words — from my Grade 11 school report</div>
+
+    <details class="record-details"><summary>Notes from my teachers</summary><div class="quote-heading">In Their Words — from my Grade 11 school report</div>
     <div class="quote-grid">
       <div class="quote-card">
         <p>You are exceptionally gifted and quick-thinking — your IA outline was a revelation to me.
@@ -1264,16 +1206,17 @@
         <div class="quote-attr">Advisor Comments<small>Ms. Daiying Liu · translated from Chinese</small></div>
       </div>
     </div>
+    </details>
   </div>
 </section>
 
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="section-inner">
-    <div class="section-label">Awards &amp; Competitions</div>
-    <h2 class="section-title">Achievements</h2>
+    <div class="section-label">Along the way</div>
+    <h2 class="section-title">Things I’ve worked toward</h2>
     <div class="divider"></div>
-    <div class="journey" id="journey">
+    <p class="record-intro">A record of the competitions and projects I’ve spent time with.</p><details class="record-details" id="achievement-record"><summary>Browse the timeline &amp; awards</summary><div class="journey" id="journey">
       <div class="journey-head">
         <h3>Year by year</h3>
         <span>Each dot is one award — tap a dot to read it</span>
@@ -1520,30 +1463,24 @@
       </div>
     </div>
 
+    </details>
   </div>
 </section>
 
 <!-- RESEARCH -->
 <section id="research">
   <div class="section-inner">
-    <div class="section-label">Research</div>
-    <h2 class="section-title">Independent Projects</h2>
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"></use></svg><div class="section-label">Research</div>
+    <h2 class="section-title">Questions I kept working on</h2>
     <div class="divider"></div>
     <div class="research-cards">
 
       <div class="research-card">
-        <div class="research-num">01</div>
+        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-flower"></use></svg>
         <div>
           <span class="research-tag" style="background:#e8f0fb; color:#1a4a8a;">Computer Vision</span>
           <h3>Facial Expression &amp; Identity Recognition System (Dlib)</h3>
-          <p>
-            Independently designed and built a multimodal biometric system combining face identity
-            verification with real-time emotion classification using Python and Dlib. The system
-            performs facial feature extraction, identity matching, and expression recognition in a
-            single pipeline — a novel combination not available in competing open-source tools.
-            Includes a custom sample database, algorithm optimization across multiple test cycles,
-            and a formal research paper documenting the methodology and results.
-          </p>
+          <p>I wanted to connect facial expressions with scent. At our school showcase, the device kept misreading my friends. Calling it “inaccurate” was easy; finding where it went wrong took longer. I worked through detection, alignment, features, and classification, noticing a shifted bounding box and too few “angry” examples. The project became a lesson in asking more specific questions.</p>
           <div class="research-meta">
             <span class="meta-pill">Python</span>
             <span class="meta-pill">Dlib</span>
@@ -1555,18 +1492,11 @@
       </div>
 
       <div class="research-card">
-        <div class="research-num">02</div>
+        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"></use></svg>
         <div>
           <span class="research-tag" style="background:#fef3da; color:#8a6a10;">Mathematical Modeling</span>
           <h3>Emergency Evacuation Strategy Optimization (HIMCM 2024 &amp; 2025)</h3>
-          <p>
-            Two consecutive years of independent research for the High School Mathematical Contest
-            in Modeling, culminating in a Finalist finish (Top 4% globally) in 2025. Research
-            focused on multi-agent dynamic risk modeling and evacuation pathway optimization in
-            complex building scenarios under fire and gas leak conditions. Applied Koschmieder
-            Visibility Model, Gompertz mortality functions, and HPC-environment simulation.
-            Produced full research papers and strategy flow diagrams.
-          </p>
+          <p>How do you turn a building, its exits, and the people inside it into a useful model? Across two years of HIMCM, I explored evacuation routes under fire and gas-leak conditions. I worked with dynamic risk, visibility, and mortality models, translating assumptions into simulations and diagrams. The mathematics interested me most where it met a practical decision: which way should someone go?</p>
           <div class="research-meta">
             <span class="meta-pill">Multi-agent Modeling</span>
             <span class="meta-pill">Gompertz Functions</span>
@@ -1577,19 +1507,11 @@
       </div>
 
       <div class="research-card">
-        <div class="research-num">03</div>
+        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-plums"></use></svg>
         <div>
           <span class="research-tag" style="background:#ddf2ee; color:#0f5a50;">Energy Engineering</span>
           <h3>TENG-Based Hybrid Wave Energy Harvesting Device (Conrad Challenge)</h3>
-          <p>
-            Designed and prototyped a composite wave energy collection device integrating
-            triboelectric nanogenerators (TENG) and piezoelectric effects to convert ocean wave
-            energy into usable electricity. Completed full SolidWorks mechanical structural design,
-            hardware selection, 3D printing and laser-cut model assembly, partial software
-            programming, and a commercial feasibility analysis. The project incorporated smart
-            remote monitoring and intelligent control integration. Awarded Silver Award at the
-            Conrad Challenge National Stage.
-          </p>
+          <p>I worked on a buoy that collects wave energy, moving between SolidWorks, printed parts, laser-cut models, and the electronics. During a presentation, a judge recognized the technology and invited others to listen. I remember that moment of being heard while the idea was still taking shape. The prototype combines triboelectric and piezoelectric effects to turn motion into electricity.</p>
           <div class="research-meta">
             <span class="meta-pill">TENG</span>
             <span class="meta-pill">SolidWorks</span>
@@ -1607,7 +1529,7 @@
 <!-- PLAYGROUND -->
 <section id="playground">
   <div class="section-inner">
-    <div class="section-label">Playground</div>
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-cafe"></use></svg><div class="section-label">Playground</div>
     <h2 class="section-title">Step Into My Shoes</h2>
     <div class="divider" style="background: rgba(200,168,75,0.5);"></div>
     <p class="pg-intro">Three small things I love, turned into things you can try:
@@ -1743,8 +1665,8 @@
 <!-- ACTIVITIES -->
 <section id="activities">
   <div class="section-inner">
-    <div class="section-label">Leadership &amp; Community</div>
-    <h2 class="section-title">Extracurricular Activities</h2>
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-flower"></use></svg><div class="section-label">Leadership &amp; Community</div>
+    <h2 class="section-title">People, pages &amp; afternoons</h2>
     <div class="divider"></div>
     <div class="activities-grid">
       <div class="activity-card">
@@ -1826,8 +1748,8 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
-    <div class="section-label">Skills &amp; Interests</div>
-    <h2 class="section-title">Competencies</h2>
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-notebook"></use></svg><div class="section-label">Skills &amp; Interests</div>
+    <h2 class="section-title">Things I like working with</h2>
     <div class="divider"></div>
     <div class="skills-grid">
       <div class="skill-group">
@@ -1897,31 +1819,16 @@
 </section>
 
 <!-- PHOTOGRAPHY TEASER -->
-<section id="photo-teaser">
-  <div class="section-inner">
-    <div class="section-label">Photography · 摄影</div>
-    <h2 class="section-title">Through the Lens</h2>
-    <p>Seventy-two photographs in four collections — Istanbul between robotics matches,
-       a forest park at half past four, blue hour on the West Bund — plus the
-       photography workshop I taught for our robotics club.</p>
-    <div class="teaser-row">
-      <a href="photography.html#photo-DSC05866" aria-label="Open Hagia Sophia in the photography gallery"><img src="assets/photos/city/DSC05866.jpg" alt="Hagia Sophia" loading="lazy"></a>
-      <a href="photography.html#photo-DSC07053" aria-label="Open Galata Tower in the photography gallery"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower from the water" loading="lazy"></a>
-      <a href="photography.html#photo-DSC08102" aria-label="Open Poppy Afternoon in the photography gallery"><img src="assets/photos/gongqing/DSC08102.jpg" alt="Poppy meadow" loading="lazy"></a>
-    </div>
-    <a class="teaser-btn" href="photography.html">Visit the Gallery →</a>
-  </div>
-</section>
+
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <div class="section-label">Get in Touch</div>
-    <h2 class="section-title">Contact</h2>
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-flower"></use></svg><div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Leave a little note.</h2>
     <div class="divider" style="background: rgba(200,168,75,0.4); margin: 0 auto 2rem;"></div>
     <p style="color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; font-size: 0.95rem;">
-      Currently a Grade 11 student at Shanghai Pinghe Bilingual School,
-      applying for university entrance in the Class of 2027.
+      A photograph, a half-formed idea, or something you’re making — I’d love to hear about it.
     </p>
     <div class="contact-info">
       <div class="contact-item">
@@ -1975,22 +1882,35 @@
 
   /* ── Curiosity paths ── */
   const curiosityPaths = {
-    argue: {
-      overline: '01 / A sharper argument', title: 'Start with the other side.',
-      copy: 'Debate taught me to understand a position before I challenge it. Each round begins with a question, a clock, and a team willing to rethink its first answer.',
-      link: 'Explore debate achievements →', href: '#achievements'
+    "flower": {
+        "overline": "01 / The red paper flower",
+        "title": "The same question. Three times.",
+        "copy": "A fifth-grade student asked me the same grammar question three times in one class. Later, when she visited Shanghai from Henan, she gave me a small red flower and thanked me for being patient.",
+        "reflection": "I used to count the lessons I had finished. She remembered whether she could ask again. The flower is easy to miss among the brighter stickers on my laptop. I keep it there.",
+        "note": "A gift I still keep."
     },
-    build: {
-      overline: '02 / An idea made real', title: 'Turn a sketch into a working thing.',
-      copy: 'In robotics and energy research, the best ideas have to survive testing. I like the moment when a design leaves the page and starts answering back.',
-      link: 'Explore research projects →', href: '#research'
+    "orange": {
+        "overline": "02 / The peeling 1678 sticker",
+        "title": "“This one’s peeling.”",
+        "copy": "A friend ran her thumb across the back of my laptop and stopped at the peeling sticker. It came from the Citrus Circuits pit in Houston, where I went to look at a robot and ended up talking with a captain about a team.",
+        "reflection": "He showed me an organization chart shaped like a tree: people responsible for different parts of the robot, each helping someone else learn. That conversation is what I remember when I see the sticker.",
+        "note": "Houston, 2025. Still on my laptop."
     },
-    notice: {
-      overline: '03 / A closer look', title: 'Look long enough to see a story.',
-      copy: 'Photography makes me slow down. A passing ferry, a patch of afternoon light, or a bird at the edge of a frame can turn an ordinary moment into a question worth keeping.',
-      link: 'Open the photography gallery →', href: 'photography.html'
+    "plums": {
+        "overline": "03 / A jar of plums",
+        "title": "I skipped one small step.",
+        "copy": "My grandmother sorts plums beside the balcony door, with a large bowl on one side and a small one on the other. I used to wonder why she was so careful about setting just a few aside.",
+        "reflection": "At fifteen, I bought plums, rock sugar, and a glass jar. I washed, dried, layered, and sealed them. I skipped the sorting. Two months later, I opened a jar of gray liquid. I think about those two bowls whenever I am tempted to hurry past the small part of a problem.",
+        "note": "A lesson from my grandmother’s balcony."
+    },
+    "cafe": {
+        "overline": "04 / A café table",
+        "title": "The tables around me were empty.",
+        "copy": "One summer, I spent nearly six hours a day in a café writing my extended essay about Barbie’s marketing. The longer I wrote, the less certain I became about the argument I had started with.",
+        "reflection": "A waiter came over; the café was almost closing. I had lost track of the room around me. I like that kind of space: enough time to let an idea wobble before I have to explain what it is.",
+        "note": "Some ideas need a little longer."
     }
-  };
+};
   const curiosityTabs = [...document.querySelectorAll('.curiosity-choice')];
   const curiosityPanel = document.getElementById('curiosity-panel');
   function selectCuriosity(tab, focus = false) {
@@ -2004,9 +1924,10 @@
     document.getElementById('curiosity-overline').textContent = path.overline;
     document.getElementById('curiosity-title').textContent = path.title;
     document.getElementById('curiosity-copy').textContent = path.copy;
-    const link = document.getElementById('curiosity-link');
-    link.textContent = path.link;
-    link.href = path.href;
+    document.getElementById('curiosity-reflection').textContent = path.reflection;
+    document.getElementById('memory-note').textContent = path.note;
+    document.getElementById('memory-art').setAttribute('href', '#memory-' + tab.dataset.path);
+    curiosityPanel.dataset.memory = tab.dataset.path;
     if (focus) tab.focus();
   }
   curiosityTabs.forEach((tab, index) => {
@@ -2019,6 +1940,11 @@
       event.preventDefault();
       selectCuriosity(curiosityTabs[(next + curiosityTabs.length) % curiosityTabs.length], true);
     });
+  });
+
+  document.getElementById('memory-next').addEventListener('click', () => {
+    const index = curiosityTabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
+    selectCuriosity(curiosityTabs[(index + 1) % curiosityTabs.length]);
   });
 
   /* ── Nav: hide on scroll down, progress bar, back-to-top ── */
@@ -2040,8 +1966,8 @@
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   /* ── Mobile menu ── */
-  document.getElementById('menu-toggle').addEventListener('click', () => menu.classList.toggle('open'));
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  document.getElementById('menu-toggle').addEventListener('click', e => { const open = menu.classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded', String(open)); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false'); }));
 
   /* ── Active nav link ── */
   const sections = [...document.querySelectorAll('section[id]')];
@@ -2055,47 +1981,6 @@
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => activeObs.observe(s));
-
-  /* ── Typewriter roles ── */
-  const roles = [
-    'National Debate Champion',
-    'AIME Qualifier · Top 5% AMC 10A',
-    '2× FRC Regional Champion',
-    'HIMCM Global Finalist · Top 4%',
-    'NYT-Recognized Writer',
-    'Independent Researcher',
-    'Photographer & Videographer',
-  ];
-  const roleEl = document.getElementById('role-text');
-  if (reduceMotion) {
-    roleEl.textContent = roles[0];
-  } else {
-    let ri = 0, ci = 0, deleting = false;
-    (function type() {
-      const word = roles[ri];
-      ci += deleting ? -1 : 1;
-      roleEl.textContent = word.slice(0, ci);
-      let delay = deleting ? 28 : 55;
-      if (!deleting && ci === word.length) { delay = 2000; deleting = true; }
-      else if (deleting && ci === 0) { deleting = false; ri = (ri + 1) % roles.length; delay = 350; }
-      setTimeout(type, delay);
-    })();
-  }
-
-  /* ── Count-up hero stats ── */
-  document.querySelectorAll('.stat-num').forEach(el => {
-    const m = el.textContent.match(/^([^\d]*)(\d+)(.*)$/);
-    if (!m || reduceMotion) return;
-    const [, prefix, numStr, suffix] = m;
-    const target = parseInt(numStr, 10);
-    const dur = 1400, t0 = performance.now();
-    (function tick(t) {
-      const p = Math.min((t - t0) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(target * eased) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    })(t0);
-  });
 
   /* ── Scroll reveal (staggered) ── */
   const revealSelectors = [
@@ -2186,6 +2071,7 @@
   const allCards = [...document.querySelectorAll('.award-card')];
   function jumpToAward(card) {
     if (!card) return;
+    document.getElementById('achievement-record').open = true;
     const sec = card.closest('.achievement-section');
     if (sec && sec.classList.contains('filtered-out')) filterBar.querySelector('.filter-btn').click();
     card.classList.add('visible');
@@ -2506,7 +2392,7 @@
   const sectionItem = (ic, label, id) => ({ ic, label, grp: 'Go to', run: () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) });
   const ITEMS = [
     sectionItem('👋', 'About me', 'about'),
-    sectionItem('✦', 'Follow a question', 'curiosity'),
+    sectionItem('✿', 'The little things — personal stories', 'curiosity'),
     sectionItem('🎓', 'Education & teacher comments', 'education'),
     sectionItem('🏆', 'Achievements', 'achievements'),
     sectionItem('🔬', 'Research projects', 'research'),

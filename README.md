@@ -52,3 +52,11 @@ To use a different repo name: `./deploy.sh my-website` → the site appears at
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
+
+## Personal notebook design
+
+The homepage uses `personal.css` for its warm paper, sage and rust palette, illustrated sticker shortcuts, personal stories, and compact academic records. Photography uses `gallery.css`, journal/contact-sheet layouts, collection covers, and a keyboard-accessible lightbox. The gallery retains all 72 original photos.
+
+### Asset credit
+
+`assets/stickers/citrus-circuits.png` is the official Citrus Circuits team mark from [citruscircuits.org](https://www.citruscircuits.org/), used to identify the FRC 1678 pit-sticker memory. It is presented on a paper sticker; it is not a scan of Wendy’s physical sticker. The team mark remains in its original colors. Other small illustrations are original SVG artwork.
