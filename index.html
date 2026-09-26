@@ -60,7 +60,7 @@
     letter-spacing: 0.05em;
   }
   nav ul {
-    display: flex; gap: 2rem; list-style: none;
+    display: flex; gap: 1.6rem; list-style: none; align-items: center;
   }
   nav a {
     color: rgba(255,255,255,0.75);
@@ -623,7 +623,7 @@
   .quote-attr small { color: rgba(255,255,255,0.4); display: block; letter-spacing: 0.05em; text-transform: none; margin-top: 2px; }
 
   /* ── UTILITIES ── */
-  @media (max-width: 950px) {
+  @media (max-width: 1100px) {
     #menu-toggle { display: block; }
     nav ul {
       display: none;
@@ -680,6 +680,295 @@
     transition: all 0.25s ease;
   }
   .teaser-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .teaser-row:hover a:nth-child(1) { transform: rotate(-7deg) translate(-14px, 6px); }
+  .teaser-row:hover a:nth-child(3) { transform: rotate(6deg) translate(14px, 6px); }
+  .teaser-row:hover a:hover { transform: rotate(0deg) scale(1.08) translateY(-6px); z-index: 2; }
+  .teaser-row a { position: relative; }
+
+  /* ── HERO EXTRAS ── */
+  #hero { cursor: crosshair; }
+  #hero a, #hero button, #hero .hero-photo { cursor: pointer; }
+  .hero-photo { transform-style: preserve-3d; will-change: transform; }
+  .hero-hint {
+    position: absolute; right: 5%; bottom: 96px; z-index: 1;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .badge[data-jump] { cursor: pointer; transition: background 0.2s, transform 0.2s; }
+  .badge[data-jump]:hover { background: rgba(200,168,75,0.15); transform: translateY(-2px); }
+  .award-card.flash { animation: flash 1.6s ease; }
+  @keyframes flash {
+    0%, 100% { box-shadow: none; }
+    20%, 60% { box-shadow: 0 0 0 3px var(--gold-light), 0 12px 30px rgba(200,168,75,0.35); }
+  }
+
+  /* ── NAV PALETTE BUTTON ── */
+  .kbd-btn {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem;
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 6px;
+    padding: 4px 9px; cursor: pointer; letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .kbd-btn:hover { color: var(--gold-light); border-color: var(--gold); }
+
+  /* ── COMMAND PALETTE ── */
+  #palette {
+    position: fixed; inset: 0; z-index: 400;
+    background: rgba(8,15,30,0.55); backdrop-filter: blur(4px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 12vh 16px 16px;
+  }
+  #palette.open { display: flex; }
+  .palette-box {
+    width: 100%; max-width: 560px;
+    background: #fdfcf8; border-radius: 14px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    border: 1px solid rgba(200,168,75,0.5);
+    overflow: hidden;
+    animation: pop 0.18s ease;
+  }
+  @keyframes pop { from { transform: translateY(-8px) scale(0.98); opacity: 0; } }
+  #palette-input {
+    width: 100%; border: none; outline: none; background: transparent;
+    padding: 1.1rem 1.3rem; font-size: 1.05rem; font-family: Georgia, serif;
+    border-bottom: 1px solid var(--border); color: var(--navy);
+  }
+  #palette-list { list-style: none; max-height: 50vh; overflow-y: auto; padding: 0.4rem; }
+  #palette-list li {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 0.6rem 0.9rem; border-radius: 8px; cursor: pointer;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.86rem; color: var(--text);
+  }
+  #palette-list li .ic { width: 1.4rem; text-align: center; }
+  #palette-list li .grp { margin-left: auto; font-size: 0.66rem; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 0.1em; }
+  #palette-list li.sel { background: var(--navy); color: #fff; }
+  #palette-list li.sel .grp { color: var(--gold-light); }
+  .palette-foot {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.66rem;
+    color: var(--text-light); padding: 0.5rem 1.2rem; border-top: 1px solid var(--border);
+    display: flex; gap: 1.2rem;
+  }
+
+  /* ── TOAST ── */
+  #toast {
+    position: fixed; left: 50%; bottom: 28px; z-index: 500;
+    transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+    background: var(--navy); color: var(--gold-light);
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8rem;
+    padding: 10px 20px; border-radius: 999px; border: 1px solid var(--gold);
+    transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  #toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  /* ── JOURNEY (award timeline) ── */
+  .journey {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.4rem 1.4rem 1.2rem; margin-bottom: 2rem;
+  }
+  .journey-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;
+  }
+  .journey-head h3 { font-size: 1.05rem; font-weight: normal; color: var(--navy); }
+  .journey-head span {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem; color: var(--text-light);
+  }
+  .journey-cols {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+    align-items: end; gap: 0.6rem; min-height: 150px;
+    border-bottom: 2px solid var(--navy); padding-bottom: 0.6rem; position: relative;
+  }
+  .j-col { display: flex; flex-wrap: wrap-reverse; justify-content: center; gap: 5px; align-content: flex-start; }
+  .j-dot {
+    width: 16px; height: 16px; border-radius: 50%; border: none; cursor: pointer; padding: 0;
+    transition: transform 0.2s, opacity 0.3s, box-shadow 0.2s;
+    transform: scale(0);
+  }
+  .journey.live .j-dot { transform: scale(1); transition-delay: var(--d, 0s); }
+  .j-dot:hover, .j-dot.on { transform: scale(1.35) !important; box-shadow: 0 0 0 3px rgba(200,168,75,0.45); }
+  .j-dot.dim { opacity: 0.15; }
+  .journey-years {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.6rem;
+    text-align: center; margin-top: 0.5rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; font-weight: 700;
+    color: var(--navy); letter-spacing: 0.06em;
+  }
+  .journey-years small { display: block; font-weight: 400; color: var(--text-light); font-size: 0.66rem; }
+  .journey-detail {
+    margin-top: 1rem; min-height: 3.2rem;
+    border-left: 3px solid var(--gold); padding: 0.4rem 0.9rem;
+    background: var(--bg); border-radius: 0 8px 8px 0;
+    font-size: 0.88rem; color: var(--text-muted);
+  }
+  .journey-detail b { color: var(--navy); font-weight: normal; }
+  .journey-detail .jd-meta {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; margin-top: 2px;
+  }
+  .journey-detail button {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem;
+    background: none; border: none; color: var(--accent-blue); cursor: pointer;
+    text-decoration: underline; padding: 0; margin-left: 0.4rem;
+  }
+
+  /* ── PLAYGROUND ── */
+  #playground { background: var(--navy); color: #fff; }
+  #playground .section-title { color: #fff; }
+  .pg-intro { color: rgba(255,255,255,0.55); font-style: italic; max-width: 620px; margin: -1rem 0 2rem; }
+  .pg-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .pg-tab {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.06em; padding: 9px 18px; border-radius: 999px; cursor: pointer;
+    background: transparent; color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;
+  }
+  .pg-tab:hover { border-color: var(--gold); color: var(--gold-light); }
+  .pg-tab.active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .pg-panel {
+    display: none; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius);
+    padding: 1.8rem;
+  }
+  .pg-panel.active { display: block; animation: fadeUp 0.35s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } }
+  .pg-panel h3 { font-weight: normal; font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.3rem; }
+  .pg-sub { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 1.4rem; }
+  .pg-btn {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; font-weight: 600;
+    padding: 9px 18px; border-radius: 8px; cursor: pointer;
+    background: var(--gold); color: var(--navy); border: 1px solid var(--gold);
+    transition: all 0.2s;
+  }
+  .pg-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .pg-btn.ghost { background: transparent; color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.3); }
+  .pg-btn.ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+  .pg-row { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+
+  /* debate */
+  .debate-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+  .motion-card {
+    background: #fdfcf8; color: var(--navy); border-radius: 10px;
+    padding: 1.4rem 1.6rem; margin-bottom: 1.2rem; min-height: 120px;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  .motion-card .side {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--gold);
+  }
+  .motion-card .side.prop { color: var(--accent-teal); }
+  .motion-card .side.opp { color: var(--accent-red); }
+  .motion-card .motion { font-size: 1.15rem; line-height: 1.45; }
+  .motion-card.spin .motion { animation: flick 0.08s steps(1) infinite; }
+  @keyframes flick { 50% { opacity: 0.55; } }
+  .timer { position: relative; width: 150px; height: 150px; }
+  .timer svg { transform: rotate(-90deg); }
+  .timer .t-track { stroke: rgba(255,255,255,0.1); }
+  .timer .t-ring { stroke: var(--gold-light); transition: stroke-dashoffset 0.25s linear, stroke 0.3s; }
+  .timer.warn .t-ring { stroke: #e0735f; }
+  .timer .t-text {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 1.8rem; color: #fff; font-variant-numeric: tabular-nums;
+  }
+  .timer .t-text small {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.6rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45);
+  }
+  .timer-ctrl { display: flex; gap: 0.4rem; justify-content: center; margin-top: 0.8rem; flex-wrap: wrap; }
+  .chip {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.7rem;
+    padding: 4px 10px; border-radius: 999px; cursor: pointer;
+    background: transparent; color: rgba(255,255,255,0.65);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .chip.on, .chip:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* math */
+  .puzzle {
+    border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1rem 0;
+    display: grid; grid-template-columns: auto 1fr; gap: 1rem;
+  }
+  .puzzle:last-of-type { border-bottom: none; }
+  .puzzle .pn { font-size: 1.6rem; color: rgba(200,168,75,0.5); line-height: 1; }
+  .puzzle p { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-bottom: 0.7rem; }
+  .puzzle input {
+    width: 90px; padding: 7px 10px; border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+    color: #fff; font-size: 0.95rem; font-family: Georgia, serif; text-align: center;
+  }
+  .puzzle input:focus { outline: none; border-color: var(--gold); }
+  .puzzle .fb { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; }
+  .puzzle .fb.ok { color: #7fd6b8; }
+  .puzzle .fb.no { color: #f0a090; }
+  .puzzle .hint { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-style: italic; margin-top: 0.5rem; display: none; }
+  .puzzle .hint.show { display: block; }
+  .puzzle.solved input { border-color: #7fd6b8; }
+  .score-line { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; color: var(--gold-light); margin-top: 0.8rem; }
+
+  /* lens */
+  .lens-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.8rem; align-items: start; }
+  .viewfinder {
+    position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+    border-radius: 6px; background: #000;
+    border: 6px solid #fdfcf8; box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  }
+  .vf-scene { position: absolute; inset: 0; }
+  .vf-scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .vf-sharp {
+    -webkit-mask-image: radial-gradient(ellipse 34% 42% at 50% 55%, #000 55%, transparent 100%);
+            mask-image: radial-gradient(ellipse 34% 42% at 50% 55%, #000 55%, transparent 100%);
+  }
+  #vf-noise { position: absolute; inset: 0; width: 100%; height: 100%; mix-blend-mode: overlay; pointer-events: none; }
+  .vf-hud {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 10px;
+    display: flex; justify-content: space-between;
+    font-family: 'Courier New', monospace; font-size: 0.72rem; color: #9ef0a0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  }
+  .vf-corners::before, .vf-corners::after {
+    content: ''; position: absolute; width: 22px; height: 22px; border: 2px solid rgba(255,255,255,0.7);
+  }
+  .vf-corners::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+  .vf-corners::after { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+  .control { margin-bottom: 1.1rem; }
+  .control label {
+    display: flex; justify-content: space-between;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6);
+    margin-bottom: 0.3rem;
+  }
+  .control label b { color: var(--gold-light); font-weight: 700; letter-spacing: 0.04em; }
+  .control input[type=range] { width: 100%; accent-color: var(--gold); }
+  .meter {
+    position: relative; height: 8px; border-radius: 4px; margin: 1.4rem 0 0.4rem;
+    background: linear-gradient(90deg, #1a2a4a, #7a7a7a 50%, #f5f0e0);
+  }
+  .meter .needle {
+    position: absolute; top: -5px; width: 3px; height: 18px; background: var(--gold-light);
+    border-radius: 2px; transition: left 0.25s ease; transform: translateX(-50%);
+  }
+  .meter-scale {
+    display: flex; justify-content: space-between;
+    font-family: 'Courier New', monospace; font-size: 0.66rem; color: rgba(255,255,255,0.4);
+  }
+  .lens-verdict { margin-top: 0.9rem; font-size: 0.9rem; color: #fff; }
+  .lens-tips {
+    list-style: none; margin-top: 0.5rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.76rem; color: rgba(255,255,255,0.6);
+  }
+  .lens-tips li::before { content: '→ '; color: var(--gold); }
+  .lens-foot { margin-top: 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+  .lens-foot a { color: var(--gold-light); }
+
+  @media (max-width: 800px) {
+    .debate-grid, .lens-grid { grid-template-columns: 1fr; }
+    .timer-wrap { justify-self: center; }
+    .pg-panel { padding: 1.2rem; }
+    .hero-hint { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -695,9 +984,11 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#research">Research</a></li>
+    <li><a href="#playground">Playground</a></li>
     <li><a href="#activities">Activities</a></li>
     <li><a href="photography.html">Photography</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button class="kbd-btn" id="palette-open" type="button" aria-label="Open quick search">⌘K · Search</button></li>
     <li><a class="github-link" href="https://github.com/yangsy57272" target="_blank" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
       GitHub
@@ -741,17 +1032,18 @@
       </div>
     </div>
     <div class="hero-badges">
-      <span class="badge badge-gold">National Debate Champion</span>
-      <span class="badge badge-gold">FRC Regional Champion</span>
-      <span class="badge badge-gold">AIME Qualified</span>
-      <span class="badge badge-white">NYT Writing Contest</span>
-      <span class="badge badge-white">Conrad Challenge Silver</span>
+      <span class="badge badge-gold" data-jump="TOC National Online">National Debate Champion</span>
+      <span class="badge badge-gold" data-jump="FRC Shanghai Regional">FRC Regional Champion</span>
+      <span class="badge badge-gold" data-jump="AMC 10A">AIME Qualified</span>
+      <span class="badge badge-white" data-jump="The New York Times">NYT Writing Contest</span>
+      <span class="badge badge-white" data-jump="Conrad Challenge">Conrad Challenge Silver</span>
     </div>
     </div>
     <figure class="hero-photo">
       <img src="assets/portrait.jpg" alt="Portrait of Shiyi Yang (Wendy)" fetchpriority="high">
     </figure>
   </div>
+  <div class="hero-hint">Click anywhere to add stars ✦</div>
   <a class="hero-scroll-hint" href="#about" aria-label="Scroll down">▾</a>
 </section>
 
@@ -923,6 +1215,15 @@
     <div class="section-label">Awards &amp; Competitions</div>
     <h2 class="section-title">Achievements</h2>
     <div class="divider"></div>
+    <div class="journey" id="journey">
+      <div class="journey-head">
+        <h3>Year by year</h3>
+        <span>Each dot is one award — tap a dot to read it</span>
+      </div>
+      <div class="journey-cols" id="journey-cols"></div>
+      <div class="journey-years" id="journey-years"></div>
+      <div class="journey-detail" id="journey-detail">Tap any dot above.</div>
+    </div>
     <div class="filter-bar" id="filter-bar"></div>
 
     <!-- DEBATE -->
@@ -1245,6 +1546,142 @@
   </div>
 </section>
 
+<!-- PLAYGROUND -->
+<section id="playground">
+  <div class="section-inner">
+    <div class="section-label">Playground</div>
+    <h2 class="section-title">Step Into My Shoes</h2>
+    <div class="divider" style="background: rgba(200,168,75,0.5);"></div>
+    <p class="pg-intro">Three small things I love, turned into things you can try:
+      argue a motion against the clock, solve a competition-style problem, or take a photo with a manual camera.</p>
+
+    <div class="pg-tabs" role="tablist">
+      <button class="pg-tab active" data-tab="debate" role="tab">🎙️ Debate Prep</button>
+      <button class="pg-tab" data-tab="math" role="tab">📐 Math Sprint</button>
+      <button class="pg-tab" data-tab="lens" role="tab">📷 Exposure Lab</button>
+    </div>
+
+    <!-- DEBATE -->
+    <div class="pg-panel active" id="pg-debate" role="tabpanel">
+      <h3>Draw a motion. Pick a side. Start the clock.</h3>
+      <p class="pg-sub">This is how every round of competitive debate begins — you don't choose your side, you just have to make it win.</p>
+      <div class="debate-grid">
+        <div>
+          <div class="motion-card" id="motion-card">
+            <div class="side" id="motion-side">Your motion</div>
+            <div class="motion" id="motion-text">Press “Draw a motion” to begin.</div>
+          </div>
+          <div class="pg-row">
+            <button class="pg-btn" id="draw-motion" type="button">🎲 Draw a motion</button>
+            <button class="pg-btn ghost" id="flip-side" type="button">⇄ Switch sides</button>
+          </div>
+        </div>
+        <div class="timer-wrap">
+          <div class="timer" id="timer">
+            <svg width="150" height="150" viewBox="0 0 150 150">
+              <circle class="t-track" cx="75" cy="75" r="66" fill="none" stroke-width="8"/>
+              <circle class="t-ring" id="t-ring" cx="75" cy="75" r="66" fill="none" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <div class="t-text"><span id="t-time">1:00</span><small>prep time</small></div>
+          </div>
+          <div class="timer-ctrl">
+            <button class="chip on" data-secs="60" type="button">1 min</button>
+            <button class="chip" data-secs="180" type="button">3 min</button>
+            <button class="chip" data-secs="420" type="button">7 min</button>
+          </div>
+          <div class="timer-ctrl">
+            <button class="pg-btn" id="t-start" type="button">▶ Start</button>
+            <button class="pg-btn ghost" id="t-reset" type="button">↺</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATH -->
+    <div class="pg-panel" id="pg-math" role="tabpanel">
+      <h3>Four problems, AIME-style.</h3>
+      <p class="pg-sub">Every answer is an integer from 0 to 999. No calculator — that's the fun of it.</p>
+      <div class="puzzle" data-ans="130">
+        <div class="pn">i.</div>
+        <div>
+          <p>How many positive integers less than 1000 are divisible by 7 but <em>not</em> by 11?</p>
+          <div class="pg-row"><input type="text" inputmode="numeric" aria-label="Answer 1"><button class="pg-btn ghost chk" type="button">Check</button><button class="chip hint-btn" type="button">hint</button><span class="fb"></span></div>
+          <div class="hint">Count the multiples of 7, then subtract the multiples of 77.</div>
+        </div>
+      </div>
+      <div class="puzzle" data-ans="45">
+        <div class="pn">ii.</div>
+        <div>
+          <p>In how many ways can 8 identical debate trophies be arranged on 3 different shelves (a shelf may be empty)?</p>
+          <div class="pg-row"><input type="text" inputmode="numeric" aria-label="Answer 2"><button class="pg-btn ghost chk" type="button">Check</button><button class="chip hint-btn" type="button">hint</button><span class="fb"></span></div>
+          <div class="hint">Stars and bars: 8 stars, 2 bars.</div>
+        </div>
+      </div>
+      <div class="puzzle" data-ans="466">
+        <div class="pn">iii.</div>
+        <div>
+          <p>How many positive integers less than 1000 are multiples of 3 or 5?</p>
+          <div class="pg-row"><input type="text" inputmode="numeric" aria-label="Answer 3"><button class="pg-btn ghost chk" type="button">Check</button><button class="chip hint-btn" type="button">hint</button><span class="fb"></span></div>
+          <div class="hint">Inclusion–exclusion: count multiples of 3, add multiples of 5, subtract multiples of 15.</div>
+        </div>
+      </div>
+      <div class="puzzle" data-ans="864">
+        <div class="pn">iv.</div>
+        <div>
+          <p>Find the remainder when 2<sup>2026</sup> is divided by 1000.</p>
+          <div class="pg-row"><input type="text" inputmode="numeric" aria-label="Answer 4"><button class="pg-btn ghost chk" type="button">Check</button><button class="chip hint-btn" type="button">hint</button><span class="fb"></span></div>
+          <div class="hint">Work mod 8 and mod 125 separately. Powers of 2 mod 125 repeat every 100.</div>
+        </div>
+      </div>
+      <div class="score-line" id="math-score">0 / 4 solved</div>
+    </div>
+
+    <!-- LENS -->
+    <div class="pg-panel" id="pg-lens" role="tabpanel">
+      <h3>The exposure triangle, in your hands.</h3>
+      <p class="pg-sub">The first lesson of the photography workshop I taught for our robotics club: every photo is a trade-off between aperture, shutter speed and ISO. Find a balanced exposure.</p>
+      <div class="lens-grid">
+        <div>
+          <div class="viewfinder">
+            <div class="vf-scene" id="vf-scene">
+              <img id="vf-blur" src="assets/photos/gongqing/DSC08102.jpg" alt="" loading="lazy">
+              <img class="vf-sharp" id="vf-sharp" src="assets/photos/gongqing/DSC08102.jpg" alt="Poppy meadow — exposure simulator" loading="lazy">
+            </div>
+            <canvas id="vf-noise" width="320" height="200"></canvas>
+            <div class="vf-corners"></div>
+            <div class="vf-hud"><span id="hud-l">f/8 · 1/125 · ISO 200</span><span id="hud-r">EV ±0</span></div>
+          </div>
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <filter id="motion-blur"><feGaussianBlur id="motion-std" stdDeviation="0 0"/></filter>
+          </svg>
+        </div>
+        <div>
+          <div class="control">
+            <label for="rng-ap">Aperture <b id="lbl-ap">f/8</b></label>
+            <input type="range" id="rng-ap" min="0" max="6" value="4">
+          </div>
+          <div class="control">
+            <label for="rng-sh">Shutter <b id="lbl-sh">1/125</b></label>
+            <input type="range" id="rng-sh" min="0" max="8" value="3">
+          </div>
+          <div class="control">
+            <label for="rng-iso">ISO <b id="lbl-iso">200</b></label>
+            <input type="range" id="rng-iso" min="0" max="6" value="1">
+          </div>
+          <div class="meter"><div class="needle" id="needle"></div></div>
+          <div class="meter-scale"><span>−3</span><span>−2</span><span>−1</span><span>0</span><span>+1</span><span>+2</span><span>+3</span></div>
+          <div class="lens-verdict" id="lens-verdict">Balanced exposure ✓</div>
+          <ul class="lens-tips" id="lens-tips"></ul>
+          <div class="pg-row" style="margin-top:1rem;">
+            <button class="pg-btn ghost" id="lens-random" type="button">🎲 Random settings</button>
+          </div>
+          <p class="lens-foot">Want the full lesson? <a href="assets/photography-workshop.pdf" target="_blank" rel="noopener">Open the workshop deck →</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ACTIVITIES -->
 <section id="activities">
   <div class="section-inner">
@@ -1464,6 +1901,15 @@
 
 <button id="back-to-top" aria-label="Back to top">↑</button>
 
+<div id="palette" role="dialog" aria-label="Quick search">
+  <div class="palette-box">
+    <input id="palette-input" type="text" placeholder="Search sections, awards, papers, photos…" autocomplete="off" aria-label="Search">
+    <ul id="palette-list" role="listbox"></ul>
+    <div class="palette-foot"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span><span>tip: press / anywhere</span></div>
+  </div>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
 <script>
 (() => {
   'use strict';
@@ -1551,6 +1997,7 @@
     '.about-text', '.highlight-card', '.edu-card', '.achievement-header',
     '.award-card', '.research-card', '.activity-card', '.skill-group',
     '.contact-info', '.contact-actions', '.quote-heading', '.quote-card',
+    '.journey', '.pg-intro', '.pg-tabs',
   ];
   const revealEls = document.querySelectorAll(revealSelectors.join(','));
   revealEls.forEach(el => {
@@ -1619,6 +2066,415 @@
     });
   });
 
+  /* ── Toast ── */
+  const toastEl = document.getElementById('toast');
+  let toastT;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => toastEl.classList.remove('show'), 1800);
+  }
+
+  /* ── Jump to an award card and make it glow ── */
+  const allCards = [...document.querySelectorAll('.award-card')];
+  function jumpToAward(card) {
+    if (!card) return;
+    const sec = card.closest('.achievement-section');
+    if (sec && sec.classList.contains('filtered-out')) filterBar.querySelector('.filter-btn').click();
+    card.classList.add('visible');
+    card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    card.classList.remove('flash');
+    void card.offsetWidth;
+    card.classList.add('flash');
+  }
+  document.querySelectorAll('.badge[data-jump]').forEach(b => {
+    b.setAttribute('role', 'button');
+    b.setAttribute('tabindex', '0');
+    b.title = 'Show this award';
+    const go = () => jumpToAward(allCards.find(c => c.querySelector('.award-title').textContent.includes(b.dataset.jump)));
+    b.addEventListener('click', go);
+    b.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+  });
+
+  /* ── Journey: dot timeline built from the award cards ── */
+  const catColor = {
+    'Debate': 'var(--accent-blue)', 'Public Speaking': 'var(--accent-purple)',
+    'Mathematics': 'var(--gold)', 'Chemistry & Physics': 'var(--accent-teal)',
+    'Robotics & Innovation': '#3a9a8c', 'Writing': '#8a6ad0',
+  };
+  const journey = document.getElementById('journey');
+  const jCols = document.getElementById('journey-cols');
+  const jYears = document.getElementById('journey-years');
+  const jDetail = document.getElementById('journey-detail');
+  const awards = allCards.map(c => {
+    const cat = c.closest('.achievement-section').querySelector('.achievement-cat').textContent.trim();
+    return {
+      card: c, cat,
+      year: +(c.querySelector('.award-year').textContent.match(/\d{4}/) || [0])[0],
+      title: c.querySelector('.award-title').textContent.trim(),
+      results: [...c.querySelectorAll('.award-result')].map(r => r.textContent.trim()).join(' · '),
+    };
+  });
+  const years = [...new Set(awards.map(a => a.year))].sort();
+  const dots = [];
+  years.forEach(y => {
+    const col = document.createElement('div');
+    col.className = 'j-col';
+    const list = awards.filter(a => a.year === y);
+    list.forEach((a, i) => {
+      const d = document.createElement('button');
+      d.className = 'j-dot';
+      d.type = 'button';
+      d.style.background = catColor[a.cat] || 'var(--navy)';
+      d.style.setProperty('--d', (years.indexOf(y) * 0.15 + i * 0.04) + 's');
+      d.setAttribute('aria-label', a.year + ' — ' + a.title);
+      d.title = a.title;
+      d.addEventListener('click', () => {
+        dots.forEach(x => x.el.classList.remove('on'));
+        d.classList.add('on');
+        jDetail.innerHTML = '';
+        const t = document.createElement('b'); t.textContent = a.title;
+        const m = document.createElement('div'); m.className = 'jd-meta';
+        m.textContent = a.year + ' · ' + a.cat + ' — ' + a.results;
+        const go = document.createElement('button'); go.type = 'button'; go.textContent = 'see card ↓';
+        go.addEventListener('click', () => jumpToAward(a.card));
+        m.appendChild(go);
+        jDetail.append(t, m);
+      });
+      dots.push({ el: d, cat: a.cat });
+      col.appendChild(d);
+    });
+    jCols.appendChild(col);
+    const yl = document.createElement('div');
+    yl.innerHTML = y + '<small>' + list.length + ' award' + (list.length > 1 ? 's' : '') + '</small>';
+    jYears.appendChild(yl);
+  });
+  new IntersectionObserver((es, o) => {
+    if (es[0].isIntersecting) { journey.classList.add('live'); o.disconnect(); }
+  }, { threshold: 0.3 }).observe(journey);
+  if (reduceMotion) journey.classList.add('live');
+  // Dim dots outside the active filter
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    const name = btn.firstChild.textContent.trim();
+    dots.forEach(d => d.el.classList.toggle('dim', name !== 'All' && d.cat !== name));
+  });
+
+  /* ── Playground tabs ── */
+  const tabs = document.querySelectorAll('.pg-tab');
+  tabs.forEach(t => t.addEventListener('click', () => openTab(t.dataset.tab)));
+  function openTab(name) {
+    tabs.forEach(x => x.classList.toggle('active', x.dataset.tab === name));
+    document.querySelectorAll('.pg-panel').forEach(p => p.classList.toggle('active', p.id === 'pg-' + name));
+    if (name === 'lens') renderLens();
+  }
+
+  /* ── Debate: motion draw + prep timer ── */
+  const MOTIONS = [
+    'This House would ban homework in secondary schools.',
+    'This House believes that social media has done more harm than good to democracy.',
+    'This House would make voting compulsory.',
+    'This House believes that AI-generated art should not be eligible for art prizes.',
+    'This House would require all university students to study a foreign language.',
+    'This House regrets the rise of the gig economy.',
+    'This House would prioritise space exploration over ocean exploration.',
+    'This House believes that competition does more harm than good in education.',
+    'This House would give every citizen a universal basic income.',
+    'This House believes that museums should return all artefacts to their countries of origin.',
+    'This House would lower the voting age to 16.',
+    'This House believes that zoos should be abolished.',
+    'This House would allow students to grade their teachers.',
+    'This House believes that cities should ban private cars from their centres.',
+    'This House prefers a world without smartphones.',
+  ];
+  const motionCard = document.getElementById('motion-card');
+  const motionText = document.getElementById('motion-text');
+  const motionSide = document.getElementById('motion-side');
+  let side = null, lastMotion = -1;
+  function setSide(s) {
+    side = s;
+    motionSide.textContent = s === 'prop' ? 'You are Proposition — argue FOR' : 'You are Opposition — argue AGAINST';
+    motionSide.className = 'side ' + s;
+  }
+  document.getElementById('draw-motion').addEventListener('click', () => {
+    let pick;
+    do { pick = Math.floor(Math.random() * MOTIONS.length); } while (pick === lastMotion);
+    lastMotion = pick;
+    const finish = () => {
+      motionCard.classList.remove('spin');
+      motionText.textContent = MOTIONS[pick];
+      setSide(Math.random() < 0.5 ? 'prop' : 'opp');
+      resetTimer();
+    };
+    if (reduceMotion) return finish();
+    motionCard.classList.add('spin');
+    let n = 0;
+    const iv = setInterval(() => {
+      motionText.textContent = MOTIONS[Math.floor(Math.random() * MOTIONS.length)];
+      if (++n > 12) { clearInterval(iv); finish(); }
+    }, 60);
+  });
+  document.getElementById('flip-side').addEventListener('click', () => {
+    if (!side) { toast('Draw a motion first 🎲'); return; }
+    setSide(side === 'prop' ? 'opp' : 'prop');
+  });
+
+  const ring = document.getElementById('t-ring');
+  const tTime = document.getElementById('t-time');
+  const timerEl = document.getElementById('timer');
+  const tStart = document.getElementById('t-start');
+  const C = 2 * Math.PI * 66;
+  ring.style.strokeDasharray = C;
+  let total = 60, left = 60, tick = null;
+  function drawTimer() {
+    const m = Math.floor(left / 60), s = Math.ceil(left % 60) === 60 ? 0 : Math.ceil(left % 60);
+    tTime.textContent = m + ':' + String(s).padStart(2, '0');
+    ring.style.strokeDashoffset = C * (1 - left / total);
+    timerEl.classList.toggle('warn', left <= 10 && left > 0);
+  }
+  function resetTimer() {
+    clearInterval(tick); tick = null; left = total; tStart.textContent = '▶ Start'; drawTimer();
+  }
+  tStart.addEventListener('click', () => {
+    if (tick) { clearInterval(tick); tick = null; tStart.textContent = '▶ Resume'; return; }
+    if (left <= 0) left = total;
+    tStart.textContent = '❚❚ Pause';
+    let prev = performance.now();
+    tick = setInterval(() => {
+      const now = performance.now();
+      left = Math.max(0, left - (now - prev) / 1000);
+      prev = now;
+      drawTimer();
+      if (left <= 0) {
+        clearInterval(tick); tick = null;
+        tStart.textContent = '▶ Again';
+        tTime.textContent = 'Time!';
+        toast('⏱ Prep time is over — stand up and speak!');
+      }
+    }, 250);
+  });
+  document.getElementById('t-reset').addEventListener('click', resetTimer);
+  document.querySelectorAll('.timer-ctrl .chip').forEach(ch => ch.addEventListener('click', () => {
+    document.querySelectorAll('.timer-ctrl .chip').forEach(x => x.classList.remove('on'));
+    ch.classList.add('on');
+    total = +ch.dataset.secs;
+    resetTimer();
+  }));
+  drawTimer();
+
+  /* ── Math sprint ── */
+  const puzzles = [...document.querySelectorAll('.puzzle')];
+  const mathScore = document.getElementById('math-score');
+  function updateScore() {
+    const n = puzzles.filter(p => p.classList.contains('solved')).length;
+    mathScore.textContent = n + ' / ' + puzzles.length + ' solved' +
+      (n === puzzles.length ? ' — you would have enjoyed AIME 🎉' : '');
+    if (n === puzzles.length) confetti();
+  }
+  puzzles.forEach(p => {
+    const input = p.querySelector('input');
+    const fb = p.querySelector('.fb');
+    const check = () => {
+      const v = input.value.trim();
+      if (!/^\d+$/.test(v)) { fb.className = 'fb no'; fb.textContent = 'Enter a whole number.'; return; }
+      if (+v === +p.dataset.ans) {
+        const was = p.classList.contains('solved');
+        p.classList.add('solved'); fb.className = 'fb ok'; fb.textContent = '✓ Correct';
+        if (!was) updateScore();
+      } else {
+        fb.className = 'fb no'; fb.textContent = '✗ Not quite — try again';
+      }
+    };
+    p.querySelector('.chk').addEventListener('click', check);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+    p.querySelector('.hint-btn').addEventListener('click', () => p.querySelector('.hint').classList.toggle('show'));
+  });
+
+  /* ── Exposure lab ── */
+  const APS = [1.8, 2.8, 4, 5.6, 8, 11, 16];
+  const SHS = [1/1000, 1/500, 1/250, 1/125, 1/60, 1/30, 1/15, 1/8, 1/4];
+  const SH_LBL = ['1/1000', '1/500', '1/250', '1/125', '1/60', '1/30', '1/15', '1/8', '1/4'];
+  const ISOS = [100, 200, 400, 800, 1600, 3200, 6400];
+  const rAp = document.getElementById('rng-ap');
+  const rSh = document.getElementById('rng-sh');
+  const rIso = document.getElementById('rng-iso');
+  const vfScene = document.getElementById('vf-scene');
+  const vfBlur = document.getElementById('vf-blur');
+  const motionStd = document.getElementById('motion-std');
+  const noiseCv = document.getElementById('vf-noise');
+  (function makeNoise() {
+    const nctx = noiseCv.getContext('2d');
+    const img = nctx.createImageData(noiseCv.width, noiseCv.height);
+    for (let i = 0; i < img.data.length; i += 4) {
+      const v = Math.random() * 255;
+      img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
+      img.data[i + 3] = 255;
+    }
+    nctx.putImageData(img, 0, 0);
+  })();
+  function renderLens() {
+    const N = APS[rAp.value], t = SHS[rSh.value], iso = ISOS[rIso.value];
+    // EV relative to a balanced f/8, 1/125, ISO 200
+    const ev = Math.log2((8 * 8) / (N * N)) + Math.log2(t / (1 / 125)) + Math.log2(iso / 200);
+    const evR = Math.round(ev * 10) / 10;
+    document.getElementById('lbl-ap').textContent = 'f/' + N;
+    document.getElementById('lbl-sh').textContent = SH_LBL[rSh.value];
+    document.getElementById('lbl-iso').textContent = iso;
+    document.getElementById('hud-l').textContent = 'f/' + N + ' · ' + SH_LBL[rSh.value] + ' · ISO ' + iso;
+    document.getElementById('hud-r').textContent = 'EV ' + (evR > 0 ? '+' : evR < 0 ? '−' : '±') + Math.abs(evR).toFixed(1);
+    const bright = Math.min(4.5, Math.max(0.06, Math.pow(2, ev * 0.75)));
+    const mb = t > 1 / 60 ? Math.log2(t * 60) * 3.5 : 0;
+    motionStd.setAttribute('stdDeviation', mb.toFixed(1) + ' 0');
+    vfScene.style.filter = (mb > 0 ? 'url(#motion-blur) ' : '') + 'brightness(' + bright.toFixed(2) + ')' +
+      (ev > 1 ? ' contrast(' + (1 - Math.min(0.4, (ev - 1) * 0.12)).toFixed(2) + ')' : '');
+    const dof = Math.max(0, (8 - N) / 6.2) * 6; // wide aperture → blurry background
+    vfBlur.style.filter = 'blur(' + dof.toFixed(1) + 'px)';
+    noiseCv.style.opacity = Math.min(0.6, Math.max(0, Math.log2(iso / 200) * 0.11)).toFixed(2);
+    document.getElementById('needle').style.left = (50 + Math.max(-3, Math.min(3, ev)) / 3 * 50) + '%';
+    const v = document.getElementById('lens-verdict');
+    v.textContent = Math.abs(ev) <= 0.5 ? 'Balanced exposure ✓' :
+      ev < -2 ? 'Far too dark — open up, slow down, or raise ISO' :
+      ev < 0 ? 'A little underexposed' :
+      ev > 2 ? 'Blown out — the highlights are gone' : 'A little overexposed';
+    const tips = [];
+    if (N <= 2.8) tips.push('Wide aperture: shallow depth of field — the background melts away.');
+    if (N >= 11) tips.push('Narrow aperture: everything from front to back stays sharp.');
+    if (t > 1 / 60) tips.push('Slow shutter: anything moving — including your hands — will blur.');
+    if (t <= 1 / 500) tips.push('Fast shutter: freezes a gull mid-flight.');
+    if (iso >= 1600) tips.push('High ISO: brighter, but grain creeps in.');
+    document.getElementById('lens-tips').innerHTML = tips.map(x => '<li>' + x + '</li>').join('');
+  }
+  [rAp, rSh, rIso].forEach(r => r.addEventListener('input', renderLens));
+  document.getElementById('lens-random').addEventListener('click', () => {
+    rAp.value = Math.floor(Math.random() * APS.length);
+    rSh.value = Math.floor(Math.random() * SHS.length);
+    rIso.value = Math.floor(Math.random() * ISOS.length);
+    renderLens();
+  });
+  renderLens();
+
+  /* ── Confetti (gold, of course) ── */
+  function confetti() {
+    if (reduceMotion) return;
+    const cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:600';
+    document.body.appendChild(cv);
+    const c = cv.getContext('2d');
+    cv.width = innerWidth; cv.height = innerHeight;
+    const cols = ['#c8a84b', '#e8c96a', '#ffffff', '#2d5a9e', '#1a7a6e'];
+    const bits = Array.from({ length: 140 }, () => ({
+      x: innerWidth / 2 + (Math.random() - 0.5) * 200, y: innerHeight * 0.6,
+      vx: (Math.random() - 0.5) * 14, vy: -Math.random() * 16 - 6,
+      r: Math.random() * 6 + 3, a: Math.random() * 6, col: cols[Math.floor(Math.random() * cols.length)],
+    }));
+    const t0 = performance.now();
+    (function frame(t) {
+      c.clearRect(0, 0, cv.width, cv.height);
+      bits.forEach(b => {
+        b.vy += 0.4; b.x += b.vx; b.y += b.vy; b.a += 0.15;
+        c.save(); c.translate(b.x, b.y); c.rotate(b.a);
+        c.fillStyle = b.col; c.fillRect(-b.r / 2, -b.r / 4, b.r, b.r / 2);
+        c.restore();
+      });
+      if (t - t0 < 3200) requestAnimationFrame(frame); else cv.remove();
+    })(t0);
+  }
+
+  /* ── Portrait tilt ── */
+  const portrait = document.querySelector('.hero-photo');
+  if (portrait && !reduceMotion && matchMedia('(hover: hover)').matches) {
+    portrait.addEventListener('mousemove', e => {
+      const r = portrait.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      portrait.style.transform = 'perspective(700px) rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 14) + 'deg) scale(1.03)';
+    });
+    portrait.addEventListener('mouseleave', () => { portrait.style.transform = ''; });
+  }
+
+  /* ── Command palette ── */
+  const palette = document.getElementById('palette');
+  const pInput = document.getElementById('palette-input');
+  const pList = document.getElementById('palette-list');
+  const sectionItem = (ic, label, id) => ({ ic, label, grp: 'Go to', run: () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) });
+  const ITEMS = [
+    sectionItem('👋', 'About me', 'about'),
+    sectionItem('🎓', 'Education & teacher comments', 'education'),
+    sectionItem('🏆', 'Achievements', 'achievements'),
+    sectionItem('🔬', 'Research projects', 'research'),
+    sectionItem('🎮', 'Playground', 'playground'),
+    sectionItem('🧭', 'Activities', 'activities'),
+    sectionItem('🧰', 'Skills', 'skills'),
+    sectionItem('✉️', 'Contact', 'contact'),
+    { ic: '🎙️', label: 'Draw a debate motion', grp: 'Play', run: () => { openTab('debate'); document.getElementById('playground').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => document.getElementById('draw-motion').click(), 500); } },
+    { ic: '📐', label: 'Try the math sprint', grp: 'Play', run: () => { openTab('math'); document.getElementById('playground').scrollIntoView({ behavior: 'smooth' }); } },
+    { ic: '📷', label: 'Exposure lab (camera simulator)', grp: 'Play', run: () => { openTab('lens'); document.getElementById('playground').scrollIntoView({ behavior: 'smooth' }); } },
+    { ic: '🖼️', label: 'Photography gallery', grp: 'Open', run: () => { location.href = 'photography.html'; } },
+    { ic: '🎲', label: 'Show me a random photograph', grp: 'Open', run: () => { location.href = 'photography.html#random'; } },
+    { ic: '📄', label: 'HiMCM 2025 competition paper (PDF)', grp: 'Open', run: () => window.open('assets/HiMCM-2025-Paper.pdf', '_blank') },
+    { ic: '📜', label: 'HiMCM Finalist certificate (PDF)', grp: 'Open', run: () => window.open('assets/HiMCM-2025-Certificate.pdf', '_blank') },
+    { ic: '📖', label: 'Photography workshop deck (PDF)', grp: 'Open', run: () => window.open('assets/photography-workshop.pdf', '_blank') },
+    { ic: '⧉', label: 'Copy my email address', grp: 'Action', run: () => navigator.clipboard.writeText('yangsy.2009@outlook.com').then(() => toast('✓ Email copied')) },
+    { ic: '🐙', label: 'GitHub profile', grp: 'Open', run: () => window.open('https://github.com/yangsy57272', '_blank') },
+    { ic: '🎉', label: 'Celebrate', grp: 'Action', run: () => confetti() },
+  ];
+  [...new Set(awards.map(a => a.cat))].forEach(cat => ITEMS.push({
+    ic: '🏅', label: 'Show ' + cat + ' awards', grp: 'Filter',
+    run: () => {
+      [...filterBar.querySelectorAll('.filter-btn')].find(b => b.firstChild.textContent.trim() === cat).click();
+      document.getElementById('achievements').scrollIntoView({ behavior: 'smooth' });
+    },
+  }));
+  awards.forEach(a => ITEMS.push({ ic: '·', label: a.title + ' (' + a.year + ')', grp: 'Award', run: () => jumpToAward(a.card) }));
+  let shown = [], sel = 0;
+  function renderPalette() {
+    const q = pInput.value.trim().toLowerCase();
+    shown = ITEMS.filter(it => !q ? it.grp !== 'Award' : (it.label + ' ' + it.grp).toLowerCase().includes(q)).slice(0, 40);
+    sel = Math.min(sel, Math.max(0, shown.length - 1));
+    pList.innerHTML = '';
+    if (!shown.length) {
+      const li = document.createElement('li'); li.textContent = 'Nothing found — try “debate”, “paper” or “photo”.';
+      pList.appendChild(li); return;
+    }
+    shown.forEach((it, i) => {
+      const li = document.createElement('li');
+      li.className = i === sel ? 'sel' : '';
+      li.setAttribute('role', 'option');
+      li.innerHTML = '<span class="ic"></span><span class="lb"></span><span class="grp"></span>';
+      li.querySelector('.ic').textContent = it.ic;
+      li.querySelector('.lb').textContent = it.label;
+      li.querySelector('.grp').textContent = it.grp;
+      li.addEventListener('mousemove', () => { if (sel !== i) { sel = i; renderPalette(); } });
+      li.addEventListener('click', () => runItem(it));
+      pList.appendChild(li);
+    });
+  }
+  function openPalette() {
+    palette.classList.add('open'); pInput.value = ''; sel = 0; renderPalette();
+    pInput.focus();
+  }
+  function closePalette() { palette.classList.remove('open'); }
+  function runItem(it) { closePalette(); menu.classList.remove('open'); it.run(); }
+  document.getElementById('palette-open').addEventListener('click', openPalette);
+  palette.addEventListener('click', e => { if (e.target === palette) closePalette(); });
+  pInput.addEventListener('input', () => { sel = 0; renderPalette(); });
+  pInput.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { sel = (sel + 1) % shown.length; renderPalette(); e.preventDefault(); }
+    else if (e.key === 'ArrowUp') { sel = (sel - 1 + shown.length) % shown.length; renderPalette(); e.preventDefault(); }
+    else if (e.key === 'Enter' && shown[sel]) runItem(shown[sel]);
+    const s = pList.querySelector('.sel'); if (s) s.scrollIntoView({ block: 'nearest' });
+  });
+  document.addEventListener('keydown', e => {
+    const ae = document.activeElement;
+    const typing = ae.tagName === 'TEXTAREA' || (ae.tagName === 'INPUT' && ae.type !== 'range');
+    if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
+      e.preventDefault();
+      palette.classList.contains('open') ? closePalette() : openPalette();
+    } else if (e.key === 'Escape') closePalette();
+  });
+  if (!/Mac|iPhone|iPad/.test(navigator.platform)) document.getElementById('palette-open').textContent = 'Ctrl K · Search';
+
   /* ── Hero constellation canvas ── */
   const canvas = document.getElementById('hero-canvas');
   const hero = document.getElementById('hero');
@@ -1646,11 +2502,22 @@
       mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
     });
     hero.addEventListener('mouseleave', () => { mouse.x = mouse.y = -9999; });
+    hero.addEventListener('click', e => {
+      if (e.target.closest('a, button, .badge, .hero-photo')) return;
+      const r = canvas.getBoundingClientRect();
+      const cx = e.clientX - r.left, cy = e.clientY - r.top;
+      for (let k = 0; k < 7; k++) {
+        const ang = (k / 7) * Math.PI * 2, sp = 1.2 + Math.random() * 1.4;
+        pts.push({ x: cx, y: cy, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp, r: Math.random() * 1.8 + 1, gold: true, fresh: 1 });
+      }
+      if (pts.length > 220) pts.splice(0, pts.length - 220);
+    });
     const LINK = 110;
     (function draw() {
       ctx.clearRect(0, 0, W, H);
       for (const p of pts) {
         p.x += p.vx; p.y += p.vy;
+        if (p.fresh) { p.vx *= 0.97; p.vy *= 0.97; if (Math.hypot(p.vx, p.vy) < 0.25) p.fresh = 0; }
         if (p.x < 0 || p.x > W) p.vx *= -1;
         if (p.y < 0 || p.y > H) p.vy *= -1;
         const dxm = mouse.x - p.x, dym = mouse.y - p.y;

@@ -237,6 +237,110 @@
   }
   footer a { color: rgba(232,201,106,0.6); text-decoration: none; }
 
+  /* ── HERO BACKDROP (slow crossfading photos) ── */
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg div {
+    position: absolute; inset: -4%;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 2.2s ease;
+    filter: saturate(0.7);
+  }
+  .hero-bg div.on { opacity: 0.22; animation: kenburns 12s ease-out forwards; }
+  @keyframes kenburns { from { transform: scale(1.12) translate(1%, 1%); } to { transform: scale(1) translate(0, 0); } }
+  #photo-hero::before { z-index: 0; }
+  .hero-actions { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+  .hero-btn {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.06em; padding: 10px 22px; border-radius: 999px; cursor: pointer;
+    background: var(--gold); color: var(--navy); border: 1px solid var(--gold);
+    transition: all 0.25s ease;
+  }
+  .hero-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .hero-btn.ghost { background: transparent; color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.35); }
+  .hero-btn.ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* ── STICKY ALBUM BAR ── */
+  .album-bar {
+    position: sticky; top: 60px; z-index: 90;
+    background: rgba(248,246,240,0.94); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 0.5rem; padding: 0.7rem 5%;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .album-bar::-webkit-scrollbar { display: none; }
+  .album-bar a {
+    flex-shrink: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+  .album-bar a:hover { border-color: var(--gold); color: var(--navy); }
+  .album-bar a.active { background: var(--navy); border-color: var(--navy); color: var(--gold-light); }
+  .album-bar a .ct { opacity: 0.6; margin-left: 5px; }
+  section.album { scroll-margin-top: 110px; }
+
+  /* ── DARKROOM "DEVELOP" EFFECT ── */
+  .photo-frame img {
+    filter: blur(10px) brightness(1.7) sepia(0.6);
+    opacity: 0.35;
+    transition: filter 1.4s ease, opacity 1.2s ease;
+  }
+  .photo-frame.developed img { filter: none; opacity: 1; }
+  .photo-frame .img-err {
+    padding: 2.5rem 1rem; text-align: center; background: #eee8dc;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; color: #8a8272;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-frame img { filter: none; opacity: 1; transition: none; }
+    .hero-bg div.on { animation: none; }
+  }
+
+  /* ── LIGHTBOX EXTRAS ── */
+  #lb-img { transition: opacity 0.35s ease; }
+  #lb-img.loading { opacity: 0; }
+  #lb-spinner {
+    position: absolute; top: 50%; left: 50%; width: 36px; height: 36px; margin: -18px;
+    border: 3px solid rgba(255,255,255,0.15); border-top-color: var(--gold-light);
+    border-radius: 50%; animation: spin 0.8s linear infinite; display: none;
+  }
+  #lb-spinner.show { display: block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .lb-tools {
+    position: absolute; top: 14px; left: 20px; display: flex; gap: 0.4rem;
+  }
+  .lb-tool {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem;
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 999px;
+    padding: 6px 13px; cursor: pointer; transition: all 0.2s;
+  }
+  .lb-tool:hover, .lb-tool.on { border-color: var(--gold); color: var(--gold-light); }
+  #lb-progress {
+    position: absolute; top: 0; left: 0; height: 3px; width: 0;
+    background: var(--gold-light);
+  }
+  #lb-strip {
+    display: flex; gap: 6px; margin-top: 0.9rem; max-width: 100%;
+    overflow: hidden; justify-content: center;
+  }
+  #lb-strip button {
+    flex-shrink: 0; width: 56px; height: 38px; padding: 0; cursor: pointer;
+    border: 2px solid transparent; background: #000; opacity: 0.45;
+    transition: opacity 0.2s, border-color 0.2s;
+  }
+  #lb-strip button:hover { opacity: 0.85; }
+  #lb-strip button.cur { opacity: 1; border-color: var(--gold-light); }
+  #lb-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #lightbox { padding-bottom: 1.5rem; }
+  #lb-img { max-height: calc(100% - 150px); }
+  @media (max-width: 700px) {
+    #lb-strip button { width: 42px; height: 30px; }
+    #lb-img { max-height: calc(100% - 170px); }
+    .lb-tools { left: 10px; }
+  }
+
   @media (max-width: 950px) {
     #menu-toggle { display: block; }
     nav ul {
@@ -268,6 +372,7 @@
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#achievements">Achievements</a></li>
     <li><a href="index.html#research">Research</a></li>
+    <li><a href="index.html#playground">Playground</a></li>
     <li><a href="index.html#activities">Activities</a></li>
     <li><a href="photography.html" class="active">Photography</a></li>
     <li><a href="index.html#contact">Contact</a></li>
@@ -279,6 +384,7 @@
 </nav>
 
 <header id="photo-hero">
+  <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
   <div class="inner">
     <div class="hero-kicker">Photography · 摄影</div>
     <h1>Through the Lens</h1>
@@ -292,8 +398,20 @@
       <div class="c"><span class="n">4</span><span class="l">Collections</span></div>
       <div class="c"><span class="n">1</span><span class="l">Workshop Taught</span></div>
     </div>
+    <div class="hero-actions">
+      <button class="hero-btn" id="btn-slideshow" type="button">▶ Play slideshow</button>
+      <button class="hero-btn ghost" id="btn-random" type="button">🎲 Surprise me</button>
+    </div>
   </div>
 </header>
+
+<div class="album-bar" id="album-bar">
+  <a href="#istanbul" data-album="istanbul">Istanbul<span class="ct"></span></a>
+  <a href="#gongqing" data-album="gongqing">Gongqing<span class="ct"></span></a>
+  <a href="#westbund" data-album="westbund">West Bund<span class="ct"></span></a>
+  <a href="#moments" data-album="moments">Field Notes<span class="ct"></span></a>
+  <a href="#workshop" data-album="workshop">Workshop</a>
+</div>
 
 <section class="album" id="istanbul">
   <div class="album-inner">
@@ -377,10 +495,17 @@
 </footer>
 
 <div id="lightbox" role="dialog" aria-label="Photo viewer">
+  <div id="lb-progress"></div>
+  <div class="lb-tools">
+    <button class="lb-tool" id="lb-play" type="button">▶ Play</button>
+    <button class="lb-tool" id="lb-share" type="button">🔗 Copy link</button>
+  </div>
   <button class="lb-btn" id="lb-close" aria-label="Close">✕</button>
+  <div id="lb-spinner"></div>
   <button class="lb-btn" id="lb-prev" aria-label="Previous">‹</button>
   <img id="lb-img" src="" alt="">
   <div id="lb-caption"><div class="t"></div><div class="d"></div><div class="n"></div></div>
+  <div id="lb-strip"></div>
   <button class="lb-btn" id="lb-next" aria-label="Next">›</button>
 </div>
 
@@ -482,9 +607,26 @@
     westbund: 'WEST BUND · SHANGHAI',
     moments: 'FIELD NOTES',
   };
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const idOf = p => p.f.split('/').pop().replace('.jpg', '');
+
+  /* ── Darkroom develop: fade a print in once it has loaded AND is on screen ── */
+  const devObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const fig = e.target, img = fig.querySelector('img');
+      const dev = () => setTimeout(() => fig.classList.add('developed'), 120);
+      if (img.complete && img.naturalWidth) dev(); else img.addEventListener('load', dev, { once: true });
+      devObs.unobserve(fig);
+    });
+  }, { threshold: 0.15 });
+
   PHOTOS.forEach((p, i) => {
     const fig = document.createElement('figure');
     fig.className = 'photo-frame reveal';
+    fig.tabIndex = 0;
+    fig.setAttribute('role', 'button');
+    fig.setAttribute('aria-label', 'Open photo: ' + p.t);
     fig.innerHTML =
       '<div class="mat">' +
         '<img src="assets/photos/' + p.f + '" alt="' + p.t + '" loading="lazy" decoding="async">' +
@@ -493,10 +635,58 @@
           '<div class="p-desc">' + p.d + '</div>' +
         '</figcaption>' +
       '</div>';
+    const img = fig.querySelector('img');
+    img.addEventListener('error', () => {
+      const ph = document.createElement('div');
+      ph.className = 'img-err';
+      ph.textContent = 'This photo could not load — tap to try again';
+      img.replaceWith(ph);
+      fig.classList.add('developed');
+    }, { once: true });
     fig.addEventListener('click', () => openLightbox(i));
+    fig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
     walls[p.a].appendChild(fig);
+    if (reduceMotion) fig.classList.add('developed'); else devObs.observe(fig);
   });
 
+  /* ── Album bar: counts + scrollspy ── */
+  const bar = document.getElementById('album-bar');
+  bar.querySelectorAll('a[data-album]').forEach(a => {
+    const ct = a.querySelector('.ct');
+    if (ct) ct.textContent = PHOTOS.filter(p => p.a === a.dataset.album).length;
+  });
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      bar.querySelectorAll('a').forEach(a => {
+        const on = a.dataset.album === e.target.id;
+        a.classList.toggle('active', on);
+        if (on) a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('section.album').forEach(s => spy.observe(s));
+
+  /* ── Hero backdrop: crossfade a few favourites ── */
+  const heroBg = document.getElementById('hero-bg');
+  const HERO_PICKS = ['city/DSC05866.jpg', 'westbund/DSC08555.jpg', 'gongqing/DSC08102.jpg', 'city/DSC07158.jpg', 'westbund/DSC08541.jpg'];
+  const layers = HERO_PICKS.map(f => {
+    const d = document.createElement('div');
+    d.dataset.src = 'assets/photos/' + f;
+    heroBg.appendChild(d);
+    return d;
+  });
+  let hb = 0;
+  function heroNext() {
+    const d = layers[hb % layers.length];
+    if (!d.style.backgroundImage) d.style.backgroundImage = 'url(' + d.dataset.src + ')';
+    layers.forEach(x => x.classList.remove('on'));
+    void d.offsetWidth;
+    d.classList.add('on');
+    hb++;
+  }
+  heroNext();
+  if (!reduceMotion) setInterval(heroNext, 6500);
   /* ── Scroll reveal ── */
   const revealEls = document.querySelectorAll('.reveal');
   revealEls.forEach((el, i) => el.style.setProperty('--reveal-delay', ((i % 6) * 0.06) + 's'));
@@ -513,18 +703,86 @@
   const lbT = document.querySelector('#lb-caption .t');
   const lbD = document.querySelector('#lb-caption .d');
   const lbN = document.querySelector('#lb-caption .n');
-  let cur = 0;
-  function openLightbox(i) { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeLightbox() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  const lbSpin = document.getElementById('lb-spinner');
+  const lbStrip = document.getElementById('lb-strip');
+  const lbPlay = document.getElementById('lb-play');
+  const lbProg = document.getElementById('lb-progress');
+  const SLIDE_MS = 4500;
+  let cur = 0, playing = false, playT = null, lastFocus = null;
+
+  function openLightbox(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus({ preventScroll: true });
+  }
+  function closeLightbox() {
+    stopPlay();
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    history.replaceState(null, '', location.pathname + location.search);
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
   function show(i) {
     cur = (i + PHOTOS.length) % PHOTOS.length;
     const p = PHOTOS[cur];
+    lbImg.classList.add('loading');
+    lbSpin.classList.add('show');
+    lbImg.onload = () => { lbImg.classList.remove('loading'); lbSpin.classList.remove('show'); };
+    lbImg.onerror = () => { lbSpin.classList.remove('show'); lbD.textContent = 'This photo could not load.'; };
     lbImg.src = 'assets/photos/' + p.f;
     lbImg.alt = p.t;
     lbT.textContent = p.t;
     lbD.textContent = p.d;
     lbN.textContent = (cur + 1) + ' / ' + PHOTOS.length + ' · ' + ALBUM_LABELS[p.a];
+    history.replaceState(null, '', '#photo-' + idOf(p));
+    // preload neighbours so next/prev feels instant
+    [1, -1].forEach(k => { new Image().src = 'assets/photos/' + PHOTOS[(cur + k + PHOTOS.length) % PHOTOS.length].f; });
+    renderStrip();
+    if (playing) restartProgress();
   }
+  function renderStrip() {
+    lbStrip.innerHTML = '';
+    const span = window.innerWidth < 700 ? 3 : 4;
+    for (let k = -span; k <= span; k++) {
+      const j = (cur + k + PHOTOS.length) % PHOTOS.length;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = k === 0 ? 'cur' : '';
+      b.setAttribute('aria-label', PHOTOS[j].t);
+      b.innerHTML = '<img src="assets/photos/' + PHOTOS[j].f + '" alt="" loading="lazy">';
+      b.addEventListener('click', e => { e.stopPropagation(); show(j); });
+      lbStrip.appendChild(b);
+    }
+  }
+
+  /* slideshow */
+  function restartProgress() {
+    clearTimeout(playT);
+    lbProg.style.transition = 'none';
+    lbProg.style.width = '0';
+    void lbProg.offsetWidth;
+    lbProg.style.transition = 'width ' + SLIDE_MS + 'ms linear';
+    lbProg.style.width = '100%';
+    playT = setTimeout(() => show(cur + 1), SLIDE_MS);
+  }
+  function startPlay() { playing = true; lbPlay.textContent = '❚❚ Pause'; lbPlay.classList.add('on'); restartProgress(); }
+  function stopPlay() {
+    playing = false; clearTimeout(playT);
+    lbPlay.textContent = '▶ Play'; lbPlay.classList.remove('on');
+    lbProg.style.transition = 'none'; lbProg.style.width = '0';
+  }
+  lbPlay.addEventListener('click', e => { e.stopPropagation(); playing ? stopPlay() : startPlay(); });
+
+  document.getElementById('lb-share').addEventListener('click', e => {
+    e.stopPropagation();
+    const btn = e.currentTarget;
+    const done = () => { btn.textContent = '✓ Copied'; setTimeout(() => { btn.textContent = '🔗 Copy link'; }, 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(done, () => prompt('Copy this link:', location.href));
+    else prompt('Copy this link:', location.href);
+  });
+
   document.getElementById('lb-close').addEventListener('click', closeLightbox);
   document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); show(cur - 1); });
   document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); show(cur + 1); });
@@ -534,7 +792,37 @@
     if (e.key === 'Escape') closeLightbox();
     else if (e.key === 'ArrowLeft') show(cur - 1);
     else if (e.key === 'ArrowRight') show(cur + 1);
+    else if (e.key === ' ') { e.preventDefault(); playing ? stopPlay() : startPlay(); }
   });
+
+  /* swipe on touch screens */
+  let tx = null, ty = null;
+  lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) closeLightbox();
+    tx = ty = null;
+  });
+
+  /* hero buttons */
+  const randomIdx = () => Math.floor(Math.random() * PHOTOS.length);
+  document.getElementById('btn-random').addEventListener('click', () => openLightbox(randomIdx()));
+  document.getElementById('btn-slideshow').addEventListener('click', () => { openLightbox(0); startPlay(); });
+
+  /* deep links: #photo-DSC05866 opens that photo, #random opens any */
+  function fromHash() {
+    const h = location.hash;
+    if (h === '#random') return openLightbox(randomIdx());
+    const m = h.match(/^#photo-(.+)$/);
+    if (m) {
+      const i = PHOTOS.findIndex(p => idOf(p) === m[1]);
+      if (i >= 0) openLightbox(i);
+    }
+  }
+  fromHash();
+  window.addEventListener('hashchange', fromHash);
 
   /* ── Nav bits ── */
   const menu = document.getElementById('nav-menu');

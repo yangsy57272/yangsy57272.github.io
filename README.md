@@ -8,7 +8,13 @@ Shanghai Pinghe Bilingual School.
 
 ## Highlights
 
-- Interactive constellation animation in the hero (responds to your mouse)
+- Interactive constellation animation in the hero (responds to your mouse; click to add stars)
+- Quick-search command palette — press `/` or `Ctrl/⌘ K` to jump to any section, award or PDF
+- "Year by year" dot timeline of every award, linked to the filters and cards
+- Playground: debate-motion generator with prep timer, AIME-style math sprint,
+  and an exposure-triangle camera simulator from my photography workshop
+- Photography gallery with darkroom "develop" effect, slideshow, swipe, filmstrip,
+  shareable photo links (`photography.html#photo-DSC05866`) and a sticky album bar
 - Typewriter headline cycling through key achievements
 - Animated count-up statistics and staggered scroll-reveal throughout
 - Filterable awards gallery (29 awards across 6 categories)
@@ -18,7 +24,10 @@ Shanghai Pinghe Bilingual School.
 ## Structure
 
 ```
-index.html                        the entire site (HTML + CSS + JS, no build step)
+index.html                        the main site (HTML + CSS + JS, no build step)
+photography.html                  photography gallery (4 collections, 72 photos)
+assets/photos/                    gallery images
+assets/photography-workshop.pdf   workshop deck
 assets/HiMCM-2025-Certificate.pdf HiMCM Finalist certificate
 assets/HiMCM-2025-Paper.pdf       HiMCM 2025 competition paper
 deploy.sh                         one-command deploy to GitHub Pages
