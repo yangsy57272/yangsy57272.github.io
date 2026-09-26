@@ -242,6 +242,41 @@
     font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;
   }
 
+  /* ── CURIOSITY PATHS ── */
+  #curiosity { background: #eee9df; }
+  .curiosity-intro { max-width: 650px; color: var(--text-muted); margin-bottom: 2rem; }
+  .curiosity-layout { display: grid; grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.5fr); gap: 1.2rem; }
+  .curiosity-choices { display: grid; gap: 0.7rem; align-content: start; }
+  .curiosity-choice {
+    width: 100%; text-align: left; cursor: pointer; border: 1px solid var(--border);
+    background: #fff; border-radius: 10px; padding: 1rem 1.15rem;
+    font: 600 0.83rem 'Helvetica Neue', Arial, sans-serif; color: var(--navy);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .curiosity-choice span { display: block; color: var(--text-light); font-size: 0.66rem; letter-spacing: 0.13em; margin-bottom: 0.25rem; }
+  .curiosity-choice:hover, .curiosity-choice:focus-visible { transform: translateX(4px); border-color: var(--gold); }
+  .curiosity-choice[aria-selected="true"] { background: var(--navy); color: #fff; border-color: var(--navy); box-shadow: 0 8px 20px rgba(15,31,61,0.16); }
+  .curiosity-choice[aria-selected="true"] span { color: var(--gold-light); }
+  .curiosity-card {
+    position: relative; min-height: 310px; overflow: hidden;
+    background: var(--navy); color: #fff; border-radius: 14px;
+    padding: clamp(1.5rem, 4vw, 3rem); display: flex; flex-direction: column; justify-content: center;
+  }
+  .curiosity-card::before {
+    content: ''; position: absolute; width: 260px; height: 260px; right: -50px; top: -65px;
+    border: 1px solid rgba(232,201,106,0.25); border-radius: 50%;
+    box-shadow: 0 0 0 35px rgba(232,201,106,0.035), 0 0 0 90px rgba(232,201,106,0.025);
+    pointer-events: none;
+  }
+  .curiosity-card > * { position: relative; }
+  .curiosity-overline { font: 600 0.7rem 'Helvetica Neue', Arial, sans-serif; color: var(--gold-light); letter-spacing: 0.18em; text-transform: uppercase; }
+  .curiosity-card h3 { font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1.2; font-weight: normal; max-width: 520px; margin: 0.7rem 0 1rem; }
+  .curiosity-card p { max-width: 580px; color: rgba(255,255,255,0.73); }
+  .curiosity-card a { align-self: flex-start; margin-top: 1.5rem; color: var(--gold-light); font: 600 0.8rem 'Helvetica Neue', Arial, sans-serif; text-decoration: none; border-bottom: 1px solid currentColor; }
+  .curiosity-card a:hover { color: #fff; }
+  @media (max-width: 700px) { .curiosity-layout { grid-template-columns: 1fr; } .curiosity-choices { grid-template-columns: repeat(3, 1fr); } .curiosity-choice { padding: 0.8rem; font-size: 0.72rem; } }
+  @media (max-width: 440px) { .curiosity-choices { grid-template-columns: 1fr; } }
+
   /* ── EDUCATION ── */
   #education { background: var(--navy); color: white; }
   #education .section-title { color: white; }
@@ -1119,6 +1154,29 @@
   </div>
 </section>
 
+<!-- CURIOSITY PATHS -->
+<section id="curiosity">
+  <div class="section-inner">
+    <div class="section-label">Explore my world</div>
+    <h2 class="section-title">Follow a question</h2>
+    <div class="divider"></div>
+    <p class="curiosity-intro">The same curiosity takes me into a debate round, a workshop, or a city street. Choose a question to see where it leads.</p>
+    <div class="curiosity-layout">
+      <div class="curiosity-choices" role="tablist" aria-label="Explore Shiyi's interests">
+        <button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-argue" aria-controls="curiosity-panel" aria-selected="true" tabindex="0" data-path="argue"><span>01 · DEBATE</span>What would I argue?</button>
+        <button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-build" aria-controls="curiosity-panel" aria-selected="false" tabindex="-1" data-path="build"><span>02 · ENGINEERING</span>What would I build?</button>
+        <button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-notice" aria-controls="curiosity-panel" aria-selected="false" tabindex="-1" data-path="notice"><span>03 · PHOTOGRAPHY</span>What would I notice?</button>
+      </div>
+      <div class="curiosity-card" id="curiosity-panel" role="tabpanel" aria-labelledby="curiosity-tab-argue" tabindex="0">
+        <div class="curiosity-overline" id="curiosity-overline">01 / A sharper argument</div>
+        <h3 id="curiosity-title">Start with the other side.</h3>
+        <p id="curiosity-copy">Debate taught me to understand a position before I challenge it. Each round begins with a question, a clock, and a team willing to rethink its first answer.</p>
+        <a id="curiosity-link" href="#achievements">Explore debate achievements →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
@@ -1847,9 +1905,9 @@
        a forest park at half past four, blue hour on the West Bund — plus the
        photography workshop I taught for our robotics club.</p>
     <div class="teaser-row">
-      <a href="photography.html#istanbul"><img src="assets/photos/city/DSC05866.jpg" alt="Hagia Sophia" loading="lazy"></a>
-      <a href="photography.html#istanbul"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower from the water" loading="lazy"></a>
-      <a href="photography.html#gongqing"><img src="assets/photos/gongqing/DSC08102.jpg" alt="Poppy meadow" loading="lazy"></a>
+      <a href="photography.html#photo-DSC05866" aria-label="Open Hagia Sophia in the photography gallery"><img src="assets/photos/city/DSC05866.jpg" alt="Hagia Sophia" loading="lazy"></a>
+      <a href="photography.html#photo-DSC07053" aria-label="Open Galata Tower in the photography gallery"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower from the water" loading="lazy"></a>
+      <a href="photography.html#photo-DSC08102" aria-label="Open Poppy Afternoon in the photography gallery"><img src="assets/photos/gongqing/DSC08102.jpg" alt="Poppy meadow" loading="lazy"></a>
     </div>
     <a class="teaser-btn" href="photography.html">Visit the Gallery →</a>
   </div>
@@ -1914,6 +1972,54 @@
 (() => {
   'use strict';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Curiosity paths ── */
+  const curiosityPaths = {
+    argue: {
+      overline: '01 / A sharper argument', title: 'Start with the other side.',
+      copy: 'Debate taught me to understand a position before I challenge it. Each round begins with a question, a clock, and a team willing to rethink its first answer.',
+      link: 'Explore debate achievements →', href: '#achievements'
+    },
+    build: {
+      overline: '02 / An idea made real', title: 'Turn a sketch into a working thing.',
+      copy: 'In robotics and energy research, the best ideas have to survive testing. I like the moment when a design leaves the page and starts answering back.',
+      link: 'Explore research projects →', href: '#research'
+    },
+    notice: {
+      overline: '03 / A closer look', title: 'Look long enough to see a story.',
+      copy: 'Photography makes me slow down. A passing ferry, a patch of afternoon light, or a bird at the edge of a frame can turn an ordinary moment into a question worth keeping.',
+      link: 'Open the photography gallery →', href: 'photography.html'
+    }
+  };
+  const curiosityTabs = [...document.querySelectorAll('.curiosity-choice')];
+  const curiosityPanel = document.getElementById('curiosity-panel');
+  function selectCuriosity(tab, focus = false) {
+    const path = curiosityPaths[tab.dataset.path];
+    curiosityTabs.forEach(button => {
+      const active = button === tab;
+      button.setAttribute('aria-selected', String(active));
+      button.tabIndex = active ? 0 : -1;
+    });
+    curiosityPanel.setAttribute('aria-labelledby', tab.id);
+    document.getElementById('curiosity-overline').textContent = path.overline;
+    document.getElementById('curiosity-title').textContent = path.title;
+    document.getElementById('curiosity-copy').textContent = path.copy;
+    const link = document.getElementById('curiosity-link');
+    link.textContent = path.link;
+    link.href = path.href;
+    if (focus) tab.focus();
+  }
+  curiosityTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectCuriosity(tab));
+    tab.addEventListener('keydown', event => {
+      const next = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? index + 1
+        : event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? index - 1
+        : event.key === 'Home' ? 0 : event.key === 'End' ? curiosityTabs.length - 1 : null;
+      if (next === null) return;
+      event.preventDefault();
+      selectCuriosity(curiosityTabs[(next + curiosityTabs.length) % curiosityTabs.length], true);
+    });
+  });
 
   /* ── Nav: hide on scroll down, progress bar, back-to-top ── */
   const nav = document.querySelector('nav');
@@ -2400,6 +2506,7 @@
   const sectionItem = (ic, label, id) => ({ ic, label, grp: 'Go to', run: () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) });
   const ITEMS = [
     sectionItem('👋', 'About me', 'about'),
+    sectionItem('✦', 'Follow a question', 'curiosity'),
     sectionItem('🎓', 'Education & teacher comments', 'education'),
     sectionItem('🏆', 'Achievements', 'achievements'),
     sectionItem('🔬', 'Research projects', 'research'),

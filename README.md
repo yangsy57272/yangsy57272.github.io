@@ -9,11 +9,12 @@ Shanghai Pinghe Bilingual School.
 ## Highlights
 
 - Interactive constellation animation in the hero (responds to your mouse; click to add stars)
+- "Follow a question" interactive story paths connecting debate, engineering, and photography
 - Quick-search command palette — press `/` or `Ctrl/⌘ K` to jump to any section, award or PDF
 - "Year by year" dot timeline of every award, linked to the filters and cards
 - Playground: debate-motion generator with prep timer, AIME-style math sprint,
   and an exposure-triangle camera simulator from my photography workshop
-- Photography gallery with darkroom "develop" effect, slideshow, swipe, filmstrip,
+- Photography gallery with reserved image space, immediate photo display, slideshow, swipe, filmstrip,
   shareable photo links (`photography.html#photo-DSC05866`) and a sticky album bar
 - Typewriter headline cycling through key achievements
 - Animated count-up statistics and staggered scroll-reveal throughout
