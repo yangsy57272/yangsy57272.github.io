@@ -60,3 +60,11 @@ The homepage uses `personal.css` for its warm paper, sage and rust palette, illu
 ### Asset credit
 
 `assets/stickers/citrus-circuits.png` is the official Citrus Circuits team mark from [citruscircuits.org](https://www.citruscircuits.org/), used to identify the FRC 1678 pit-sticker memory. It is presented on a paper sticker; it is not a scan of Wendy’s physical sticker. The team mark remains in its original colors. Other small illustrations are original SVG artwork.
+
+## Academic notes and music
+
+- The academic disclosure shows September 2026 expected grades (41/45, subject total 39/42); term grades, SAT and TOEFL are not displayed. Duolingo is 140.
+- Research links include the 2024 HiMCM computing footprint paper, the 2025 evacuation sweep paper, the English B Extended Essay on Barbie, and the no-three-in-line paper. The latter is a website copy with the program-affiliation cover line removed; the original local PDF is untouched.
+- `music.js` shares one HTML audio stream between song cards and the gallery/lightbox controls. Three user-supplied MP3s are hosted under `assets/music/`. Playback starts after a visitor presses Play, with a 35% initial volume. No audio file is requested on initial page load. Tracks advance cyclically after playback ends. The lightbox has its own synchronized controls.
+- Song 01 and Song 03 retain neutral numbered labels because the supplied lyric documents do not specify titles; Time Machine uses the accompanying video filename. Songwriting is credited without asserting vocal performance or production credits.
+- The main academic and extracurricular narrative is a connected growth map: mathematics feeds algorithms, modeling, machine learning, and physical systems; parallel paths connect geometry to combinatorics, debate to communication, and flag football to resilience. The 29-item competition record remains available in a collapsed supporting archive.

@@ -11,8 +11,10 @@
 <meta property="og:description" content="Four collections: Istanbul between two continents, a forest park at half past four, blue hour on the West Bund, and field notes.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1f3d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e8c96a' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="gallery.css">
+<link rel="stylesheet" href="music.css">
+<script src="music.js" defer></script>
 </head>
-<body>
+<body class="gallery-with-music">
 
 <div id="progress-bar"></div>
 
@@ -21,7 +23,9 @@
   <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
   <ul id="nav-menu">
     <li><a href="index.html#curiosity">Little things</a></li>
+    <li><a href="index.html#achievements">Growth</a></li>
     <li><a href="index.html#research">Projects</a></li>
+    <li><a href="index.html#music">Music</a></li>
     <li><a href="photography.html" aria-current="page">Photographs</a></li>
     <li><a href="index.html#contact">Say hello ↗</a></li>
   </ul>
@@ -140,8 +144,10 @@
   &nbsp;·&nbsp; <a href="https://github.com/yangsy57272" target="_blank" rel="noopener">GitHub</a>
 </footer>
 
+<aside class="gallery-music" data-music-player aria-label="Gallery soundtrack"></aside>
+
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <div id="lb-progress"></div>
+  <div id="lb-progress"></div><div class="lightbox-music" data-music-player data-compact aria-label="Photo viewer soundtrack"></div>
   <div class="lb-tools">
     <button class="lb-tool" id="lb-play" type="button">▶ Play</button>
     <button class="lb-tool" id="lb-share" type="button">🔗 Copy link</button>
@@ -426,11 +432,12 @@
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Tab') {
-      const buttons = [...lb.querySelectorAll('button')].filter(button => !button.hidden);
+      const buttons = [...lb.querySelectorAll('button, select, input')].filter(button => !button.hidden && button.getClientRects().length);
       const first = buttons[0], last = buttons[buttons.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
+    if (e.key !== 'Escape' && e.key !== 'Tab' && e.target.closest('input, select, button')) return;
     if (e.key === 'Escape') closeLightbox();
     else if (e.key === 'ArrowLeft') show(cur - 1);
     else if (e.key === 'ArrowRight') show(cur + 1);

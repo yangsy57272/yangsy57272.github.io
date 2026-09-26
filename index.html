@@ -1006,6 +1006,8 @@
   }
 </style>
 <link rel="stylesheet" href="personal.css">
+<link rel="stylesheet" href="music.css">
+<script src="music.js" defer></script>
 </head>
 <body>
 
@@ -1018,8 +1020,9 @@
   <ul id="nav-menu">
     <li><a href="#about">About</a></li>
     <li><a href="#curiosity">Little things</a></li>
-        <li><a href="#research">Research</a></li>
-    <li><a href="#playground">Playground</a></li>
+    <li><a href="#achievements">Growth</a></li>
+    <li><a href="#research">Projects</a></li>
+    <li><a href="#music">Music</a></li>
         <li><a href="photography.html">Photography</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><button class="kbd-btn" id="palette-open" type="button" aria-label="Open quick search">⌘K · Search</button></li>
@@ -1038,10 +1041,10 @@
     <div class="hero-label">Shanghai · a small corner of the internet</div>
     <h1>Hi, I’m Wendy<span class="hello-dot">.</span></h1>
     <div class="hero-chinese">Shiyi Yang &nbsp;/&nbsp; 杨诗怡</div>
-    <div class="hero-roles">A work in progress, with a camera.</div>
+    <div class="hero-roles">A work in progress, with a camera and a playlist.</div>
     <p class="hero-tagline">There are more than thirty stickers on my laptop. Some are peeling. I keep them anyway: a small red flower, a Citrus Circuits sticker, a reminder to leave the gap in a proof showing.</p>
     <p class="hero-invitation">Here are a few of the stories I carry with me.</p>
-    <div class="sticker-shortcuts" aria-label="A few ways to get to know me"><a href="#curiosity" aria-label="Read the story of a small red flower"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-flower"/></svg><span>Little things</span></a><a href="photography.html" aria-label="Explore my photographs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-camera"/></svg><span>My camera</span></a><a href="#playground" aria-label="Try my puzzles and playground"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-graph"/></svg><span>A question</span></a></div><div class="personal-actions">
+    <div class="sticker-shortcuts" aria-label="A few ways to get to know me"><a href="#curiosity" aria-label="Read the story of a small red flower"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-flower"/></svg><span>Little things</span></a><a href="photography.html" aria-label="Explore my photographs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-camera"/></svg><span>My camera</span></a><a href="#playground" aria-label="Try my puzzles and playground"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-graph"/></svg><span>A question</span></a><a href="#music" aria-label="Listen to my songs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-record"/></svg><span>On repeat</span></a></div><div class="personal-actions">
       <a class="personal-primary" href="#curiosity">Meet the little things <span aria-hidden="true">↘</span></a>
       <a href="photography.html">Wander through my photographs <span aria-hidden="true">↗</span></a>
     </div>
@@ -1062,7 +1065,7 @@
       <h2 class="section-title">Still learning to<br><em>leave the screen open.</em></h2>
     </div>
     <div class="about-text">
-      <p>I’m Shiyi Yang, or Wendy, a student in Shanghai. I build things, write, debate, and carry a camera. I also used to sit at the back of the classroom so nobody could read an idea before I was ready to share it.</p>
+      <p>I’m Shiyi Yang, or Wendy, a student in Shanghai. I build things, write songs, debate, and carry a camera. I also used to sit at the back of the classroom so nobody could read an idea before I was ready to share it.</p>
       <p>I’m getting more comfortable with the unfinished version. A conversation with my dad about a poem by Du Fu helped: he heard my reading and offered his own. I could take his seriously and still keep mine.</p>
       <blockquote>“Being heard does not mean being overwritten.”<cite>A thought I’m learning to carry with me.</cite></blockquote>
     </div>
@@ -1083,6 +1086,12 @@
 <symbol id="memory-camera" viewBox="0 0 120 120"><path d="M15 37H38L45 24H72L81 37H105V93H15Z" fill="#688274" stroke="#fffdf7" stroke-width="7" stroke-linejoin="round"/><circle cx="60" cy="65" r="22" fill="#263e3b" stroke="#e6d5b7" stroke-width="5"/><circle cx="60" cy="65" r="10" fill="#98aaa0"/><path d="M88 47H98" stroke="#e6d5b7" stroke-width="5"/></symbol>
 <symbol id="memory-notebook" viewBox="0 0 120 120"><rect x="25" y="14" width="73" height="94" rx="5" fill="#ad6850" stroke="#fffdf7" stroke-width="6"/><path d="M39 17V104M50 41H83M50 53H83M50 65H73" stroke="#f2dfba" stroke-width="3"/><path d="M64 92L96 49L104 55L72 98Z" fill="#dfb663" stroke="#fffdf7" stroke-width="3"/></symbol>
 <symbol id="memory-graph" viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" fill="#e3d9bc" stroke="#fffdf7" stroke-width="6"/><path d="M31 77L52 32L89 52L73 90L31 77L89 52M52 32L73 90" fill="none" stroke="#678174" stroke-width="2"/><g fill="#ad6850"><circle cx="31" cy="77" r="6"/><circle cx="52" cy="32" r="6"/><circle cx="89" cy="52" r="6"/><circle cx="73" cy="90" r="6"/></g></symbol>
+<symbol id="memory-record" viewBox="0 0 120 120"><circle cx="60" cy="60" r="49" fill="#314942" stroke="#fffdf7" stroke-width="7"/><g fill="none" stroke="#65796c" stroke-width="1.5"><circle cx="60" cy="60" r="38"/><circle cx="60" cy="60" r="31"/></g><circle cx="60" cy="60" r="19" fill="#b46f53"/><circle cx="60" cy="60" r="4" fill="#efdfbf"/><path d="M28 37Q34 26 47 23M72 95Q86 90 93 76" fill="none" stroke="#e0d3b8" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="growth-math" viewBox="0 0 120 120"><path d="M22 91L58 23L99 91Z" fill="#e5ddc4" stroke="#fffdf7" stroke-width="7" stroke-linejoin="round"/><circle cx="57" cy="64" r="6" fill="#a9634c"/><path d="M38 76L78 76M50 50L73 89" stroke="#637b6e" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="growth-code" viewBox="0 0 120 120"><rect x="14" y="23" width="92" height="72" rx="7" fill="#607b70" stroke="#fffdf7" stroke-width="7"/><circle cx="27" cy="35" r="3" fill="#e6c9a5"/><circle cx="37" cy="35" r="3" fill="#d98667"/><path d="M47 55L35 65L47 75M73 55L85 65L73 75M66 48L55 82" fill="none" stroke="#f6ead1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="growth-buoy" viewBox="0 0 120 120"><path d="M21 89Q38 76 54 89T88 89T112 89" fill="none" stroke="#718c86" stroke-width="5" stroke-linecap="round"/><path d="M44 77L50 43H71L78 77Z" fill="#d9a36d" stroke="#fffdf7" stroke-width="6"/><path d="M57 43V25M49 25H66M45 59H75" stroke="#405d58" stroke-width="4" stroke-linecap="round"/><circle cx="58" cy="23" r="5" fill="#a35f49"/></symbol>
+<symbol id="growth-voice" viewBox="0 0 120 120"><path d="M19 31Q19 20 31 20H90Q102 20 102 31V70Q102 81 90 81H57L37 99L41 81H31Q19 81 19 70Z" fill="#eadfca" stroke="#fffdf7" stroke-width="7"/><path d="M35 44H85M35 57H73" stroke="#a7634d" stroke-width="4" stroke-linecap="round"/><circle cx="88" cy="60" r="8" fill="#647d70"/></symbol>
+<symbol id="growth-football" viewBox="0 0 120 120"><path d="M23 74Q32 35 82 25Q103 44 94 66Q78 101 32 94Q22 86 23 74Z" fill="#a9644d" stroke="#fffdf7" stroke-width="7"/><path d="M35 87Q59 56 91 35M57 55L69 68M65 48L78 60M73 41L86 52" fill="none" stroke="#f4e6cb" stroke-width="4" stroke-linecap="round"/></symbol>
 </defs></svg>
     <div class="curiosity-layout">
       <div class="curiosity-choices" role="tablist" aria-label="Personal moments"><button class="curiosity-choice" type="button" role="tab" id="curiosity-tab-flower" aria-controls="curiosity-panel" aria-selected="true" tabindex="0" data-path="flower"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-flower"></use></svg><span class="memory-tab-label"><small>01</small>A red flower</span></button>
@@ -1119,6 +1128,8 @@
   </div>
 </section>
 
+<section id="music"><div class="section-inner"><div class="music-heading"><div><div class="section-label">Another side of me · 写歌</div><h2 class="section-title">A few things I put into songs.</h2></div><svg class="record-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-record"/></svg></div><div class="music-intro"><p>I’m a songwriter and a music lover. Kanye West and XXXTentacion are part of what I listen to; rap is a big part of my playlist. My own writing also wanders into country and Chinese folk.</p><p>These are three of my song projects. Put one on, stay for a while, or take it with you into the photo gallery.</p></div><div class="song-grid"><article class="song-card" data-song="rap"><span class="song-number">SIDE 01</span><h3>Song 01</h3><p class="song-genre">Rap · identity &amp; expectations</p><p>A song about trying to hear your own voice through everyone else’s expectations.</p><div class="song-actions"><button type="button" data-play-track="rap">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/song-01-rap.mp3" download>MP3 ↓</a></div></article><article class="song-card" data-song="time-machine"><span class="song-number">SIDE 02</span><h3>Time Machine</h3><p class="song-genre">Country · distance &amp; memory</p><p>Trying to build a time machine out of memories, with a friend on the other side of an ocean.</p><div class="song-actions"><button type="button" data-play-track="time-machine">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/time-machine.mp3" download>MP3 ↓</a></div></article><article class="song-card" data-song="folk"><span class="song-number">SIDE 03</span><h3>Song 03 · 中文民谣</h3><p class="song-genre">Chinese folk · family &amp; remembering</p><p>Old photographs, a lake outside the family home, and the things left unsaid.</p><div class="song-actions"><button type="button" data-play-track="folk">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/song-03-folk.mp3" download>MP3 ↓</a></div></article></div><div class="music-console" data-music-player aria-label="Song player"></div><a class="music-gallery-link" href="photography.html">Photographs, with a soundtrack ↗</a></div></section>
+
 <section id="education">
   <div class="section-inner">
     <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-notebook"></use></svg><div class="section-label">For the record</div>
@@ -1135,50 +1146,10 @@
       </div>
       <div class="edu-programme">International Baccalaureate (IB) Programme · Class of 2027</div>
 
-      <details class="record-details"><summary>Open my academic notes &amp; school reports</summary><div class="score-row">
-        <div class="score-box">
-          <span class="num">116</span>
-          <span class="lbl">TOEFL<br><small style="font-size:0.6rem;">29+30+29+28</small></span>
-        </div>
-        <div class="score-box">
-          <span class="num">1470</span>
-          <span class="lbl">SAT</span>
-        </div>
-        <div class="score-box">
-          <span class="num">135</span>
-          <span class="lbl">Duolingo</span>
-        </div>
-      </div>
-
-      <div style="margin-bottom: 0.9rem;">
-        <div style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:0.6rem;">
-          Grade 11 — Term A (84% · 69.75% · 82.61% · 68.18% · 71.9% · 68.67%)
-        </div>
-        <div class="ib-grid">
-          <div class="ib-subject">Maths HL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">Physics HL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">English B HL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">CS HL<span class="ib-grade">5</span></div>
-          <div class="ib-subject">Literature SL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">BM SL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">TOK<span class="ib-grade" style="color: var(--gold-light);">B</span></div>
-        </div>
-      </div>
-      <div>
-        <div style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:0.6rem;">
-          Grade 11 — Term B (88.8% · 69.11% · 83.82% · 66.45% · 78.44% · 72.32%)
-        </div>
-        <div class="ib-grid">
-          <div class="ib-subject">Maths HL<span class="ib-grade">7</span></div>
-          <div class="ib-subject">Physics HL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">English B HL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">CS HL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">Literature SL<span class="ib-grade">6</span></div>
-          <div class="ib-subject">BM SL<span class="ib-grade">7</span></div>
-          <div class="ib-subject">TOK<span class="ib-grade" style="color: var(--gold-light);">B</span></div>
-        </div>
-      </div>
-    </details></div>
+      <details class="record-details"><summary>Open my expected grades</summary>
+      <p class="academic-note">IB expected grades (EG) · 2026–2027 · September 2026</p>
+      <div class="score-row"><div class="score-box"><span class="num">41 / 45</span><span class="lbl">Expected total</span></div><div class="score-box"><span class="num">39 / 42</span><span class="lbl">Subject total</span></div><div class="score-box"><span class="num">140</span><span class="lbl">Duolingo English Test</span></div></div>
+      <div class="expected-grid"><div class="ib-subject"><span>Mathematics: Analysis &amp; Approaches HL</span><span class="ib-grade">7</span></div><div class="ib-subject"><span>Physics HL</span><span class="ib-grade">7</span></div><div class="ib-subject"><span>English B HL</span><span class="ib-grade">6</span></div><div class="ib-subject"><span>Computer Science HL</span><span class="ib-grade">6</span></div><div class="ib-subject"><span>Chinese A: Language &amp; Literature SL</span><span class="ib-grade">6</span></div><div class="ib-subject"><span>Business Management SL</span><span class="ib-grade">7</span></div><div class="ib-subject"><span>Theory of Knowledge</span><span class="ib-grade">B</span></div><div class="ib-subject"><span>Extended Essay</span><span class="ib-grade">B</span></div></div><p class="academic-note">Expected grades, not final IB results.</p></details></div>
 
 
     <details class="record-details"><summary>Notes from my teachers</summary><div class="quote-heading">In Their Words — from my Grade 11 school report</div>
@@ -1186,18 +1157,18 @@
       <div class="quote-card">
         <p>You are exceptionally gifted and quick-thinking — your IA outline was a revelation to me.
            Last term's slips have been fully evened out; your real ability clearly goes further still.</p>
-        <div class="quote-attr">Mathematics AA HL — Grade 7<small>Mr. Chengxi Shen · translated from Chinese</small></div>
+        <div class="quote-attr">Mathematics AA HL<small>Mr. Chengxi Shen · translated from Chinese</small></div>
       </div>
       <div class="quote-card">
         <p>I've noticed significant improvement in her messaging, which has become more focused,
            precise and structured. Her opinions and thoughts are always valued highly by myself
            and her classmates.</p>
-        <div class="quote-attr">English B HL — Grade 6<small>Mr. Andrew Szetho</small></div>
+        <div class="quote-attr">English B HL<small>Mr. Andrew Szetho</small></div>
       </div>
       <div class="quote-card">
         <p>Intelligent and full of spark, with original insight into questions of knowledge —
            a serious learner who completed every task this semester to a high standard.</p>
-        <div class="quote-attr">Theory of Knowledge — B<small>Ms. Yinbing Wang · translated from Chinese</small></div>
+        <div class="quote-attr">Theory of Knowledge<small>Ms. Yinbing Wang · translated from Chinese</small></div>
       </div>
       <div class="quote-card">
         <p>A semester of excellence on every front — steadier grades, and her name and face
@@ -1213,10 +1184,49 @@
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="section-inner">
-    <div class="section-label">Along the way</div>
-    <h2 class="section-title">Things I’ve worked toward</h2>
+    <div class="section-label">How one thing led to another</div>
+    <h2 class="section-title">My growth is a connected system.</h2>
     <div class="divider"></div>
-    <p class="record-intro">A record of the competitions and projects I’ve spent time with.</p><details class="record-details" id="achievement-record"><summary>Browse the timeline &amp; awards</summary><div class="journey" id="journey">
+    <p class="growth-intro">I don’t experience mathematics, code, engineering, writing, and sport as separate lists. Each one changes how I approach the next problem. Follow the paths below to see how the pieces connect.</p>
+
+    <div class="growth-map" aria-label="A map of how Wendy's interests and skills developed">
+      <article class="growth-foundation">
+        <svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-math"/></svg>
+        <div><span>THE FOUNDATION</span><h3>Mathematics taught me to build from logic.</h3><p>Olympiad problems, AMC 10, AIME, Euclid, and an expected 7 in Mathematics AA HL trained me to find a useful representation, test each step, and make every inference earn its place.</p></div>
+      </article>
+
+      <div class="growth-tracks">
+        <article class="growth-track growth-track-main">
+          <div class="growth-stops" aria-label="Mathematics to computational systems">
+            <div class="growth-stop"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-math"/></svg><span>01</span><h3>Mathematical foundation</h3><p>Competition mathematics and AA HL made logic, functions, and proof part of my working language.</p></div>
+            <div class="growth-arrow" aria-hidden="true">→</div>
+            <div class="growth-stop"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-code"/></svg><span>02</span><h3>Algorithms &amp; models</h3><p>CS HL, a perfect USACO Bronze score, and progression to Silver made efficiency and modular code concrete. HiMCM showed me how mathematical choices shape what a program searches for.</p></div>
+            <div class="growth-arrow" aria-hidden="true">→</div>
+            <div class="growth-stop"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-code"/></svg><span>03</span><h3>Machine learning</h3><p>In Generation AI, I learned to separate detection, alignment, features, and classification, then question what the dataset made difficult to recognize.</p></div>
+            <div class="growth-arrow" aria-hidden="true">→</div>
+            <div class="growth-stop"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-buoy"/></svg><span>04</span><h3>Systems people can use</h3><p>FRC introduced CAD and Onshape. ScentSense combined a Raspberry Pi, computer vision, four scent channels, and eight casing iterations. Greenvolt Spark joined wave-energy hardware with sensor questions.</p></div>
+          </div>
+          <p class="growth-question">The question that keeps moving forward: how do I know a model is reliable once it leaves a controlled experiment?</p>
+        </article>
+
+        <article class="growth-track growth-track-compact">
+          <svg class="growth-track-art" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg>
+          <div><span>PROOF → CONSTRUCTION</span><h3>Geometry became graph theory.</h3><p>Olympiad-style geometry proofs led me toward graph theory and combinatorics. In the no-three-in-a-line paper, I turned a visual construction into arithmetic constraints, proved <em>f</em>(3,<em>n</em>) = min(2<em>n</em>, 6), and used code to enumerate configurations up to 20 columns.</p></div>
+        </article>
+
+        <article class="growth-track growth-track-compact">
+          <svg class="growth-track-art" aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-voice"/></svg>
+          <div><span>ARGUMENT → COMMUNICATION</span><h3>Debate taught me to make thinking legible.</h3><p>Debate, speech, John Locke writing, and The New York Times sharpened my evidence, critical thinking, and communication. I carried those skills into starting a newspaper club and helping speakers clarify complex ideas as TEDx Vice President.</p></div>
+        </article>
+
+        <article class="growth-track growth-track-compact">
+          <svg class="growth-track-art" aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-football"/></svg>
+          <div><span>TRAINING → RESILIENCE</span><h3>Flag football gave the week a different rhythm.</h3><p>Balancing intensive training with academic commitments taught me discipline, recovery, and how to keep showing up when several demanding things matter at once.</p></div>
+        </article>
+      </div>
+    </div>
+
+    <details class="record-details honors-archive" id="achievement-record"><summary>Open the supporting record of competitions &amp; honors</summary><div class="journey" id="journey">
       <div class="journey-head">
         <h3>Year by year</h3>
         <span>Each dot is one award — tap a dot to read it</span>
@@ -1478,40 +1488,29 @@
       <div class="research-card">
         <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-flower"></use></svg>
         <div>
-          <span class="research-tag" style="background:#e8f0fb; color:#1a4a8a;">Computer Vision</span>
-          <h3>Facial Expression &amp; Identity Recognition System (Dlib)</h3>
-          <p>I wanted to connect facial expressions with scent. At our school showcase, the device kept misreading my friends. Calling it “inaccurate” was easy; finding where it went wrong took longer. I worked through detection, alignment, features, and classification, noticing a shifted bounding box and too few “angry” examples. The project became a lesson in asking more specific questions.</p>
+          <span class="research-tag" style="background:#e8f0fb; color:#1a4a8a;">Computer Vision · Live Device</span>
+          <h3>ScentSense — turning expression recognition into scent</h3>
+          <p>I led the technical build: deploying an expression-recognition model on a Raspberry Pi, connecting its output to four scent channels, and designing eight versions of the casing. When predictions fluctuated between consecutive frames and made the scent switch rapidly, I added a five-frame voting window. The final device reached 87.3% accuracy with a 0.38-second response time. A primary school later paid RMB 4,000 for it, which made operational stability feel as important as a model’s headline score.</p>
           <div class="research-meta">
             <span class="meta-pill">Python</span>
-            <span class="meta-pill">Dlib</span>
+            <span class="meta-pill">EfficientNet-B0</span>
+            <span class="meta-pill">Raspberry Pi</span>
             <span class="meta-pill">Computer Vision</span>
-            <span class="meta-pill">CTB Competition (2026)</span>
-            <span class="meta-pill">Generation AI Hackathon</span>
+            <span class="meta-pill">3D-printed enclosure</span>
           </div>
         </div>
       </div>
 
-      <div class="research-card">
-        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"></use></svg>
-        <div>
-          <span class="research-tag" style="background:#fef3da; color:#8a6a10;">Mathematical Modeling</span>
-          <h3>Emergency Evacuation Strategy Optimization (HIMCM 2024 &amp; 2025)</h3>
-          <p>How do you turn a building, its exits, and the people inside it into a useful model? Across two years of HIMCM, I explored evacuation routes under fire and gas-leak conditions. I worked with dynamic risk, visibility, and mortality models, translating assumptions into simulations and diagrams. The mathematics interested me most where it met a practical decision: which way should someone go?</p>
-          <div class="research-meta">
-            <span class="meta-pill">Multi-agent Modeling</span>
-            <span class="meta-pill">Gompertz Functions</span>
-            <span class="meta-pill">HPC Simulation</span>
-            <span class="meta-pill">HIMCM Finalist Top 4%</span>
-          </div>
-        </div>
-      </div>
-
+<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg><div><span class="research-tag">HiMCM 2024 · Team paper</span><h3>What does computing leave behind?</h3><p>Our 2024 paper follows high-performance computing through manufacturing, transport, use, and end-of-life. We model carbon emissions and water consumption, looking at how hardware replacement and electricity sources could change the footprint by 2030. It made the less visible costs of a computation feel much more concrete.</p><a class="paper-link" href="assets/HiMCM-2024-Paper.pdf" target="_blank" rel="noopener">Read the 2024 paper · PDF <span aria-hidden="true">↗</span></a></div></article>
+<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg><div><span class="research-tag">HiMCM 2025 · Team paper</span><h3>Which room should a responder check next?</h3><p>In 2025, we turned to evacuation sweeps. Our team built an agent-based model to compare responder routes through buildings as fire, smoke, and gas hazards change. The question was how to balance time, responder safety, and making sure nobody was missed.</p><a class="paper-link" href="assets/HiMCM-2025-Paper.pdf" target="_blank" rel="noopener">Read the 2025 paper · PDF <span aria-hidden="true">↗</span></a></div></article>
+<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-notebook"/></svg><div><span class="research-tag">English B · Extended Essay</span><h3>Barbie, irony &amp; the things we’re sold</h3><p>Can a film question consumer culture while making its own brand more appealing? My Extended Essay reads Barbie (2023) through its irony: the rehearsed perfection of Barbie Land, Gloria’s monologue, and Ken’s “Kendom.” I explore how a critique of femininity can become part of the product’s appeal.</p><a class="paper-link" href="assets/Barbie-Extended-Essay.pdf" target="_blank" rel="noopener">Read my Extended Essay · PDF <span aria-hidden="true">↗</span></a></div></article>
+<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg><div><span class="research-tag">Combinatorial geometry</span><h3>No three in a line</h3><p>A small grid, a simple rule: choose points without putting three on one straight line. My paper studies three-row grids, translating the geometry into arithmetic conditions and using computation to enumerate configurations up to 20 columns, including their symmetries.</p><a class="paper-link" href="assets/No-Three-In-Line.pdf" target="_blank" rel="noopener">Read the research paper · PDF <span aria-hidden="true">↗</span></a></div></article>
       <div class="research-card">
         <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-plums"></use></svg>
         <div>
           <span class="research-tag" style="background:#ddf2ee; color:#0f5a50;">Energy Engineering</span>
-          <h3>TENG-Based Hybrid Wave Energy Harvesting Device (Conrad Challenge)</h3>
-          <p>I worked on a buoy that collects wave energy, moving between SolidWorks, printed parts, laser-cut models, and the electronics. During a presentation, a judge recognized the technology and invited others to listen. I remember that moment of being heard while the idea was still taking shape. The prototype combines triboelectric and piezoelectric effects to turn motion into electricity.</p>
+          <h3>Greenvolt Spark — a wave-powered monitoring prototype</h3>
+          <p>A typhoon warning on a Fujian beach made me wonder how offshore monitoring continues through prolonged storms. My teammate and I built a prototype that combines triboelectric and piezoelectric harvesters to charge a battery for sensors, with an ESP32 intended to transmit readings. Extending the idea toward AI raised a harder question: could a probabilistic model distinguish a real environmental change from unstable power or sensor failure?</p>
           <div class="research-meta">
             <span class="meta-pill">TENG</span>
             <span class="meta-pill">SolidWorks</span>
@@ -1756,7 +1755,7 @@
         <h4>Languages</h4>
         <div class="skill-tags">
           <span class="skill-tag">Mandarin (Native)</span>
-          <span class="skill-tag">English (TOEFL 116)</span>
+          <span class="skill-tag">English</span>
         </div>
       </div>
       <div class="skill-group">
@@ -2394,9 +2393,10 @@
     sectionItem('👋', 'About me', 'about'),
     sectionItem('✿', 'The little things — personal stories', 'curiosity'),
     sectionItem('🎓', 'Education & teacher comments', 'education'),
-    sectionItem('🏆', 'Achievements', 'achievements'),
+    sectionItem('↗', 'How my interests connect', 'achievements'),
     sectionItem('🔬', 'Research projects', 'research'),
     sectionItem('🎮', 'Playground', 'playground'),
+    sectionItem('♫', 'Music & songwriting', 'music'),
     sectionItem('🧭', 'Activities', 'activities'),
     sectionItem('🧰', 'Skills', 'skills'),
     sectionItem('✉️', 'Contact', 'contact'),
@@ -2405,6 +2405,9 @@
     { ic: '📷', label: 'Exposure lab (camera simulator)', grp: 'Play', run: () => { openTab('lens'); document.getElementById('playground').scrollIntoView({ behavior: 'smooth' }); } },
     { ic: '🖼️', label: 'Photography gallery', grp: 'Open', run: () => { location.href = 'photography.html'; } },
     { ic: '🎲', label: 'Show me a random photograph', grp: 'Open', run: () => { location.href = 'photography.html#random'; } },
+    { ic: '📄', label: 'HiMCM 2024 paper (PDF)', grp: 'Open', run: () => window.open('assets/HiMCM-2024-Paper.pdf', '_blank') },
+    { ic: '📄', label: 'Barbie Extended Essay (PDF)', grp: 'Open', run: () => window.open('assets/Barbie-Extended-Essay.pdf', '_blank') },
+    { ic: '📄', label: 'No three in a line (PDF)', grp: 'Open', run: () => window.open('assets/No-Three-In-Line.pdf', '_blank') },
     { ic: '📄', label: 'HiMCM 2025 competition paper (PDF)', grp: 'Open', run: () => window.open('assets/HiMCM-2025-Paper.pdf', '_blank') },
     { ic: '📜', label: 'HiMCM Finalist certificate (PDF)', grp: 'Open', run: () => window.open('assets/HiMCM-2025-Certificate.pdf', '_blank') },
     { ic: '📖', label: 'Photography workshop deck (PDF)', grp: 'Open', run: () => window.open('assets/photography-workshop.pdf', '_blank') },
