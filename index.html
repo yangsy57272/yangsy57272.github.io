@@ -60,7 +60,7 @@
     letter-spacing: 0.05em;
   }
   nav ul {
-    display: flex; gap: 1.6rem; list-style: none; align-items: center;
+    display: flex; gap: 1.25rem; list-style: none; align-items: center;
   }
   nav a {
     color: rgba(255,255,255,0.75);
@@ -623,7 +623,7 @@
   .quote-attr small { color: rgba(255,255,255,0.4); display: block; letter-spacing: 0.05em; text-transform: none; margin-top: 2px; }
 
   /* ── UTILITIES ── */
-  @media (max-width: 1100px) {
+  @media (max-width: 1280px) {
     #menu-toggle { display: block; }
     nav ul {
       display: none;
@@ -963,7 +963,135 @@
   .lens-foot { margin-top: 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.5); }
   .lens-foot a { color: var(--gold-light); }
 
+  /* ── SECTION LEDES ── */
+  .section-lede {
+    font-size: 1.02rem; font-style: italic; color: var(--text-muted);
+    max-width: 640px; margin: -1.2rem 0 2.2rem; line-height: 1.7;
+  }
+  #education .section-lede, #contact .section-lede { color: rgba(255,255,255,0.55); }
+  #contact .section-lede { margin-left: auto; margin-right: auto; }
+
+  /* ── STORIES: LAPTOP TOUR ── */
+  #stories { background: #f0ece3; }
+  .laptop-wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.2rem; align-items: center; }
+  .laptop {
+    position: relative; aspect-ratio: 16 / 10.5;
+    background: linear-gradient(145deg, #3b3f47, #1f2228 60%, #2b2e35);
+    border-radius: 18px 18px 10px 10px;
+    box-shadow: 0 30px 60px rgba(15,31,61,0.28), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 0 1px rgba(0,0,0,0.4);
+    overflow: hidden;
+  }
+  .laptop::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.08), transparent 55%);
+    pointer-events: none;
+  }
+  .laptop::after {
+    content: ''; position: absolute; left: 12%; right: 12%; bottom: -1px; height: 7px;
+    background: #15171b; border-radius: 6px 6px 0 0;
+  }
+  .sticker {
+    position: absolute; border: none; background: none; padding: 0; cursor: pointer;
+    transform: rotate(var(--r, 0deg));
+    transition: transform 0.25s cubic-bezier(0.3,1.6,0.5,1), filter 0.25s;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.45));
+  }
+  .sticker:hover, .sticker:focus-visible {
+    transform: rotate(0deg) scale(1.12) translateY(-3px);
+    filter: drop-shadow(0 8px 10px rgba(0,0,0,0.5));
+    outline: none; z-index: 3;
+  }
+  .sticker.seen::after {
+    content: '✓'; position: absolute; top: -6px; right: -6px;
+    width: 16px; height: 16px; border-radius: 50%; background: var(--gold); color: var(--navy);
+    font: 700 10px/16px 'Helvetica Neue', Arial, sans-serif; text-align: center;
+  }
+  .sticker.active { transform: rotate(0deg) scale(1.15); z-index: 3; filter: drop-shadow(0 0 0 #fff) drop-shadow(0 0 6px rgba(232,201,106,0.9)); }
+  .sticker svg { display: block; width: 100%; height: auto; }
+  .st-bare {
+    border: 2px dashed rgba(255,255,255,0.28); border-radius: 8px;
+    color: rgba(255,255,255,0.35); filter: none;
+    font: 600 0.6rem 'Helvetica Neue', Arial, sans-serif; letter-spacing: 0.12em; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .st-bare:hover { color: var(--gold-light); border-color: var(--gold); filter: none; }
+  .tour-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.6rem 1.7rem; min-height: 280px; position: relative;
+    box-shadow: 0 12px 28px rgba(15,31,61,0.08);
+  }
+  .tour-card .tc-kicker {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .tour-card h3 { font-weight: normal; font-size: 1.3rem; color: var(--navy); margin-bottom: 0.7rem; line-height: 1.3; }
+  .tour-card p { font-size: 0.93rem; color: var(--text-muted); line-height: 1.75; }
+  .tour-card .tc-moral {
+    margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed var(--border);
+    font-style: italic; color: var(--navy); font-size: 0.92rem;
+  }
+  .tour-card.swap { animation: fadeUp 0.35s ease; }
+  .tour-progress {
+    display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: var(--text-light);
+  }
+  .tour-progress button {
+    font: 600 0.72rem 'Helvetica Neue', Arial, sans-serif; background: none; border: 1px solid var(--border);
+    border-radius: 999px; padding: 5px 12px; cursor: pointer; color: var(--navy);
+  }
+  .tour-progress button:hover { border-color: var(--gold); }
+  .tour-hint {
+    text-align: center; margin-top: 0.9rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.72rem; color: var(--text-light);
+  }
+
+  /* ── STORIES: FLIP CARDS ── */
+  .otr-head { margin-top: 4rem; }
+  .flip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.2rem; }
+  .flip {
+    perspective: 1000px; border: none; background: none; padding: 0; cursor: pointer;
+    min-height: 250px; text-align: left; font: inherit; color: inherit;
+  }
+  .flip-inner {
+    position: relative; width: 100%; height: 100%; min-height: 250px;
+    transition: transform 0.7s cubic-bezier(0.3,1.2,0.4,1); transform-style: preserve-3d;
+  }
+  .flip.flipped .flip-inner { transform: rotateY(180deg); }
+  .flip-face {
+    position: absolute; inset: 0; border-radius: var(--radius);
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    padding: 1.4rem 1.5rem; display: flex; flex-direction: column;
+  }
+  .flip-front {
+    background: var(--navy); color: #fff; justify-content: space-between;
+    border: 1px solid rgba(200,168,75,0.35);
+    background-image: radial-gradient(circle at 85% 15%, rgba(200,168,75,0.18), transparent 45%);
+  }
+  .flip-front .fe { font-size: 2.2rem; }
+  .flip-front .fq { font-size: 1.25rem; line-height: 1.35; }
+  .flip-front .ft {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.66rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .flip-back {
+    background: #fdfcf8; border: 1px solid var(--border); transform: rotateY(180deg);
+    font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; justify-content: center;
+    overflow-y: auto;
+  }
+  .flip-back b { color: var(--navy); font-weight: normal; font-style: italic; display: block; margin-bottom: 0.4rem; font-size: 1rem; }
+  .flip:hover .flip-front { border-color: var(--gold); }
+  .flip:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: var(--radius); }
+  @media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
+
+  /* ── CONTACT CLOSER ── */
+  .home-quote {
+    font-size: 1.35rem; font-style: italic; color: #fff; max-width: 620px;
+    margin: 0 auto 1rem; line-height: 1.5;
+  }
+  .home-quote em { color: var(--gold-light); }
+
   @media (max-width: 800px) {
+    .laptop-wrap { grid-template-columns: 1fr; }
     .debate-grid, .lens-grid { grid-template-columns: 1fr; }
     .timer-wrap { justify-self: center; }
     .pg-panel { padding: 1.2rem; }
@@ -981,6 +1109,7 @@
   <button id="menu-toggle" aria-label="Menu">☰</button>
   <ul id="nav-menu">
     <li><a href="#about">About</a></li>
+    <li><a href="#stories">Stories</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#research">Research</a></li>
@@ -1006,8 +1135,8 @@
     <div class="hero-chinese">杨诗怡 &nbsp;/&nbsp; Wendy</div>
     <div class="hero-roles"><span id="role-text"></span><span class="cursor"></span></div>
     <p class="hero-tagline">
-      National debate champion, AIME qualifier, robotics champion, and aspiring engineer —
-      driven by a conviction that clear thinking and bold ideas can shape the world.
+      I argue for a living, build robots for fun, and chase the one proof step that doesn't quite follow.
+      I'm at my best with an idea that isn't finished yet, and with people willing to help me finish it.
     </p>
     <div class="hero-stats">
       <div class="stat-item">
@@ -1056,26 +1185,28 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I am an IB student at Shanghai Pinghe Bilingual School with a passion for language,
-          logic, and leadership. My academic journey spans competitive debate, olympiad mathematics,
-          chemistry, physics, and robotics — but at the heart of everything I do is a love for
-          clear thinking and compelling communication.
+          Hi, I'm Wendy. I'm an IB student at Shanghai Pinghe, and I like ideas best
+          <em>before</em> they're finished. For two years I sat in the back row on purpose so a
+          half-formed thought could wobble on the page before anyone read it. Lately I've been
+          practising the opposite: putting the unfinished idea on the table and seeing what happens
+          when other people join in.
         </p>
         <p>
-          As a debater, I have competed on regional and national stages under WSDA and TOC formats,
-          earning the title of national champion and Outstanding Speaker awards at every level.
-          I believe the ability to construct and challenge arguments is one of the most transferable
-          skills a young person can develop.
+          Debate taught me that first. I've argued under WSDA and TOC formats with five different
+          partners, won a national title, and collected Outstanding Speaker awards along the way.
+          The skill I'm proudest of is quieter than any of that: restating both sides of an argument
+          until each person recognises their own point.
         </p>
         <p>
-          My intellectual curiosity extends to mathematics and the sciences. I qualified for AIME
-          through AMC 10A, earned a Bronze Medal in the Canadian Chemistry Olympiad, and placed
-          in the top 4% globally in the HIMCM mathematical modeling contest.
+          I'm happiest when a problem has a gap in it. I qualified for AIME through AMC 10A, took a
+          Bronze at the Canadian Chemistry Olympiad, and finished in the top 4% worldwide at HiMCM.
+          Right now I'm stuck, happily, on the no-three-in-line problem, which nobody has solved yet.
         </p>
         <p>
-          Beyond the classroom, I serve as art director for the school newspaper, produce videos
-          for school events, and represent my school in robotics — our FRC team won the 2025 Halic
-          Regional Championship in Istanbul and the 2026 Shanghai Regional Championship.
+          Outside class I build robots (regional champions in Istanbul in 2025 and Shanghai in 2026),
+          design pages for the school newspaper, film school events, teach English to students from
+          rural communities, and wander cities with a camera. My grandmother sorts plums faster than
+          I can see. I'm slower, but I've learned to find the one that's off.
         </p>
       </div>
       <div class="about-highlights">
@@ -1119,12 +1250,154 @@
   </div>
 </section>
 
+<!-- STORIES -->
+<section id="stories">
+  <div class="section-inner">
+    <div class="section-label">Stories · 故事</div>
+    <h2 class="section-title">A Tour of My Laptop Lid</h2>
+    <div class="divider"></div>
+    <p class="section-lede">More than thirty stickers, none of them getting removed, all of them peeling at different speeds.
+      Each one marks a moment that changed how I work. Click one to hear its story.</p>
+
+    <div class="laptop-wrap">
+      <div>
+        <div class="laptop" id="laptop">
+          <!-- five debate emblems -->
+          <button class="sticker" data-id="debate" style="left:5%; top:9%; width:30%; --r:-6deg;" aria-label="Sticker: five debate emblems">
+            <svg viewBox="0 0 170 80" aria-hidden="true">
+              <g stroke="#fff" stroke-width="3">
+                <path d="M6 10h40v26H22l-8 8v-8H6z" fill="#2d5a9e"/>
+                <path d="M40 34h40v26H56l-8 8v-8h-8z" fill="#c8a84b"/>
+                <path d="M72 6h40v26H88l-8 8v-8h-8z" fill="#b5342a"/>
+                <path d="M104 36h40v26h-24l-8 8v-8h-8z" fill="#1a7a6e"/>
+                <path d="M126 4h38v26h-22l-8 8v-8h-8z" fill="#5b3fa8"/>
+              </g>
+              <g fill="#fff" font-family="Georgia,serif" font-size="18" text-anchor="middle">
+                <text x="26" y="30">“</text><text x="60" y="54">”</text><text x="92" y="26">“</text><text x="124" y="56">”</text><text x="145" y="24">“</text>
+              </g>
+            </svg>
+          </button>
+          <!-- star -->
+          <button class="sticker" data-id="star" style="left:43%; top:8%; width:10%; --r:12deg;" aria-label="Sticker: a star">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 62,36 96,38 69,59 79,93 50,74 21,93 31,59 4,38 38,36" fill="#e8c96a" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></svg>
+          </button>
+          <!-- PHocus cover -->
+          <button class="sticker" data-id="phocus" style="left:72%; top:7%; width:18%; --r:5deg;" aria-label="Sticker: PHocus magazine cover">
+            <svg viewBox="0 0 76 100" aria-hidden="true">
+              <defs><linearGradient id="shine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fff" stop-opacity=".45"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+              <rect x="2" y="2" width="72" height="96" rx="3" fill="#fdfcf8" stroke="#fff" stroke-width="3"/>
+              <text x="38" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="15" fill="#0f1f3d">PHocus</text>
+              <text x="38" y="30" text-anchor="middle" font-family="Helvetica,Arial" font-size="6.5" fill="#c8a84b" letter-spacing="1.5">ISSUE 21</text>
+              <rect x="10" y="36" width="56" height="42" fill="#1a3060"/>
+              <circle cx="48" cy="50" r="8" fill="#e8c96a"/>
+              <path d="M10 78 L28 56 L40 68 L50 60 L66 78 Z" fill="#2d5a9e"/>
+              <rect x="10" y="84" width="40" height="3" fill="#c8c0b0"/><rect x="10" y="90" width="28" height="3" fill="#c8c0b0"/>
+              <rect x="2" y="2" width="72" height="96" fill="url(#shine)"/>
+            </svg>
+          </button>
+          <!-- orange robotics sticker (peeling) -->
+          <button class="sticker" data-id="orange" style="left:38%; top:33%; width:22%; --r:-3deg;" aria-label="Sticker: orange robotics logo">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="45" fill="#f28c1e" stroke="#fff" stroke-width="4"/>
+              <circle cx="50" cy="50" r="33" fill="#ffb347"/>
+              <g stroke="#f28c1e" stroke-width="3">
+                <line x1="50" y1="50" x2="50" y2="17"/><line x1="50" y1="50" x2="78.6" y2="33.5"/><line x1="50" y1="50" x2="78.6" y2="66.5"/>
+                <line x1="50" y1="50" x2="50" y2="83"/><line x1="50" y1="50" x2="21.4" y2="66.5"/><line x1="50" y1="50" x2="21.4" y2="33.5"/>
+              </g>
+              <circle cx="50" cy="50" r="6" fill="#fff"/>
+              <path d="M74 10 Q90 12 92 28 L78 24 Z" fill="#fde6c8" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+          </button>
+          <!-- circle of points -->
+          <button class="sticker" data-id="points" style="left:70%; top:58%; width:19%; --r:-8deg;" aria-label="Sticker: points on a circle">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="46" fill="#0f1f3d" stroke="#fff" stroke-width="4"/>
+              <g stroke="rgba(255,255,255,0.12)" stroke-width="1">
+                <line x1="20" y1="30" x2="80" y2="30"/><line x1="20" y1="50" x2="80" y2="50"/><line x1="20" y1="70" x2="80" y2="70"/>
+                <line x1="30" y1="20" x2="30" y2="80"/><line x1="50" y1="20" x2="50" y2="80"/><line x1="70" y1="20" x2="70" y2="80"/>
+              </g>
+              <circle cx="50" cy="50" r="30" fill="none" stroke="#e8c96a" stroke-width="2"/>
+              <g fill="#e8c96a">
+                <circle cx="50" cy="20" r="4"/><circle cx="71" cy="29" r="4"/><circle cx="80" cy="50" r="4"/><circle cx="71" cy="71" r="4"/>
+                <circle cx="50" cy="80" r="4"/><circle cx="29" cy="71" r="4"/><circle cx="20" cy="50" r="4"/><circle cx="29" cy="29" r="4"/>
+              </g>
+            </svg>
+          </button>
+          <!-- red paper flower -->
+          <button class="sticker" data-id="flower" style="left:30%; top:71%; width:9%; --r:18deg;" aria-label="Sticker: small red paper flower">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <g fill="#d63a3a" stroke="#fff" stroke-width="3">
+                <ellipse cx="50" cy="26" rx="16" ry="24"/>
+                <ellipse cx="50" cy="26" rx="16" ry="24" transform="rotate(72 50 50)"/>
+                <ellipse cx="50" cy="26" rx="16" ry="24" transform="rotate(144 50 50)"/>
+                <ellipse cx="50" cy="26" rx="16" ry="24" transform="rotate(216 50 50)"/>
+                <ellipse cx="50" cy="26" rx="16" ry="24" transform="rotate(288 50 50)"/>
+              </g>
+              <circle cx="50" cy="50" r="11" fill="#f6c945"/>
+            </svg>
+          </button>
+          <!-- bare patch -->
+          <button class="sticker st-bare" data-id="bare" style="left:6%; top:62%; width:18%; height:24%;" aria-label="The bare patch">reserved</button>
+        </div>
+        <div class="tour-hint">Tip: stickers you've read get a gold tick ✓</div>
+      </div>
+
+      <div>
+        <div class="tour-card" id="tour-card" aria-live="polite">
+          <div class="tc-kicker">Start anywhere</div>
+          <h3>Every sticker is a receipt.</h3>
+          <p>A friend once ran her thumb over my laptop during a group project, stopped at the orange one and said, “This one's peeling.” It is. They all are. I'm not replacing any of them.
+             Pick a sticker on the left, or press <em>Next</em>.</p>
+        </div>
+        <div class="tour-progress">
+          <span id="tour-count">0 of 7 stickers explored</span>
+          <button type="button" id="tour-next">Next sticker →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="otr-head">
+      <div class="section-label">Off the Record</div>
+      <h2 class="section-title">Things You Wouldn't Guess</h2>
+      <div class="divider"></div>
+      <p class="section-lede">None of these made it onto a certificate. Tap a card to turn it over.</p>
+    </div>
+    <div class="flip-grid">
+      <button class="flip" type="button"><div class="flip-inner">
+        <div class="flip-face flip-front"><span class="fe">🪑</span><span class="fq">Why did I sit in the back row for two years?</span><span class="ft">Tap to flip</span></div>
+        <div class="flip-face flip-back"><b>On purpose. With bad eyesight.</b>I couldn't read the board from back there, so I copied notes from friends later. What I got in return was privacy: nobody could glance at my page while an idea was still half-formed. I like to let a thought wobble for a while before I defend it.</div>
+      </div></button>
+      <button class="flip" type="button"><div class="flip-inner">
+        <div class="flip-face flip-front"><span class="fe">☕</span><span class="fq">Six hours a day, one café, one doll.</span><span class="ft">Tap to flip</span></div>
+        <div class="flip-face flip-back"><b>My Extended Essay summer.</b>Twenty pages on Barbie's self-mocking marketing campaign, written mostly at one café table until the staff started stacking chairs around me. The longer I wrote, the less I agreed with my own first argument, which is usually how I know the essay is working.</div>
+      </div></button>
+      <button class="flip" type="button"><div class="flip-inner">
+        <div class="flip-face flip-front"><span class="fe">🫙</span><span class="fq">The jar of plum wine that turned grey.</span><span class="ft">Tap to flip</span></div>
+        <div class="flip-face flip-back"><b>Grandma's sorting step matters.</b>My grandmother sorts hundreds of plums faster than I can follow and sets aside maybe six. At fifteen I made plum wine myself and skipped the sorting. Two months later it was grey. Now I debug code, proofs and exam papers her way: find the one thing that's off.</div>
+      </div></button>
+      <button class="flip" type="button"><div class="flip-inner">
+        <div class="flip-face flip-front"><span class="fe">📜</span><span class="fq">Du Fu, my dad, and a very quiet voice.</span><span class="ft">Tap to flip</span></div>
+        <div class="flip-face flip-back"><b>Being heard ≠ being overwritten.</b>I was rehearsing my IB oral on a Du Fu poem in the living room when I realised my dad, who was finishing a financial report, understood every word. My voice sank. Then he shared his own reading, and it didn't erase mine. That was the day I stopped hiding behind my sentences.</div>
+      </div></button>
+      <button class="flip" type="button"><div class="flip-inner">
+        <div class="flip-face flip-front"><span class="fe">🌊</span><span class="fq">A judge interrupted our pitch. That was the good part.</span><span class="ft">Tap to flip</span></div>
+        <div class="flip-face flip-back"><b>Conrad Challenge, national stage.</b>Mid-presentation of our wave-powered buoy, a judge stopped us. I assumed something had broken. Instead he explained that the physics we'd built on was his own field, called the idea original, and waved the other judges over to listen.</div>
+      </div></button>
+      <button class="flip" type="button"><div class="flip-inner">
+        <div class="flip-face flip-front"><span class="fe">🔍</span><span class="fq">Same mistake, three different subjects.</span><span class="ft">Tap to flip</span></div>
+        <div class="flip-face flip-back"><b>Grade 11, a slipping term.</b>Instead of asking what I didn't know, I asked <em>how</em> I kept getting things wrong. Physics: answered velocity when it asked for acceleration. Maths: solved the unrestricted interval. Code: forgot the boundary case. It was one bug all along, and once I could name it I could fix it. Next term, Maths HL went from a 6 to a 7.</div>
+      </div></button>
+    </div>
+  </div>
+</section>
+
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
     <div class="section-label">Education</div>
-    <h2 class="section-title">Academic Background</h2>
+    <h2 class="section-title">In the Classroom</h2>
     <div class="divider" style="background: rgba(200,168,75,0.5);"></div>
+    <p class="section-lede">The numbers, plus the part numbers can't show: what my teachers wrote about me.</p>
 
     <div class="edu-card">
       <div class="edu-header">
@@ -1215,6 +1488,7 @@
     <div class="section-label">Awards &amp; Competitions</div>
     <h2 class="section-title">Achievements</h2>
     <div class="divider"></div>
+    <p class="section-lede">Twenty-nine awards across six fields. Each one looks tidy on a certificate; the stories above are the messy parts.</p>
     <div class="journey" id="journey">
       <div class="journey-head">
         <h3>Year by year</h3>
@@ -1469,8 +1743,9 @@
 <section id="research">
   <div class="section-inner">
     <div class="section-label">Research</div>
-    <h2 class="section-title">Independent Projects</h2>
+    <h2 class="section-title">Things I Built to Find Out</h2>
     <div class="divider"></div>
+    <p class="section-lede">Four projects that started with a question nobody assigned, and got interesting the moment something broke.</p>
     <div class="research-cards">
 
       <div class="research-card">
@@ -1485,6 +1760,13 @@
             single pipeline — a novel combination not available in competing open-source tools.
             Includes a custom sample database, algorithm optimization across multiple test cycles,
             and a formal research paper documenting the methodology and results.
+          </p>
+          <p style="margin-top:0.7rem;">
+            <strong style="color:var(--navy); font-weight:normal; font-style:italic;">The fun part:</strong>
+            I built it into an aromatherapy machine that reads your expression and releases a matching scent.
+            At a school showcase it misread my friends' faces. So I split the model into detection, alignment,
+            feature extraction and classification and tested each stage on its own. The culprits were a drifting
+            bounding box and too few “angry” faces in the training data.
           </p>
           <div class="research-meta">
             <span class="meta-pill">Python</span>
@@ -1509,6 +1791,12 @@
             Visibility Model, Gompertz mortality functions, and HPC-environment simulation.
             Produced full research papers and strategy flow diagrams.
           </p>
+          <p style="margin-top:0.7rem;">
+            <strong style="color:var(--navy); font-weight:normal; font-style:italic;">The team part:</strong>
+            at first each of us was solving a different problem: shortest routes, crowd density, how panic moves a
+            bottleneck. I wrote down the assumptions we'd been leaving unspoken and asked everyone what they were
+            really trying to solve. By library closing time it was one model, and nobody had given up their question.
+          </p>
           <div class="research-meta">
             <span class="meta-pill">Multi-agent Modeling</span>
             <span class="meta-pill">Gompertz Functions</span>
@@ -1532,6 +1820,11 @@
             remote monitoring and intelligent control integration. Awarded Silver Award at the
             Conrad Challenge National Stage.
           </p>
+          <p style="margin-top:0.7rem;">
+            <strong style="color:var(--navy); font-weight:normal; font-style:italic;">The moment:</strong>
+            halfway through our pitch a judge interrupted. The physics we'd built on was his own field, and he waved the
+            other judges over to listen.
+          </p>
           <div class="research-meta">
             <span class="meta-pill">TENG</span>
             <span class="meta-pill">SolidWorks</span>
@@ -1542,6 +1835,26 @@
         </div>
       </div>
 
+
+      <div class="research-card">
+        <div class="research-num">04</div>
+        <div>
+          <span class="research-tag" style="background:#ede8f8; color:#3d2a7a;">Combinatorics</span>
+          <h3>The No-Three-in-Line Problem</h3>
+          <p>
+            A grid, some points, one rule that looks friendly: how many points can you place so that no three
+            ever sit on a straight line? It's still an open problem. My paper works through it using graph theory
+            and combinatorics, and the hardest discipline was honesty: marking the step that doesn't quite
+            follow instead of hurrying past it to make the proof look finished.
+          </p>
+          <div class="research-meta">
+            <span class="meta-pill">Graph Theory</span>
+            <span class="meta-pill">Combinatorics</span>
+            <span class="meta-pill">Open Problem</span>
+            <span class="meta-pill">Independent Paper</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1686,8 +1999,9 @@
 <section id="activities">
   <div class="section-inner">
     <div class="section-label">Leadership &amp; Community</div>
-    <h2 class="section-title">Extracurricular Activities</h2>
+    <h2 class="section-title">Beyond the Classroom</h2>
     <div class="divider"></div>
+    <p class="section-lede">Where the hours between classes go. Usually I'm holding a camera, a page layout, or a microphone.</p>
     <div class="activities-grid">
       <div class="activity-card">
         <span class="cat-tag" style="color: var(--accent-blue);">Media &amp; Design</span>
@@ -1705,7 +2019,7 @@
         <span class="cat-tag" style="color: var(--accent-blue);">Media &amp; Design</span>
         <h4>PHocus Magazine</h4>
         <div class="role">Contributor · 2024–2025</div>
-        <p class="detail">Contributing writer for Issues 4, 5, 6, 7, 9, and 10 of the school English magazine.</p>
+        <p class="detail">Contributing writer for Issues 4, 5, 6, 7, 9, and 10. Set up a student discussion board by the main staircase and ran writing workshops for younger students, some of whom went on to become editors.</p>
       </div>
       <div class="activity-card">
         <span class="cat-tag" style="color: var(--accent-purple);">Leadership</span>
@@ -1718,6 +2032,12 @@
         <h4>Integirls Shanghai</h4>
         <div class="role">Official Photographer · March 2025</div>
         <p class="detail">Official photographer for the Shanghai chapter event celebrating women in mathematics.</p>
+      </div>
+      <div class="activity-card">
+        <span class="cat-tag" style="color: var(--accent-teal);">Community</span>
+        <h4>English Tutoring for Rural Students</h4>
+        <div class="role">Volunteer Teacher · 2 years</div>
+        <p class="detail">Taught English to 50+ students from rural communities. My rule: any question can be asked three times.</p>
       </div>
       <div class="activity-card">
         <span class="cat-tag" style="color: var(--accent-purple);">Leadership</span>
@@ -1769,8 +2089,9 @@
 <section id="skills">
   <div class="section-inner">
     <div class="section-label">Skills &amp; Interests</div>
-    <h2 class="section-title">Competencies</h2>
+    <h2 class="section-title">What I Bring to the Table</h2>
     <div class="divider"></div>
+    <p class="section-lede">The toolbox, in no particular order. Hover over anything and it lights up.</p>
     <div class="skills-grid">
       <div class="skill-group">
         <h4>Languages</h4>
@@ -1859,11 +2180,12 @@
 <section id="contact">
   <div class="section-inner">
     <div class="section-label">Get in Touch</div>
-    <h2 class="section-title">Contact</h2>
+    <h2 class="section-title">Let's Talk</h2>
     <div class="divider" style="background: rgba(200,168,75,0.4); margin: 0 auto 2rem;"></div>
-    <p style="color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; font-size: 0.95rem;">
-      Currently a Grade 11 student at Shanghai Pinghe Bilingual School,
-      applying for university entrance in the Class of 2027.
+    <p class="home-quote">“Home, to me, is any room where a <em>half-finished idea</em> is welcome.”</p>
+    <p style="color: rgba(255,255,255,0.5); max-width: 520px; margin: 0 auto; font-size: 0.95rem;">
+      If you've got one (a question, a project, a counter-argument), send it over.
+      I'm a Grade 12 student at Shanghai Pinghe Bilingual School, applying to university for the Class of 2027.
     </p>
     <div class="contact-info">
       <div class="contact-item">
@@ -1959,6 +2281,9 @@
     'NYT-Recognized Writer',
     'Independent Researcher',
     'Photographer & Videographer',
+    'Back-Row Thinker',
+    'Laptop-Sticker Curator',
+    'Plum-Wine Maker (1 failed batch)',
   ];
   const roleEl = document.getElementById('role-text');
   if (reduceMotion) {
@@ -1997,7 +2322,7 @@
     '.about-text', '.highlight-card', '.edu-card', '.achievement-header',
     '.award-card', '.research-card', '.activity-card', '.skill-group',
     '.contact-info', '.contact-actions', '.quote-heading', '.quote-card',
-    '.journey', '.pg-intro', '.pg-tabs',
+    '.journey', '.pg-intro', '.pg-tabs', '.section-lede', '.laptop-wrap', '.flip',
   ];
   const revealEls = document.querySelectorAll(revealSelectors.join(','));
   revealEls.forEach(el => {
@@ -2382,6 +2707,63 @@
     })(t0);
   }
 
+  /* ── Laptop sticker tour ── */
+  const STICKERS = {
+    debate: { k: 'Five debate emblems', h: 'Five stickers, five partners.',
+      p: 'I have debated with five different partners, and every one of them forced me to prep differently: new tools, new structures, sharper rebuttals. The skill I value most came from the arguments inside our own team. When two people talk past each other, I restate each position until both of them recognise their own point in my words.',
+      m: 'The conflict is usually smaller than the volume around it.' },
+    star: { k: 'A star', h: 'Just a star.',
+      p: 'No origin story, no competition, no lesson. I liked it, so it went on the laptop.',
+      m: 'Not everything has to mean something. (Most things do, though. Keep clicking.)' },
+    phocus: { k: 'PHocus, Issue 21', h: 'What an editor is actually for.',
+      p: 'I used to think an editor’s job was to make every piece as strong as possible, even if that meant pushing a writer away from what they believed. I was wrong. PHocus exists so students can say what they think. So we put a discussion board next to a busy staircase and I ran writing workshops for younger students. Some who started with anonymous comments went on to submit articles, and a few became editors.',
+      m: 'A good editor makes it easier for people to join the conversation.' },
+    orange: { k: 'FRC 1678 · Citrus Circuits · Houston 2025', h: 'The one that’s peeling.',
+      p: 'At the 2025 FIRST Championship in Houston, my team went to the Citrus Circuits pit to study one of the best robots there. One of their captains ended up drawing me their team structure: a tree where every department lead mentors someone newer. I walked away with a sticker and a new definition of a strong team.',
+      m: 'A team is only as strong as the way it grows its newest members.' },
+    points: { k: 'Points on a circle', h: 'Leave the gap showing.',
+      p: 'This one came with me through graph theory, combinatorics and the still-unsolved no-three-in-line problem: a grid, some points, and one rule that looks friendly. While writing my paper I caught myself hurrying past a step that didn’t quite follow, because a finished-looking proof is more comfortable than an honest gap.',
+      m: 'It stays on the lid to remind me not to paper over what I can’t prove yet.' },
+    flower: { k: 'A small red paper flower', h: 'The smallest sticker.',
+      p: 'Over two years I taught English to more than fifty students from rural communities. One Grade 5 girl asked the same grammar question three times in one lesson, and I answered it three times. When she later travelled from Henan to Shanghai, she brought me this flower to thank me for never getting impatient. I used to measure my teaching in lessons delivered. She measured it in whether it felt safe to ask again.',
+      m: 'Patience is part of the lesson, not a break from it.' },
+    bare: { k: 'The bare patch', h: 'Reserved.',
+      p: 'Below the trackpad there is one clean patch, the only empty space on the lid. I’m not saving it for a trophy.',
+      m: 'It’s for whatever proves that my description of myself needs updating.' },
+  };
+  const tourCard = document.getElementById('tour-card');
+  const tourCount = document.getElementById('tour-count');
+  const stickerBtns = [...document.querySelectorAll('.sticker')];
+  const seen = new Set();
+  let tourIdx = -1;
+  function showSticker(btn) {
+    const d = STICKERS[btn.dataset.id];
+    stickerBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active', 'seen');
+    seen.add(btn.dataset.id);
+    tourIdx = stickerBtns.indexOf(btn);
+    tourCard.innerHTML = '<div class="tc-kicker"></div><h3></h3><p></p><div class="tc-moral"></div>';
+    tourCard.querySelector('.tc-kicker').textContent = d.k;
+    tourCard.querySelector('h3').textContent = d.h;
+    tourCard.querySelector('p').textContent = d.p;
+    tourCard.querySelector('.tc-moral').textContent = d.m;
+    tourCard.classList.remove('swap'); void tourCard.offsetWidth; tourCard.classList.add('swap');
+    tourCount.textContent = seen.size + ' of ' + stickerBtns.length + ' stickers explored' +
+      (seen.size === stickerBtns.length ? ' · full tour ✓' : '');
+    if (seen.size === stickerBtns.length && !tourCount.dataset.done) { tourCount.dataset.done = 1; confetti(); }
+    if (window.innerWidth < 800) tourCard.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+  }
+  stickerBtns.forEach(b => b.addEventListener('click', () => showSticker(b)));
+  document.getElementById('tour-next').addEventListener('click', () => showSticker(stickerBtns[(tourIdx + 1) % stickerBtns.length]));
+
+  /* ── Flip cards ── */
+  document.querySelectorAll('.flip').forEach(f => {
+    f.setAttribute('aria-pressed', 'false');
+    f.addEventListener('click', () => {
+      f.classList.toggle('flipped');
+      f.setAttribute('aria-pressed', f.classList.contains('flipped'));
+    });
+  });
   /* ── Portrait tilt ── */
   const portrait = document.querySelector('.hero-photo');
   if (portrait && !reduceMotion && matchMedia('(hover: hover)').matches) {
@@ -2400,6 +2782,8 @@
   const sectionItem = (ic, label, id) => ({ ic, label, grp: 'Go to', run: () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) });
   const ITEMS = [
     sectionItem('👋', 'About me', 'about'),
+    sectionItem('💻', 'Laptop sticker tour', 'stories'),
+    sectionItem('🃏', 'Things you wouldn’t guess', 'stories'),
     sectionItem('🎓', 'Education & teacher comments', 'education'),
     sectionItem('🏆', 'Achievements', 'achievements'),
     sectionItem('🔬', 'Research projects', 'research'),
