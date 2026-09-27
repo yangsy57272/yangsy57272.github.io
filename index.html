@@ -1010,6 +1010,7 @@
 <link rel="stylesheet" href="interactions.css">
 <script src="music.js" defer></script>
 <script src="interactions.js" defer></script>
+<script src="evidence.js" defer></script>
 </head>
 <body>
 
@@ -1507,6 +1508,7 @@
     <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"></use></svg><div class="section-label">Research</div>
     <h2 class="section-title">Questions I kept working on</h2>
     <div class="divider"></div>
+    <p class="evidence-intro">The papers are useful, but the working pages tell the story faster. Open any image to look closer, then move through the set with the arrow keys.</p>
     <div class="research-cards">
 
       <div class="research-card">
@@ -1522,13 +1524,77 @@
             <span class="meta-pill">Computer Vision</span>
             <span class="meta-pill">3D-printed enclosure</span>
           </div>
+          <div class="evidence-block">
+            <div class="evidence-heading"><span>From my workbench</span><small>hardware → CAD → model</small></div>
+            <div class="evidence-rail" data-evidence-group="ScentSense">
+              <button class="evidence-shot evidence-wide" type="button" data-full="assets/evidence/scentsense-hardware.jpg" data-caption="The working ScentSense prototype: four scent channels, electronics, and a reused transparent shell."><img src="assets/evidence/scentsense-hardware.jpg" alt="ScentSense physical prototype with four scent channels and visible electronics" loading="lazy" decoding="async"><span>physical build</span></button>
+              <button class="evidence-shot" type="button" data-full="assets/evidence/scentsense-cad-front.jpg" data-caption="Front enclosure study from the casing iteration process."><img src="assets/evidence/scentsense-cad-front.jpg" alt="CAD study of the ScentSense enclosure front" loading="lazy" decoding="async"><span>casing study</span></button>
+              <button class="evidence-shot" type="button" data-full="assets/evidence/cv-architecture.jpg" data-caption="The expression-recognition system from input image to identity and emotion output."><img src="assets/evidence/cv-architecture.jpg" alt="Facial expression recognition system architecture diagram" loading="lazy" decoding="async"><span>model pipeline</span></button>
+              <button class="evidence-shot" type="button" data-full="assets/evidence/cv-confusion-matrix.jpg" data-caption="FER-2013 validation confusion matrix used to see which expressions the model mixed up."><img src="assets/evidence/cv-confusion-matrix.jpg" alt="FER-2013 validation confusion matrix" loading="lazy" decoding="async"><span>error map</span></button>
+              <button class="evidence-shot" type="button" data-full="assets/evidence/scentsense-poster-01.jpg" data-caption="The complete ScentSense project poster, bringing the hardware, recognition pipeline, and evaluation into one page."><img src="assets/evidence/scentsense-poster-01.jpg" alt="Full ScentSense project poster" loading="lazy" decoding="async"><span>project poster</span></button>
+            </div>
+          </div>
         </div>
       </div>
 
-<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg><div><span class="research-tag">HiMCM 2024 · Team paper</span><h3>What does computing leave behind?</h3><p>Our 2024 paper follows high-performance computing through manufacturing, transport, use, and end-of-life. We model carbon emissions and water consumption, looking at how hardware replacement and electricity sources could change the footprint by 2030. It made the less visible costs of a computation feel much more concrete.</p><a class="paper-link" href="assets/HiMCM-2024-Paper.pdf" target="_blank" rel="noopener">Read the 2024 paper · PDF <span aria-hidden="true">↗</span></a></div></article>
-<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg><div><span class="research-tag">HiMCM 2025 · Team paper</span><h3>Which room should a responder check next?</h3><p>In 2025, we turned to evacuation sweeps. Our team built an agent-based model to compare responder routes through buildings as fire, smoke, and gas hazards change. The question was how to balance time, responder safety, and making sure nobody was missed.</p><a class="paper-link" href="assets/HiMCM-2025-Paper.pdf" target="_blank" rel="noopener">Read the 2025 paper · PDF <span aria-hidden="true">↗</span></a></div></article>
-<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-notebook"/></svg><div><span class="research-tag">English B · Extended Essay</span><h3>Barbie, irony &amp; the things we’re sold</h3><p>Can a film question consumer culture while making its own brand more appealing? My Extended Essay reads Barbie (2023) through its irony: the rehearsed perfection of Barbie Land, Gloria’s monologue, and Ken’s “Kendom.” I explore how a critique of femininity can become part of the product’s appeal.</p><a class="paper-link" href="assets/Barbie-Extended-Essay.pdf" target="_blank" rel="noopener">Read my Extended Essay · PDF <span aria-hidden="true">↗</span></a></div></article>
-<article class="research-card"><svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg><div><span class="research-tag">Combinatorial geometry</span><h3>No three in a line</h3><p>A small grid, a simple rule: choose points without putting three on one straight line. My paper studies three-row grids, translating the geometry into arithmetic conditions and using computation to enumerate configurations up to 20 columns, including their symmetries.</p><a class="paper-link" href="assets/No-Three-In-Line.pdf" target="_blank" rel="noopener">Read the research paper · PDF <span aria-hidden="true">↗</span></a></div></article>
+      <article class="research-card">
+        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg>
+        <div><span class="research-tag">HiMCM 2024 · Team paper</span><h3>What does computing leave behind?</h3><p>Our 2024 paper follows high-performance computing through manufacturing, transport, use, and end-of-life. We model carbon emissions and water consumption, looking at how hardware replacement and electricity sources could change the footprint by 2030. It made the less visible costs of a computation feel much more concrete.</p><a class="paper-link" href="assets/HiMCM-2024-Paper.pdf" target="_blank" rel="noopener">Read the 2024 paper · PDF <span aria-hidden="true">↗</span></a>
+          <div class="evidence-block"><div class="evidence-heading"><span>Inside the model</span><small>assumptions → scenarios → forecasts</small></div><div class="evidence-rail" data-evidence-group="HiMCM 2024">
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2024-02.jpg" data-caption="Our lifecycle map for the environmental impact of high-performance computing."><img src="assets/evidence/himcm-2024-02.jpg" alt="HiMCM 2024 environmental impact model overview" loading="lazy" decoding="async"><span>model map</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2024-09.jpg" data-caption="The model separates carbon emissions and water consumption across stages."><img src="assets/evidence/himcm-2024-09.jpg" alt="HiMCM 2024 emissions and water charts" loading="lazy" decoding="async"><span>two footprints</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2024-11.jpg" data-caption="Projected environmental impact under different hardware and energy assumptions."><img src="assets/evidence/himcm-2024-11.jpg" alt="HiMCM 2024 projection curves" loading="lazy" decoding="async"><span>scenario curves</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2024-14.jpg" data-caption="Comparison outputs used to test the replacement scenarios."><img src="assets/evidence/himcm-2024-14.jpg" alt="HiMCM 2024 comparison output" loading="lazy" decoding="async"><span>comparison</span></button>
+          </div></div>
+        </div>
+      </article>
+      <article class="research-card">
+        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg>
+        <div><span class="research-tag">HiMCM 2025 · Team paper</span><h3>Which room should a responder check next?</h3><p>In 2025, we turned to evacuation sweeps. Our team built an agent-based model to compare responder routes through buildings as fire, smoke, and gas hazards change. The question was how to balance time, responder safety, and making sure nobody was missed.</p><a class="paper-link" href="assets/HiMCM-2025-Paper.pdf" target="_blank" rel="noopener">Read the 2025 paper · PDF <span aria-hidden="true">↗</span></a>
+          <div class="evidence-block"><div class="evidence-heading"><span>Routes under pressure</span><small>building → agents → decisions</small></div><div class="evidence-rail" data-evidence-group="HiMCM 2025">
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2025-11.jpg" data-caption="The agent-based simulation flow from the 2025 paper."><img src="assets/evidence/himcm-2025-11.jpg" alt="HiMCM 2025 agent-based simulation flowchart" loading="lazy" decoding="async"><span>agent logic</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2025-12.jpg" data-caption="A sample building plan translated into rooms, connections, and exits."><img src="assets/evidence/himcm-2025-12.jpg" alt="HiMCM 2025 building plan model" loading="lazy" decoding="async"><span>floor plan</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2025-13.jpg" data-caption="Simulated responder paths through a more complex building layout."><img src="assets/evidence/himcm-2025-13.jpg" alt="HiMCM 2025 responder routes through a building" loading="lazy" decoding="async"><span>route test</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/himcm-2025-24.jpg" data-caption="The complete decision flow used by a responder agent."><img src="assets/evidence/himcm-2025-24.jpg" alt="HiMCM 2025 full responder decision flow" loading="lazy" decoding="async"><span>decision tree</span></button>
+          </div></div>
+        </div>
+      </article>
+      <article class="research-card">
+        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-notebook"/></svg>
+        <div><span class="research-tag">English B · Extended Essay</span><h3>Barbie, irony &amp; the things we’re sold</h3><p>Can a film question consumer culture while making its own brand more appealing? My Extended Essay reads Barbie (2023) through its irony: the rehearsed perfection of Barbie Land, Gloria’s monologue, and Ken’s “Kendom.” I explore how a critique of femininity can become part of the product’s appeal.</p><a class="paper-link" href="assets/Barbie-Extended-Essay.pdf" target="_blank" rel="noopener">Read my Extended Essay · PDF <span aria-hidden="true">↗</span></a>
+          <details class="paper-leafthrough"><summary><span>Leaf through all 18 pages</span><small>complete essay preview</small></summary><div class="paper-page-rail evidence-rail" data-evidence-group="Extended Essay">
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-01.jpg" data-caption="Extended Essay — page 1 of 18"><img src="assets/evidence/ee-01.jpg" alt="Extended Essay page 1" loading="lazy" decoding="async"><span>01</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-02.jpg" data-caption="Extended Essay — page 2 of 18"><img src="assets/evidence/ee-02.jpg" alt="Extended Essay page 2" loading="lazy" decoding="async"><span>02</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-03.jpg" data-caption="Extended Essay — page 3 of 18"><img src="assets/evidence/ee-03.jpg" alt="Extended Essay page 3" loading="lazy" decoding="async"><span>03</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-04.jpg" data-caption="Extended Essay — page 4 of 18"><img src="assets/evidence/ee-04.jpg" alt="Extended Essay page 4" loading="lazy" decoding="async"><span>04</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-05.jpg" data-caption="Extended Essay — page 5 of 18"><img src="assets/evidence/ee-05.jpg" alt="Extended Essay page 5" loading="lazy" decoding="async"><span>05</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-06.jpg" data-caption="Extended Essay — page 6 of 18"><img src="assets/evidence/ee-06.jpg" alt="Extended Essay page 6" loading="lazy" decoding="async"><span>06</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-07.jpg" data-caption="Extended Essay — page 7 of 18"><img src="assets/evidence/ee-07.jpg" alt="Extended Essay page 7" loading="lazy" decoding="async"><span>07</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-08.jpg" data-caption="Extended Essay — page 8 of 18"><img src="assets/evidence/ee-08.jpg" alt="Extended Essay page 8" loading="lazy" decoding="async"><span>08</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-09.jpg" data-caption="Extended Essay — page 9 of 18"><img src="assets/evidence/ee-09.jpg" alt="Extended Essay page 9" loading="lazy" decoding="async"><span>09</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-10.jpg" data-caption="Extended Essay — page 10 of 18"><img src="assets/evidence/ee-10.jpg" alt="Extended Essay page 10" loading="lazy" decoding="async"><span>10</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-11.jpg" data-caption="Extended Essay — page 11 of 18"><img src="assets/evidence/ee-11.jpg" alt="Extended Essay page 11" loading="lazy" decoding="async"><span>11</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-12.jpg" data-caption="Extended Essay — page 12 of 18"><img src="assets/evidence/ee-12.jpg" alt="Extended Essay page 12" loading="lazy" decoding="async"><span>12</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-13.jpg" data-caption="Extended Essay — page 13 of 18"><img src="assets/evidence/ee-13.jpg" alt="Extended Essay page 13" loading="lazy" decoding="async"><span>13</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-14.jpg" data-caption="Extended Essay — page 14 of 18"><img src="assets/evidence/ee-14.jpg" alt="Extended Essay page 14" loading="lazy" decoding="async"><span>14</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-15.jpg" data-caption="Extended Essay — page 15 of 18"><img src="assets/evidence/ee-15.jpg" alt="Extended Essay page 15" loading="lazy" decoding="async"><span>15</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-16.jpg" data-caption="Extended Essay — page 16 of 18"><img src="assets/evidence/ee-16.jpg" alt="Extended Essay page 16" loading="lazy" decoding="async"><span>16</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-17.jpg" data-caption="Extended Essay — page 17 of 18"><img src="assets/evidence/ee-17.jpg" alt="Extended Essay page 17" loading="lazy" decoding="async"><span>17</span></button>
+            <button class="evidence-shot paper-page" type="button" data-full="assets/evidence/ee-18.jpg" data-caption="Extended Essay — page 18 of 18"><img src="assets/evidence/ee-18.jpg" alt="Extended Essay page 18" loading="lazy" decoding="async"><span>18</span></button>
+          </div></details>
+        </div>
+      </article>
+      <article class="research-card">
+        <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-graph"/></svg>
+        <div><span class="research-tag">Combinatorial geometry</span><h3>No three in a line</h3><p>A small grid, a simple rule: choose points without putting three on one straight line. My paper studies three-row grids, translating the geometry into arithmetic conditions and using computation to enumerate configurations up to 20 columns, including their symmetries.</p><a class="paper-link" href="assets/No-Three-In-Line.pdf" target="_blank" rel="noopener">Read the research paper · PDF <span aria-hidden="true">↗</span></a>
+          <div class="evidence-block"><div class="evidence-heading"><span>Proofs become pictures</span><small>grid → symmetry → enumeration</small></div><div class="evidence-rail" data-evidence-group="No three in a line">
+            <button class="evidence-shot" type="button" data-full="assets/evidence/no-three-grid-transform.jpg" data-caption="Grid transformations used to compare configurations without recounting equivalent cases."><img src="assets/evidence/no-three-grid-transform.jpg" alt="No-three-in-line grid transformations" loading="lazy" decoding="async"><span>grid transforms</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/no-three-symmetry.jpg" data-caption="The symmetry action behind the classification of configurations."><img src="assets/evidence/no-three-symmetry.jpg" alt="No-three-in-line symmetry action" loading="lazy" decoding="async"><span>symmetry action</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/no-three-klein-four.jpg" data-caption="A visual construction of the Klein four-group used in the symmetry discussion."><img src="assets/evidence/no-three-klein-four.jpg" alt="Klein four-group diagram" loading="lazy" decoding="async"><span>Klein four</span></button>
+            <button class="evidence-shot" type="button" data-full="assets/evidence/no-three-dihedral.jpg" data-caption="A dihedral-symmetry lemma developed in the paper."><img src="assets/evidence/no-three-dihedral.jpg" alt="Dihedral symmetry lemma diagram" loading="lazy" decoding="async"><span>dihedral lemma</span></button>
+          </div></div>
+        </div>
+      </article>
       <div class="research-card">
         <svg class="project-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-plums"></use></svg>
         <div>
@@ -1541,6 +1607,15 @@
             <span class="meta-pill">3D Printing</span>
             <span class="meta-pill">Energy Harvesting</span>
             <span class="meta-pill">Conrad Silver Award</span>
+          </div>
+          <div class="evidence-block">
+            <div class="evidence-heading"><span>Prototype, not a rendering</span><small>wiring → generator → control</small></div>
+            <div class="evidence-rail" data-evidence-group="Greenvolt Spark">
+              <button class="evidence-shot evidence-wide" type="button" data-full="assets/evidence/greenvolt-generator.jpg" data-caption="The wave-energy generator mounted on its transparent test frame."><img src="assets/evidence/greenvolt-generator.jpg" alt="Greenvolt Spark wave-energy generator prototype" loading="lazy" decoding="async"><span>generator rig</span></button>
+              <button class="evidence-shot" type="button" data-full="assets/evidence/greenvolt-wiring.jpg" data-caption="A close view of the wiring and circular harvesting element during assembly."><img src="assets/evidence/greenvolt-wiring.jpg" alt="Greenvolt Spark wiring and harvesting element" loading="lazy" decoding="async"><span>assembly</span></button>
+              <button class="evidence-shot" type="button" data-full="assets/evidence/greenvolt-esp32.jpg" data-caption="The ESP32 control and transmission module on the prototype base."><img src="assets/evidence/greenvolt-esp32.jpg" alt="ESP32 module on Greenvolt Spark prototype" loading="lazy" decoding="async"><span>ESP32 control</span></button>
+              <button class="evidence-shot" type="button" data-full="assets/evidence/greenvolt-module.jpg" data-caption="A close-up of the modular electronics and connections used during testing."><img src="assets/evidence/greenvolt-module.jpg" alt="Modular Greenvolt Spark electronics" loading="lazy" decoding="async"><span>test module</span></button>
+            </div>
           </div>
         </div>
       </div>
@@ -2568,5 +2643,11 @@
   }
 })();
 </script>
+<dialog class="evidence-viewer" id="evidence-viewer" aria-labelledby="evidence-caption">
+  <button class="evidence-close" type="button" aria-label="Close image viewer">×</button>
+  <button class="evidence-nav evidence-prev" type="button" aria-label="Previous image">←</button>
+  <figure><img src="" alt=""><figcaption id="evidence-caption"></figcaption></figure>
+  <button class="evidence-nav evidence-next" type="button" aria-label="Next image">→</button>
+</dialog>
 </body>
 </html>
