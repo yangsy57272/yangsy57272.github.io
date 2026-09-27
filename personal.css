@@ -134,6 +134,16 @@ section .section-inner { position:relative; }
 .activity-card:nth-child(3n+2) { background:#eeece340; }
 .activity-card h4 { font-size:1.1rem; font-weight:normal; }
 .activity-card .detail { font-size:.9rem; line-height:1.7; }
+.life-evidence { margin-top:4.5rem; padding-top:2.2rem; border-top:1px solid #d6d0c1; }
+.life-evidence-heading { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(240px,.8fr); gap:2rem; align-items:end; margin-bottom:2rem; }
+.life-evidence-heading h3 { color:#344a43; font-size:clamp(1.55rem,2.4vw,2.2rem); font-weight:normal; line-height:1.2; max-width:620px; }
+.life-evidence-heading p { color:#707468; line-height:1.75; max-width:460px; }
+.life-evidence-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.2rem; align-items:start; }
+.life-evidence-card { background:#fffdf8; border:1px solid #ddd6c8; border-radius:5px; padding:1.2rem; box-shadow:0 8px 24px #3c33230a; }
+.life-evidence-card .evidence-rail { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.life-evidence-wide { grid-column:span 2; }
+.life-evidence-wide .evidence-rail { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.quiet-frame { max-width:520px; justify-self:end; transform:rotate(.5deg); }
 #skills { background:#edece3; }
 .skill-tag { border-radius:2px; background:#f9f7ef; }
 #playground { background:#304943; }
@@ -161,6 +171,11 @@ footer { background:#e5e0d4; color:#777564; }
  .research-card { padding:1.5rem; grid-template-columns:1fr; gap:.7rem; }
  .project-sticker { width:65px; height:65px; }
  .edu-card { padding:1.4rem; }
+ .life-evidence { margin-top:3rem; }
+ .life-evidence-heading,.life-evidence-grid { grid-template-columns:1fr; }
+ .life-evidence-wide { grid-column:auto; }
+ .life-evidence-card .evidence-rail,.life-evidence-wide .evidence-rail { display:flex; }
+ .quiet-frame { max-width:none; justify-self:stretch; }
 }
 @media(prefers-reduced-motion:reduce) { .section-sticker { transition:none; } }
 .sticker-shortcuts { display:flex; gap:1.3rem; margin:1.4rem 0 2rem; }
