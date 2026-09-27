@@ -3,7 +3,7 @@
   const tracks = [
     { id: 'rap', title: 'Song 01 · Rap', file: 'song-01-rap.mp3' },
     { id: 'time-machine', title: 'Time Machine · Country', file: 'time-machine.mp3' },
-    { id: 'folk', title: 'Song 03 · 中文民谣', file: 'song-03-folk.mp3' }
+    { id: 'folk', title: 'Song 03 · Folk', file: 'song-03-folk.mp3' }
   ];
   const roots = [...document.querySelectorAll('[data-music-player]')];
   if (!roots.length) return;

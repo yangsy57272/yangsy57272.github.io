@@ -1,0 +1,35 @@
+/* Pointer responses shared by the notebook and gallery. */
+.pointer-halo {
+  position:fixed; z-index:999; left:0; top:0; width:280px; height:280px;
+  margin:-140px 0 0 -140px; border-radius:50%; pointer-events:none; opacity:0;
+  background:radial-gradient(circle,#d69a7040 0,#c8a26c17 28%,transparent 68%);
+  mix-blend-mode:multiply; transform:translate3d(var(--pointer-x,-400px),var(--pointer-y,-400px),0);
+  transition:opacity .3s; will-change:transform;
+}
+.pointer-active .pointer-halo { opacity:.72; }
+.pointer-halo.is-down { background:radial-gradient(circle,#b55f4948 0,#c8a26c19 34%,transparent 70%); }
+.reactive-surface {
+  --tilt-x:0deg; --tilt-y:0deg; --lift:0px;
+  transform:perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(var(--lift));
+  transform-style:preserve-3d; transition:transform .22s ease,border-color .25s,box-shadow .25s;
+  will-change:transform; position:relative;
+}
+.reactive-surface:hover { --lift:-3px; }
+.reactive-sheen {
+  position:absolute!important; z-index:0!important; inset:0; border-radius:inherit; pointer-events:none;
+  opacity:0; transition:opacity .25s;
+  background:radial-gradient(180px circle at var(--surface-x,50%) var(--surface-y,50%),rgba(255,255,255,.44),transparent 72%);
+}
+.reactive-surface:hover>.reactive-sheen { opacity:1; }
+.reactive-surface>*:not(.reactive-sheen) { position:relative; z-index:1; }
+.magnetic { --pull-x:0px; --pull-y:0px; translate:var(--pull-x) var(--pull-y); transition:translate .18s ease,color .2s,background .2s; }
+.ink-ripple {
+  position:fixed; z-index:998; width:12px; height:12px; margin:-6px; border:1px solid #a76049;
+  border-radius:50%; pointer-events:none; animation:ink-bloom .65s ease-out forwards;
+}
+@keyframes ink-bloom { to { transform:scale(6); opacity:0; } }
+@media(hover:none),(pointer:coarse) { .pointer-halo { display:none; } .reactive-surface { transform:none!important; } }
+@media(prefers-reduced-motion:reduce) {
+  .pointer-halo,.ink-ripple { display:none; }
+  .reactive-surface,.magnetic { transform:none!important; translate:none!important; transition:none!important; }
+}

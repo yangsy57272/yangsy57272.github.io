@@ -120,7 +120,7 @@
     box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 4px 14px rgba(0,0,0,0.3);
   }
   .hero-photo::after {
-    content: '杨诗怡 · Wendy';
+    content: 'Shiyi Yang · Wendy';
     position: absolute; left: 50%; bottom: -2.4rem; transform: translateX(-50%);
     white-space: nowrap;
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -1007,7 +1007,9 @@
 </style>
 <link rel="stylesheet" href="personal.css">
 <link rel="stylesheet" href="music.css">
+<link rel="stylesheet" href="interactions.css">
 <script src="music.js" defer></script>
+<script src="interactions.js" defer></script>
 </head>
 <body>
 
@@ -1040,7 +1042,7 @@
     <div class="hero-text">
     <div class="hero-label">Shanghai · a small corner of the internet</div>
     <h1>Hi, I’m Wendy<span class="hello-dot">.</span></h1>
-    <div class="hero-chinese">Shiyi Yang &nbsp;/&nbsp; 杨诗怡</div>
+    <div class="hero-chinese">Shiyi Yang &nbsp;/&nbsp; Wendy</div>
     <div class="hero-roles">A work in progress, with a camera and a playlist.</div>
     <p class="hero-tagline">There are more than thirty stickers on my laptop. Some are peeling. I keep them anyway: a small red flower, a Citrus Circuits sticker, a reminder to leave the gap in a proof showing.</p>
     <p class="hero-invitation">Here are a few of the stories I carry with me.</p>
@@ -1070,6 +1072,10 @@
       <blockquote>“Being heard does not mean being overwritten.”<cite>A thought I’m learning to carry with me.</cite></blockquote>
     </div>
   </div>
+  <figure class="identity-constellation" aria-labelledby="identity-caption">
+    <img src="assets/illustrations/personal-constellation.png" alt="An illustrated trail of Wendy's camera, record and headphones, graph notebook, red flower, wave buoy, robotics wheel and caliper" loading="lazy" decoding="async">
+    <figcaption id="identity-caption"><span>camera</span><span>chords</span><span>proofs</span><span>waves</span><span>things I build</span></figcaption>
+  </figure>
 </section>
 
 <!-- PERSONAL MOMENTS -->
@@ -1115,20 +1121,38 @@
 <!-- EDUCATION -->
 <section id="photo-teaser">
   <div class="section-inner">
-    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-camera"></use></svg><div class="section-label">Photography · 摄影</div>
+    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-camera"></use></svg><div class="section-label">Photography</div>
     <h2 class="section-title">Through the Lens</h2>
     <p>Istanbul between robotics matches. A forest park at half past four.
        The West Bund after sunset. A few places where I stopped to look.</p>
     <div class="teaser-row">
-      <a href="photography.html#photo-DSC05866" aria-label="Open Hagia Sophia in the photography gallery"><img src="assets/photos/city/DSC05866.jpg" alt="Hagia Sophia" loading="lazy"></a>
-      <a href="photography.html#photo-DSC07053" aria-label="Open Galata Tower in the photography gallery"><img src="assets/photos/city/DSC07053.jpg" alt="Galata Tower from the water" loading="lazy"></a>
-      <a href="photography.html#photo-DSC08102" aria-label="Open Poppy Afternoon in the photography gallery"><img src="assets/photos/gongqing/DSC08102.jpg" alt="Poppy meadow" loading="lazy"></a>
+      <a href="photography.html#photo-DSC05866" aria-label="Open Hagia Sophia in the photography gallery"><img src="assets/thumbs/city/DSC05866.webp" alt="Hagia Sophia" loading="lazy" decoding="async"></a>
+      <a href="photography.html#photo-DSC07053" aria-label="Open Galata Tower in the photography gallery"><img src="assets/thumbs/city/DSC07053.webp" alt="Galata Tower from the water" loading="lazy" decoding="async"></a>
+      <a href="photography.html#photo-DSC08102" aria-label="Open Poppy Afternoon in the photography gallery"><img src="assets/thumbs/gongqing/DSC08102.webp" alt="Poppy meadow" loading="lazy" decoding="async"></a>
     </div>
     <a class="teaser-btn" href="photography.html">Take a little wander →</a>
   </div>
 </section>
 
-<section id="music"><div class="section-inner"><div class="music-heading"><div><div class="section-label">Another side of me · 写歌</div><h2 class="section-title">A few things I put into songs.</h2></div><svg class="record-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-record"/></svg></div><div class="music-intro"><p>I’m a songwriter and a music lover. Kanye West and XXXTentacion are part of what I listen to; rap is a big part of my playlist. My own writing also wanders into country and Chinese folk.</p><p>These are three of my song projects. Put one on, stay for a while, or take it with you into the photo gallery.</p></div><div class="song-grid"><article class="song-card" data-song="rap"><span class="song-number">SIDE 01</span><h3>Song 01</h3><p class="song-genre">Rap · identity &amp; expectations</p><p>A song about trying to hear your own voice through everyone else’s expectations.</p><div class="song-actions"><button type="button" data-play-track="rap">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/song-01-rap.mp3" download>MP3 ↓</a></div></article><article class="song-card" data-song="time-machine"><span class="song-number">SIDE 02</span><h3>Time Machine</h3><p class="song-genre">Country · distance &amp; memory</p><p>Trying to build a time machine out of memories, with a friend on the other side of an ocean.</p><div class="song-actions"><button type="button" data-play-track="time-machine">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/time-machine.mp3" download>MP3 ↓</a></div></article><article class="song-card" data-song="folk"><span class="song-number">SIDE 03</span><h3>Song 03 · 中文民谣</h3><p class="song-genre">Chinese folk · family &amp; remembering</p><p>Old photographs, a lake outside the family home, and the things left unsaid.</p><div class="song-actions"><button type="button" data-play-track="folk">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/song-03-folk.mp3" download>MP3 ↓</a></div></article></div><div class="music-console" data-music-player aria-label="Song player"></div><a class="music-gallery-link" href="photography.html">Photographs, with a soundtrack ↗</a></div></section>
+<section id="music"><div class="section-inner">
+  <div class="music-heading"><div><div class="section-label">Another side of me · songwriting</div><h2 class="section-title">A few things I put into songs.</h2></div><svg class="record-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-record"/></svg></div>
+  <div class="music-intro"><p>I’m a songwriter and a music lover. Kanye West and XXXTentacion are part of what I listen to; rap is a big part of my playlist. My own writing also wanders into country and folk.</p><p>Each symbol below is a small visual reading of the song. Put one on, stay for a while, or take it with you into the photo gallery.</p></div>
+  <div class="song-grid">
+    <article class="song-card" data-song="rap">
+      <div class="song-symbol song-symbol-rap" aria-hidden="true"><svg viewBox="0 0 180 120"><path class="symbol-orbit" d="M18 61C45 19 132 16 163 56C139 99 50 102 18 61Z"/><path class="symbol-wave" d="M34 64h15l7-30 12 58 11-44 11 31 10-22 9 13h31"/><circle cx="91" cy="61" r="7"/></svg></div>
+      <span class="song-number">SIDE 01</span><h3>Song 01</h3><p class="song-genre">Rap · identity &amp; expectations</p><p>A song about trying to hear your own voice through everyone else’s expectations.</p><div class="song-actions"><button type="button" data-play-track="rap">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/song-01-rap.mp3" download>MP3 ↓</a></div>
+    </article>
+    <article class="song-card" data-song="time-machine">
+      <div class="song-symbol song-symbol-time" aria-hidden="true"><svg viewBox="0 0 180 120"><circle class="clock-face" cx="90" cy="61" r="35"/><path class="clock-hand" d="M90 61V38M90 61l19 11"/><path class="time-orbit" d="M31 66C42 19 143 11 155 58C165 96 72 112 34 80"/><circle class="orbit-dot" cx="34" cy="80" r="6"/></svg></div>
+      <span class="song-number">SIDE 02</span><h3>Time Machine</h3><p class="song-genre">Country · distance &amp; memory</p><p>Trying to build a time machine out of memories, with a friend on the other side of an ocean.</p><div class="song-actions"><button type="button" data-play-track="time-machine">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/time-machine.mp3" download>MP3 ↓</a></div>
+    </article>
+    <article class="song-card" data-song="folk">
+      <div class="song-symbol song-symbol-folk" aria-hidden="true"><svg viewBox="0 0 180 120"><path class="folk-sun" d="M116 21a18 18 0 1 1-1 0"/><path class="folk-hill" d="M12 83Q49 51 82 79Q111 48 168 82"/><path class="folk-water" d="M23 92Q48 83 73 92T123 92T163 92M38 103Q63 95 88 103T141 103"/><path class="folk-frame" d="M38 29h43v35H38zM45 54l10-10 8 8 7-7 8 9"/></svg></div>
+      <span class="song-number">SIDE 03</span><h3>Song 03 · Folk</h3><p class="song-genre">Family · remembering</p><p>Old photographs, a lake outside the family home, and the things left unsaid.</p><div class="song-actions"><button type="button" data-play-track="folk">Play song <span aria-hidden="true">▷</span></button><a href="assets/music/song-03-folk.mp3" download>MP3 ↓</a></div>
+    </article>
+  </div>
+  <div class="music-console" data-music-player aria-label="Song player"></div><a class="music-gallery-link" href="photography.html">Photographs, with a soundtrack ↗</a>
+</div></section>
 
 <section id="education">
   <div class="section-inner">
@@ -1292,7 +1316,7 @@
         <div class="award-card ac-purple">
           <div class="award-year" style="color: var(--accent-purple);">2026</div>
           <div class="award-title">ESDP — High School Division</div>
-          <div><span class="award-result r-gold">Special Grand Prize (特等奖)</span></div>
+          <div><span class="award-result r-gold">Special Grand Prize</span></div>
         </div>
         <div class="award-card ac-purple">
           <div class="award-year" style="color: var(--accent-purple);">2024</div>
@@ -1714,7 +1738,7 @@
         <span class="cat-tag" style="color: var(--accent-red);">Sports</span>
         <h4>Rugby — Shanghai International Citizens Tournament</h4>
         <div class="role">2024</div>
-        <p class="detail">Runner-up (亚军) representing school team in the international tournament.</p>
+        <p class="detail">Runner-up representing the school team in the international tournament.</p>
       </div>
       <div class="activity-card">
         <span class="cat-tag" style="color: var(--accent-red);">Sports</span>
