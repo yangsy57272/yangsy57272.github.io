@@ -14,6 +14,13 @@
   let active = -1;
   let scheduled = false;
   let transitionTimer;
+  const touchLensFocus = [['34%', '33%'], ['67%', '39%'], ['58%', '35%']];
+
+  function positionTouchLens(index) {
+    const [x, y] = touchLensFocus[index];
+    stage.style.setProperty('--chapter-pointer-x', x);
+    stage.style.setProperty('--chapter-pointer-y', y);
+  }
 
   story.classList.add('is-enhanced');
 
@@ -35,6 +42,7 @@
     });
     count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')}`;
     scrollNote.textContent = index === steps.length - 1 ? 'Keep exploring ↓' : 'Scroll to turn the page ↓';
+    if (revealButton.getAttribute('aria-pressed') === 'true' && innerWidth <= 760) positionTouchLens(index);
     transitionTimer = setTimeout(() => visuals.forEach(visual => visual.classList.remove('is-leaving')), reducedMotion ? 0 : 950);
   }
 
@@ -74,8 +82,7 @@
   revealButton.addEventListener('click', () => {
     const revealed = !stage.classList.contains('is-peeking');
     stage.classList.toggle('is-peeking', revealed);
-    stage.style.setProperty('--chapter-pointer-x', '72%');
-    stage.style.setProperty('--chapter-pointer-y', '39%');
+    positionTouchLens(Math.max(0, active));
     revealButton.setAttribute('aria-pressed', String(revealed));
     revealLabel.textContent = revealed ? 'Hide the lens' : 'Reveal the photo';
   });
@@ -83,10 +90,14 @@
   if (!reducedMotion && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     stage.addEventListener('pointermove', event => {
       if (innerWidth <= 760) return;
+      if (event.target.closest('.chapter-controls')) {
+        stage.classList.remove('is-peeking');
+        return;
+      }
       const box = stage.getBoundingClientRect();
       const x = (event.clientX - box.left) / box.width;
       stage.classList.toggle('is-peeking', x >= .48);
-      stage.style.setProperty('--chapter-pointer-x', `${(Math.max(.61, Math.min(.92, x)) * 100).toFixed(1)}%`);
+      stage.style.setProperty('--chapter-pointer-x', `${(Math.max(.61, Math.min(.84, x)) * 100).toFixed(1)}%`);
       stage.style.setProperty('--chapter-pointer-y', `${((event.clientY - box.top) / box.height * 100).toFixed(1)}%`);
       stage.style.setProperty('--chapter-drift-x', `${(x - .5) * -12}px`);
       stage.style.setProperty('--chapter-drift-y', `${((event.clientY - box.top) / box.height - .5) * -12}px`);

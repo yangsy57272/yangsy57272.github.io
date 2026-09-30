@@ -62,6 +62,7 @@
  .chapter-reveal-button { display:inline-flex; align-items:center; gap:.5rem; position:absolute; z-index:6; right:8%; top:12.4rem; padding:.55rem .7rem; border:1px solid #f3dfbca8; border-radius:2rem; background:#172b2aba; color:#fff9eb; font:600 .58rem/1.2 'Helvetica Neue',Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; }
  .chapter-reveal-button[aria-pressed="true"] { background:#f0c98f; color:#18302b; }
  .chapter-lens-ring { width:12rem; height:12rem; }
+ .chapter-lens-ring span { display:none; }
  .chapter-stage.is-peeking { --chapter-lens-radius:6rem; }
  .chapter-wash { background:linear-gradient(0deg,#102422ed 0%,#1024229c 45%,#10242247 100%); }
  .chapter-visual-build img { width:83%; height:73%; top:12%; right:8%; opacity:.85; }
