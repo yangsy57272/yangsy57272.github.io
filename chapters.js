@@ -8,14 +8,20 @@
   const controls = [...story.querySelectorAll('[data-chapter-jump]')];
   const count = story.querySelector('.chapter-count');
   const scrollNote = story.querySelector('.chapter-scroll-note');
+  const revealButton = story.querySelector('.chapter-reveal-button');
+  const revealLabel = story.querySelector('.chapter-reveal-label');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let active = -1;
   let scheduled = false;
+  let transitionTimer;
 
   story.classList.add('is-enhanced');
 
   function activate(index) {
     if (index === active) return;
+    clearTimeout(transitionTimer);
+    visuals.forEach(visual => visual.classList.remove('is-leaving'));
+    if (active >= 0) visuals[active].classList.add('is-leaving');
     active = index;
     steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
     visuals.forEach((visual, i) => visual.classList.toggle('is-active', i === index));
@@ -25,6 +31,7 @@
     });
     count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')}`;
     scrollNote.textContent = index === steps.length - 1 ? 'Keep exploring ↓' : 'Scroll to turn the page ↓';
+    transitionTimer = setTimeout(() => visuals.forEach(visual => visual.classList.remove('is-leaving')), reducedMotion ? 0 : 950);
   }
 
   function update() {
@@ -42,6 +49,9 @@
     const scrollable = Math.max(1, rect.height - innerHeight);
     const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
     stage.style.setProperty('--chapter-progress', `${Math.round(progress * 100)}%`);
+    const activeBox = steps[nearest].getBoundingClientRect();
+    const chapterProgress = Math.min(1, Math.max(0, (viewportMidpoint - activeBox.top) / activeBox.height));
+    stage.style.setProperty('--chapter-pan-y', `${((chapterProgress - .5) * -32).toFixed(1)}px`);
   }
 
   function schedule() {
@@ -57,15 +67,27 @@
     activate(index);
   }));
 
+  revealButton.addEventListener('click', () => {
+    const revealed = !stage.classList.contains('is-peeking');
+    stage.classList.toggle('is-peeking', revealed);
+    stage.style.setProperty('--chapter-pointer-x', '72%');
+    stage.style.setProperty('--chapter-pointer-y', '39%');
+    revealButton.setAttribute('aria-pressed', String(revealed));
+    revealLabel.textContent = revealed ? 'Hide the lens' : 'Reveal the photo';
+  });
+
   if (!reducedMotion && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     stage.addEventListener('pointermove', event => {
       const box = stage.getBoundingClientRect();
-      stage.style.setProperty('--chapter-pointer-x', `${((event.clientX - box.left) / box.width * 100).toFixed(1)}%`);
+      const x = (event.clientX - box.left) / box.width;
+      stage.classList.toggle('is-peeking', x >= .48);
+      stage.style.setProperty('--chapter-pointer-x', `${(Math.max(.52, Math.min(.92, x)) * 100).toFixed(1)}%`);
       stage.style.setProperty('--chapter-pointer-y', `${((event.clientY - box.top) / box.height * 100).toFixed(1)}%`);
-      stage.style.setProperty('--chapter-drift-x', `${((event.clientX - box.left) / box.width - .5) * -12}px`);
+      stage.style.setProperty('--chapter-drift-x', `${(x - .5) * -12}px`);
       stage.style.setProperty('--chapter-drift-y', `${((event.clientY - box.top) / box.height - .5) * -12}px`);
     }, { passive: true });
     stage.addEventListener('pointerleave', () => {
+      stage.classList.remove('is-peeking');
       stage.style.setProperty('--chapter-drift-x', '0px');
       stage.style.setProperty('--chapter-drift-y', '0px');
     });
