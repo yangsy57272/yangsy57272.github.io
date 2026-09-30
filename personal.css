@@ -35,7 +35,7 @@ body { overflow-x: clip; }
 .about-personal .about-text p { font-size: 1.02rem; }
 .about-personal blockquote { border-left: 2px solid #b58369; padding: 0.1rem 0 0.1rem 1.5rem; margin-top: 2rem; color: #314947; font-size: 1.4rem; line-height: 1.5; }
 .about-personal cite { display: block; font: 0.73rem/1.6 'Helvetica Neue', Arial, sans-serif; color: #7e7d70; margin-top: 0.7rem; }
-#curiosity { background: #eeece3; padding: 90px 6% 110px; }
+#curiosity { position:relative; z-index:2; background:#eeece3; padding:90px 6% 110px; }
 #curiosity .section-inner { max-width: 1100px; }
 #curiosity .section-title { font-size: clamp(2.4rem, 4vw, 3.6rem); letter-spacing: -0.035em; margin-bottom: 1rem; }
 .curiosity-intro { font-size: 1.03rem; max-width: 600px; margin-bottom: 2.2rem; }
