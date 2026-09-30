@@ -1,6 +1,7 @@
 /* The personal pages: warm paper, small objects, room for a story. */
 :root { --bg: #f7f5ef; }
-html { scroll-padding-top: 80px; }
+html { scroll-padding-top: 80px; overflow-x: clip; }
+body { overflow-x: clip; }
 :focus-visible { outline: 2px solid #a45d44; outline-offset: 5px; }
 #hero {
   min-height: min(850px, 100svh); background: #eeeae1; color: #192b39;
