@@ -19,6 +19,10 @@
 
   function activate(index) {
     if (index === active) return;
+    [index, index + 1].forEach(i => {
+      const photo = visuals[i]?.querySelector('img');
+      if (photo) photo.loading = 'eager';
+    });
     clearTimeout(transitionTimer);
     visuals.forEach(visual => visual.classList.remove('is-leaving'));
     if (active >= 0) visuals[active].classList.add('is-leaving');
@@ -78,10 +82,11 @@
 
   if (!reducedMotion && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     stage.addEventListener('pointermove', event => {
+      if (innerWidth <= 760) return;
       const box = stage.getBoundingClientRect();
       const x = (event.clientX - box.left) / box.width;
       stage.classList.toggle('is-peeking', x >= .48);
-      stage.style.setProperty('--chapter-pointer-x', `${(Math.max(.52, Math.min(.92, x)) * 100).toFixed(1)}%`);
+      stage.style.setProperty('--chapter-pointer-x', `${(Math.max(.61, Math.min(.92, x)) * 100).toFixed(1)}%`);
       stage.style.setProperty('--chapter-pointer-y', `${((event.clientY - box.top) / box.height * 100).toFixed(1)}%`);
       stage.style.setProperty('--chapter-drift-x', `${(x - .5) * -12}px`);
       stage.style.setProperty('--chapter-drift-y', `${((event.clientY - box.top) / box.height - .5) * -12}px`);
