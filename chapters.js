@@ -53,7 +53,7 @@
   addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', schedule, { passive: true });
   controls.forEach((control, index) => control.addEventListener('click', () => {
-    steps[index].scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+    scrollTo({ top: scrollY + steps[index].getBoundingClientRect().top, behavior: reducedMotion ? 'auto' : 'smooth' });
     activate(index);
   }));
 

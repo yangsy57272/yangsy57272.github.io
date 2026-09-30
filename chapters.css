@@ -4,9 +4,11 @@
 .chapter-visual { position:absolute; inset:0; opacity:0; transform:scale(1.045); translate:var(--chapter-drift-x,0px) var(--chapter-drift-y,0px); transition:opacity .75s ease,transform 2s cubic-bezier(.19,1,.22,1),translate .45s ease; }
 .chapter-visual.is-active { opacity:1; transform:scale(1); }
 .chapter-visual img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 44%; }
+.chapter-visual-stillness { background:url('assets/chapters/01-stillness-preview.jpg') center/cover; }
 .chapter-visual-stillness img { object-position:center 46%; }
+.chapter-visual-people { background:url('assets/chapters/03-the-people-preview.jpg') center/cover; }
 .chapter-visual-people img { object-position:center 40%; }
-.chapter-visual-build { background:radial-gradient(circle at 77% 46%,#466067 0%,#253b3e 35%,#172a28 78%); }
+.chapter-visual-build { background:radial-gradient(circle at 77% 46%,#46606755 0%,#253b3e88 45%,#172a28 90%),url('assets/chapters/02-the-build-preview.jpg') center/cover; }
 .chapter-visual-build img { position:absolute; width:min(58vw,880px); height:91%; top:4.5%; right:7%; object-fit:cover; object-position:center; border:1px solid #e2cfac55; box-shadow:0 22px 70px #071b1c77; }
 .chapter-wash { position:absolute; inset:0; background:linear-gradient(90deg,#102422eb 0%,#102422b8 30%,#10242246 63%,#10242222 100%),linear-gradient(0deg,#0c1c1ba8 0%,transparent 45%,#11242255 100%); }
 .chapter-glint { position:absolute; inset:0; pointer-events:none; opacity:.3; background:radial-gradient(circle 18rem at var(--chapter-pointer-x,75%) var(--chapter-pointer-y,45%),#e8c99a66,transparent 70%); transition:opacity .25s; }
@@ -41,9 +43,9 @@
  .chapter-copy p { max-width:340px; font-size:1rem; }
  .chapter-topline { left:8%; right:8%; top:6.5rem; font-size:.58rem; }
  .chapter-track { left:8%; right:8%; top:8.3rem; }
- .chapter-controls { top:auto; bottom:1.3rem; right:8%; transform:none; display:flex; gap:.5rem; }
+ .chapter-controls { top:9.35rem; bottom:auto; right:8%; transform:none; display:flex; gap:.5rem; }
  .chapter-controls button { width:2.3rem; height:2.3rem; }
- .chapter-scroll-note { left:8%; right:auto; bottom:2rem; font-size:.6rem; }
+ .chapter-scroll-note { display:none; }
  .chapter-wash { background:linear-gradient(0deg,#102422ed 0%,#1024229c 45%,#10242247 100%); }
  .chapter-visual-build img { width:83%; height:73%; top:12%; right:8%; opacity:.85; }
 }
