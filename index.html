@@ -1008,9 +1008,11 @@
 <link rel="stylesheet" href="personal.css">
 <link rel="stylesheet" href="music.css">
 <link rel="stylesheet" href="interactions.css">
+<link rel="stylesheet" href="chapters.css">
 <script src="music.js" defer></script>
 <script src="interactions.js" defer></script>
 <script src="evidence.js" defer></script>
+<script src="chapters.js" defer></script>
 </head>
 <body>
 
@@ -1077,6 +1079,36 @@
     <img src="assets/illustrations/personal-constellation.png" alt="An illustrated trail of Wendy's camera, record and headphones, graph notebook, red flower, wave buoy, robotics wheel and caliper" loading="lazy" decoding="async">
     <figcaption id="identity-caption"><span>camera</span><span>chords</span><span>proofs</span><span>waves</span><span>things I build</span></figcaption>
   </figure>
+</section>
+
+<!-- SCROLL CHAPTERS -->
+<section id="chapters" class="chapter-story" aria-label="Three chapters of my story">
+  <div class="chapter-stage">
+    <div class="chapter-visual chapter-visual-stillness is-active" aria-hidden="true"><img src="assets/chapters/01-stillness.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="chapter-visual chapter-visual-build" aria-hidden="true"><img src="assets/chapters/02-the-build.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="chapter-visual chapter-visual-people" aria-hidden="true"><img src="assets/chapters/03-the-people.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="chapter-wash" aria-hidden="true"></div>
+    <div class="chapter-glint" aria-hidden="true"></div>
+    <div class="chapter-topline"><span>SHIYI YANG / A FEW CHAPTERS</span><span class="chapter-count">01 / 03</span></div>
+    <div class="chapter-track" aria-hidden="true"><span></span></div>
+    <div class="chapter-controls" role="navigation" aria-label="Jump between chapters">
+      <button type="button" data-chapter-jump="0" aria-label="Chapter 1: I notice first" aria-current="step"><span>01</span></button>
+      <button type="button" data-chapter-jump="1" aria-label="Chapter 2: I make the question tangible"><span>02</span></button>
+      <button type="button" data-chapter-jump="2" aria-label="Chapter 3: I carry it back to people"><span>03</span></button>
+    </div>
+    <span class="chapter-scroll-note">Scroll to turn the page ↓</span>
+  </div>
+  <div class="chapter-steps">
+    <article class="chapter-step is-active" id="chapter-stillness" style="--chapter-fallback:url('assets/chapters/01-stillness.jpg')">
+      <div class="chapter-copy"><span class="chapter-eyebrow"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-camera"/></svg>01 / The pause</span><h2>I notice first<span>.</span></h2><p>Sometimes the useful thing is to stop: watch the water, frame a photograph, and let an unfinished question stay open a little longer.</p><a href="photography.html">Through my camera <span aria-hidden="true">↗</span></a></div>
+    </article>
+    <article class="chapter-step" id="chapter-build" style="--chapter-fallback:url('assets/chapters/02-the-build.jpg')">
+      <div class="chapter-copy"><span class="chapter-eyebrow"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-code"/></svg>02 / The build</span><h2>Then I make it real<span>.</span></h2><p>At the robotics pit and at my workbench, a sketch becomes a part that must fit, move, and survive a test. That is where the questions get more interesting.</p><a href="#research">See what I built <span aria-hidden="true">↗</span></a></div>
+    </article>
+    <article class="chapter-step" id="chapter-people" style="--chapter-fallback:url('assets/chapters/03-the-people.jpg')">
+      <div class="chapter-copy"><span class="chapter-eyebrow"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-football"/></svg>03 / The people</span><h2>I stay for the people<span>.</span></h2><p>The part I remember after a match or a debate round is often the conversation that continues after the score stops mattering.</p><a href="#activities">Meet the moments <span aria-hidden="true">↗</span></a></div>
+    </article>
+  </div>
 </section>
 
 <!-- PERSONAL MOMENTS -->

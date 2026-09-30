@@ -1,0 +1,53 @@
+/* A short, scroll-led story in the language of the site's paper and photographs. */
+#chapters.chapter-story { position:relative; isolation:isolate; padding:0; background:#182c2a; color:#fff9eb; }
+.chapter-stage { position:sticky; top:0; height:100svh; min-height:580px; margin-bottom:-100svh; overflow:hidden; z-index:1; background:#172a28; }
+.chapter-visual { position:absolute; inset:0; opacity:0; transform:scale(1.045); translate:var(--chapter-drift-x,0px) var(--chapter-drift-y,0px); transition:opacity .75s ease,transform 2s cubic-bezier(.19,1,.22,1),translate .45s ease; }
+.chapter-visual.is-active { opacity:1; transform:scale(1); }
+.chapter-visual img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 44%; }
+.chapter-visual-stillness img { object-position:center 46%; }
+.chapter-visual-people img { object-position:center 40%; }
+.chapter-visual-build { background:radial-gradient(circle at 77% 46%,#466067 0%,#253b3e 35%,#172a28 78%); }
+.chapter-visual-build img { position:absolute; width:min(58vw,880px); height:91%; top:4.5%; right:7%; object-fit:cover; object-position:center; border:1px solid #e2cfac55; box-shadow:0 22px 70px #071b1c77; }
+.chapter-wash { position:absolute; inset:0; background:linear-gradient(90deg,#102422eb 0%,#102422b8 30%,#10242246 63%,#10242222 100%),linear-gradient(0deg,#0c1c1ba8 0%,transparent 45%,#11242255 100%); }
+.chapter-glint { position:absolute; inset:0; pointer-events:none; opacity:.3; background:radial-gradient(circle 18rem at var(--chapter-pointer-x,75%) var(--chapter-pointer-y,45%),#e8c99a66,transparent 70%); transition:opacity .25s; }
+.chapter-topline { position:absolute; z-index:2; top:clamp(5rem,11vh,8rem); left:7%; right:7%; display:flex; justify-content:space-between; gap:1rem; color:#e8ddc8; font:600 .7rem/1.2 'Helvetica Neue',Arial,sans-serif; letter-spacing:.17em; }
+.chapter-count { color:#f0c98f; }
+.chapter-track { position:absolute; top:calc(clamp(5rem,11vh,8rem) + 1.8rem); left:7%; right:7%; height:1px; background:#fff8e34d; }
+.chapter-track span { display:block; width:var(--chapter-progress,0%); height:2px; background:#f0c98f; transition:width .12s linear; }
+.chapter-controls { position:absolute; z-index:5; right:5%; top:50%; transform:translateY(-50%); display:grid; gap:.75rem; }
+.chapter-controls button { display:flex; align-items:center; justify-content:center; width:2.65rem; height:2.65rem; border:1px solid #fff8e380; border-radius:50%; background:#172b2a88; color:#fff9eb; font:600 .63rem/1 'Helvetica Neue',Arial,sans-serif; letter-spacing:.04em; cursor:pointer; transition:background .25s,border-color .25s,transform .25s,color .25s; }
+.chapter-controls button:hover,.chapter-controls button:focus-visible { border-color:#f5d3a2; transform:scale(1.13); outline:2px solid #f5d3a2; outline-offset:2px; }
+.chapter-controls button[aria-current="step"] { background:#f0c98f; color:#18302b; border-color:#f0c98f; }
+.chapter-scroll-note { position:absolute; z-index:2; right:7%; bottom:6%; color:#f7ead3aa; font:500 .7rem/1.3 'Helvetica Neue',Arial,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+.chapter-steps { position:relative; z-index:2; }
+.chapter-step { min-height:100svh; min-height:max(100svh,580px); display:flex; align-items:flex-end; padding:clamp(7rem,18vh,12rem) 12% clamp(5rem,12vh,9rem) 7%; pointer-events:none; }
+.chapter-copy { max-width:min(620px,70vw); pointer-events:auto; text-shadow:0 2px 16px #112422a8; }
+.chapter-eyebrow { display:flex; align-items:center; gap:.65rem; margin-bottom:.9rem; color:#efd1a5; font:600 .72rem/1.2 'Helvetica Neue',Arial,sans-serif; letter-spacing:.2em; text-transform:uppercase; }
+.chapter-eyebrow svg { width:2.8rem; height:2.8rem; flex:none; transform:rotate(-9deg); filter:drop-shadow(0 4px 8px #0d201b88); }
+.chapter-copy h2 { margin:0 0 1.05rem; font:normal clamp(3.4rem,7.8vw,7.8rem)/.95 Georgia,serif; letter-spacing:-.055em; text-wrap:balance; }
+.chapter-copy h2 span { color:#e5b977; }
+.chapter-copy p { margin:0; max-width:470px; color:#f4eadd; font:normal clamp(1rem,1.35vw,1.16rem)/1.7 Georgia,serif; }
+.chapter-copy a { display:inline-flex; align-items:center; gap:.45rem; margin-top:1.35rem; padding-bottom:.3rem; color:#f2d3a6; border-bottom:1px solid #f2d3a6a0; text-decoration:none; font:600 .72rem/1.2 'Helvetica Neue',Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; transition:gap .2s,color .2s; }
+.chapter-copy a:hover,.chapter-copy a:focus-visible { gap:.8rem; color:#fff; outline:none; border-color:#fff; }
+.chapter-story.is-enhanced .chapter-copy { opacity:.68; transform:translateY(24px); transition:opacity .55s ease,transform .65s cubic-bezier(.2,.7,.2,1); }
+.chapter-story.is-enhanced .chapter-step.is-active .chapter-copy { opacity:1; transform:translateY(0); }
+.chapter-story:not(.is-enhanced) .chapter-stage { display:none; }
+.chapter-story:not(.is-enhanced) .chapter-step { background-image:linear-gradient(90deg,#102422e0,#10242244),var(--chapter-fallback); background-size:cover; background-position:center; }
+@media(max-width:760px) {
+ .chapter-stage { min-height:520px; margin-bottom:-100svh; }
+ .chapter-step { min-height:max(100svh,520px); padding:8rem 8% 6rem; }
+ .chapter-copy { max-width:100%; }
+ .chapter-copy h2 { font-size:clamp(3.35rem,13vw,5rem); }
+ .chapter-copy p { max-width:340px; font-size:1rem; }
+ .chapter-topline { left:8%; right:8%; top:6.5rem; font-size:.58rem; }
+ .chapter-track { left:8%; right:8%; top:8.3rem; }
+ .chapter-controls { top:auto; bottom:1.3rem; right:8%; transform:none; display:flex; gap:.5rem; }
+ .chapter-controls button { width:2.3rem; height:2.3rem; }
+ .chapter-scroll-note { left:8%; right:auto; bottom:2rem; font-size:.6rem; }
+ .chapter-wash { background:linear-gradient(0deg,#102422ed 0%,#1024229c 45%,#10242247 100%); }
+ .chapter-visual-build img { width:83%; height:73%; top:12%; right:8%; opacity:.85; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .chapter-visual,.chapter-controls button,.chapter-copy,.chapter-copy a,.chapter-track span { transition:none!important; translate:none!important; }
+ .chapter-glint { display:none; }
+}
