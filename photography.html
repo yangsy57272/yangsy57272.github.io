@@ -10,13 +10,13 @@
 <meta property="og:title" content="Photography — Shiyi Yang (Wendy)">
 <meta property="og:description" content="Four collections: Istanbul between two continents, a forest park at half past four, blue hour on the West Bund, and field notes.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1f3d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e8c96a' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="gallery.css">
+<link rel="stylesheet" href="gallery.css?v=2">
 <link rel="stylesheet" href="music.css">
 <link rel="stylesheet" href="interactions.css">
 <script src="music.js" defer></script>
 <script src="interactions.js" defer></script>
 </head>
-<body class="gallery-with-music">
+<body class="gallery-with-music" data-gallery-view="conveyor">
 
 <div id="progress-bar"></div>
 
@@ -57,10 +57,11 @@
   <a href="#westbund" data-album="westbund">West Bund<span class="ct"></span></a>
   <a href="#moments" data-album="moments">Field Notes<span class="ct"></span></a>
   <a href="#workshop" data-album="workshop">Workshop</a>
-</div><div class="view-switch" role="group" aria-label="Gallery layout">
-  <button type="button" data-view="journal" aria-pressed="true">Journal</button>
+</div><div class="toolbar-actions"><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">Ⅱ Pause motion</button><div class="view-switch" role="group" aria-label="Gallery layout">
+  <button type="button" data-view="conveyor" aria-pressed="true">Conveyor</button>
+  <button type="button" data-view="journal" aria-pressed="false">Journal</button>
   <button type="button" data-view="contact" aria-pressed="false">Contact sheet</button>
-</div></div>
+</div></div></div>
 
 <section class="album" id="istanbul">
   <div class="album-inner">
@@ -274,6 +275,7 @@
     const featured = FEATURED[p.a] === p.f;
     const number = albumPositions[p.a] = (albumPositions[p.a] || 0) + 1;
     fig.className = 'photo-frame' + (featured ? ' featured' : '');
+    fig.dataset.photoIndex = i;
     fig.tabIndex = 0;
     fig.setAttribute('role', 'button');
     fig.setAttribute('aria-label', 'Open photo: ' + p.t);
@@ -302,6 +304,31 @@
     (featured ? document.getElementById('feature-' + p.a) : walls[p.a]).appendChild(fig);
   });
 
+  /* A slow, continuous belt for each collection. Copies close the loop without
+     adding duplicate photos to keyboard or screen-reader navigation. */
+  const conveyorWalls = Object.values(walls);
+  conveyorWalls.forEach(wall => {
+    const note = document.createElement('div');
+    note.className = 'conveyor-note';
+    note.innerHTML = '<span>Photographs in motion</span><span>Hover to pause · swipe to browse</span>';
+    wall.before(note);
+    [...wall.children].forEach(original => {
+      const copy = original.cloneNode(true);
+      copy.classList.add('conveyor-copy');
+      copy.tabIndex = -1;
+      copy.setAttribute('aria-hidden', 'true');
+      copy.addEventListener('click', () => openLightbox(Number(original.dataset.photoIndex)));
+      const img = copy.querySelector('img');
+      img.addEventListener('error', () => {
+        if (img.dataset.full) {
+          img.src = img.dataset.full;
+          delete img.dataset.full;
+        }
+      }, { once: true });
+      wall.append(copy);
+    });
+  });
+
   /* ── Album bar: counts + scrollspy ── */
   const bar = document.getElementById('album-bar');
   bar.querySelectorAll('a[data-album]').forEach(a => {
@@ -321,12 +348,59 @@
   document.querySelectorAll('section.album').forEach(s => spy.observe(s));
 
   /* Let visitors choose a browsing pace without changing the photo order. */
+  const motionToggle = document.getElementById('motion-toggle');
+  let motionPaused = reduceMotion;
+  if (reduceMotion) document.body.dataset.galleryView = 'journal';
+  function updateMotionControl() {
+    motionToggle.setAttribute('aria-pressed', String(motionPaused));
+    motionToggle.textContent = motionPaused ? '▶ Resume motion' : 'Ⅱ Pause motion';
+  }
+  updateMotionControl();
+  motionToggle.addEventListener('click', () => { motionPaused = !motionPaused; updateMotionControl(); });
+  document.querySelectorAll('[data-view]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.view === document.body.dataset.galleryView));
+  });
   document.querySelectorAll('[data-view]').forEach(button => {
     button.addEventListener('click', () => {
       document.body.dataset.galleryView = button.dataset.view;
       document.querySelectorAll('[data-view]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
     });
   });
+
+  const visibleConveyors = new Set();
+  const conveyorObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) visibleConveyors.add(entry.target);
+      else visibleConveyors.delete(entry.target);
+    });
+  }, { rootMargin: '160px 0px' });
+  conveyorWalls.forEach(wall => conveyorObserver.observe(wall));
+  let pauseUntil = 0;
+  conveyorWalls.forEach(wall => {
+    wall.addEventListener('pointerdown', () => { pauseUntil = performance.now() + 4500; }, { passive: true });
+    wall.addEventListener('wheel', () => { pauseUntil = performance.now() + 2500; }, { passive: true });
+  });
+  const hoverCanPause = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  let lastMotionFrame = 0;
+  function moveConveyors(now) {
+    const delta = lastMotionFrame ? Math.min(now - lastMotionFrame, 64) : 0;
+    lastMotionFrame = now;
+    if (document.body.dataset.galleryView === 'conveyor' && !motionPaused && !document.hidden &&
+        !document.getElementById('lightbox').classList.contains('open') && now > pauseUntil) {
+      visibleConveyors.forEach(wall => {
+        if ((hoverCanPause && wall.matches(':hover')) || wall.contains(document.activeElement)) return;
+        const first = wall.querySelector('.photo-frame:not(.conveyor-copy)');
+        const copy = wall.querySelector('.conveyor-copy');
+        if (!first || !copy) return;
+        const lap = copy.offsetLeft - first.offsetLeft;
+        if (lap <= 0) return;
+        const next = wall.scrollLeft + delta * (innerWidth < 760 ? 0.036 : 0.048);
+        wall.scrollLeft = next >= lap ? next - lap : next;
+      });
+    }
+    requestAnimationFrame(moveConveyors);
+  }
+  requestAnimationFrame(moveConveyors);
 
   /* ── Scroll reveal ── */
   const revealEls = document.querySelectorAll('.reveal');
