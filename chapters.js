@@ -1,113 +1,78 @@
 (() => {
   const story = document.getElementById('chapters');
   if (!story) return;
-
   const stage = story.querySelector('.chapter-stage');
   const steps = [...story.querySelectorAll('.chapter-step')];
   const visuals = [...story.querySelectorAll('.chapter-visual')];
   const controls = [...story.querySelectorAll('[data-chapter-jump]')];
+  const paths = [...story.querySelectorAll('.chapter-drawing path')];
   const count = story.querySelector('.chapter-count');
-  const scrollNote = story.querySelector('.chapter-scroll-note');
-  const revealButton = story.querySelector('.chapter-reveal-button');
-  const revealLabel = story.querySelector('.chapter-reveal-label');
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let active = -1;
+  const note = story.querySelector('.chapter-scroll-note');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lengths = paths.map(path => {
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = `${length} ${length}`;
+    return length;
+  });
   let scheduled = false;
-  let transitionTimer;
-  const touchLensFocus = [['34%', '33%'], ['67%', '39%'], ['58%', '35%']];
-
-  function positionTouchLens(index) {
-    const [x, y] = touchLensFocus[index];
-    stage.style.setProperty('--chapter-pointer-x', x);
-    stage.style.setProperty('--chapter-pointer-y', y);
-  }
-
+  let active = -1;
   story.classList.add('is-enhanced');
-
-  function activate(index) {
-    if (index === active) return;
-    [index, index + 1].forEach(i => {
-      const photo = visuals[i]?.querySelector('img');
-      if (photo) photo.loading = 'eager';
-    });
-    clearTimeout(transitionTimer);
-    visuals.forEach(visual => visual.classList.remove('is-leaving'));
-    if (active >= 0) visuals[active].classList.add('is-leaving');
-    active = index;
-    steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
-    visuals.forEach((visual, i) => visual.classList.toggle('is-active', i === index));
-    controls.forEach((control, i) => {
-      if (i === index) control.setAttribute('aria-current', 'step');
-      else control.removeAttribute('aria-current');
-    });
-    count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')}`;
-    scrollNote.textContent = index === steps.length - 1 ? 'Keep exploring ↓' : 'Scroll to turn the page ↓';
-    if (revealButton.getAttribute('aria-pressed') === 'true' && innerWidth <= 760) positionTouchLens(index);
-    transitionTimer = setTimeout(() => visuals.forEach(visual => visual.classList.remove('is-leaving')), reducedMotion ? 0 : 950);
-  }
 
   function update() {
     scheduled = false;
-    const viewportMidpoint = innerHeight * 0.53;
-    let nearest = 0;
-    let nearestDistance = Infinity;
-    steps.forEach((step, index) => {
-      const box = step.getBoundingClientRect();
-      const distance = Math.abs((box.top + box.bottom) / 2 - viewportMidpoint);
-      if (distance < nearestDistance) { nearestDistance = distance; nearest = index; }
-    });
-    activate(nearest);
     const rect = story.getBoundingClientRect();
-    const scrollable = Math.max(1, rect.height - innerHeight);
-    const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
-    stage.style.setProperty('--chapter-progress', `${Math.round(progress * 100)}%`);
-    const activeBox = steps[nearest].getBoundingClientRect();
-    const chapterProgress = Math.min(1, Math.max(0, (viewportMidpoint - activeBox.top) / activeBox.height));
-    stage.style.setProperty('--chapter-pan-y', `${((chapterProgress - .5) * -32).toFixed(1)}px`);
+    const stepHeight = rect.height / steps.length;
+    const position = Math.max(0, Math.min(steps.length - 1, -rect.top / stepHeight));
+    const next = Math.min(steps.length - 1, Math.max(0, Math.round(position)));
+    if (next !== active) {
+      active = next;
+      steps.forEach((step, i) => step.classList.toggle('is-active', i === active));
+      controls.forEach((button, i) => {
+        if (i === active) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      });
+      count.textContent = `${String(active + 1).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')}`;
+      note.textContent = active === steps.length - 1 ? 'Keep exploring ↓' : 'Scroll to follow the story ↓';
+      [active, Math.min(active + 1, visuals.length - 1)].forEach(i => {
+        visuals[i].querySelectorAll('img').forEach(img => { img.loading = 'eager'; });
+      });
+    }
+    visuals.forEach((visual, i) => {
+      const opacity = reduced ? (i === active ? 1 : 0) : Math.max(0, 1 - Math.abs(position - i));
+      visual.style.opacity = opacity.toFixed(3);
+      visual.style.setProperty('--scene-scale', (1.035 + Math.max(0, 1 - Math.abs(position - i)) * -.027).toFixed(3));
+    });
+    const progress = position / Math.max(1, steps.length - 1);
+    stage.style.setProperty('--chapter-progress', `${(progress * 100).toFixed(1)}%`);
+    stage.style.setProperty('--light-opacity', (0.8 - progress * 0.42).toFixed(2));
+    stage.style.setProperty('--light-scale', (1 + Math.sin(progress * Math.PI) * .25).toFixed(2));
+    paths.forEach((path, i) => {
+      path.style.strokeDashoffset = String(lengths[i] * (0.72 - progress * 0.66));
+    });
   }
-
   function schedule() {
     if (scheduled) return;
     scheduled = true;
     requestAnimationFrame(update);
   }
-
-  addEventListener('scroll', schedule, { passive: true });
-  addEventListener('resize', schedule, { passive: true });
-  controls.forEach((control, index) => control.addEventListener('click', () => {
-    scrollTo({ top: scrollY + steps[index].getBoundingClientRect().top, behavior: reducedMotion ? 'auto' : 'smooth' });
-    activate(index);
+  addEventListener('scroll', schedule, { passive:true });
+  addEventListener('resize', schedule, { passive:true });
+  controls.forEach((button, index) => button.addEventListener('click', () => {
+    const target = steps[index];
+    scrollTo({ top:scrollY + target.getBoundingClientRect().top, behavior:reduced ? 'auto' : 'smooth' });
   }));
-
-  revealButton.addEventListener('click', () => {
-    const revealed = !stage.classList.contains('is-peeking');
-    stage.classList.toggle('is-peeking', revealed);
-    positionTouchLens(Math.max(0, active));
-    revealButton.setAttribute('aria-pressed', String(revealed));
-    revealLabel.textContent = revealed ? 'Hide the lens' : 'Reveal the photo';
-  });
-
-  if (!reducedMotion && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  if (!reduced && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     stage.addEventListener('pointermove', event => {
-      if (innerWidth <= 760) return;
-      if (event.target.closest('.chapter-controls')) {
-        stage.classList.remove('is-peeking');
-        return;
-      }
       const box = stage.getBoundingClientRect();
-      const x = (event.clientX - box.left) / box.width;
-      stage.classList.toggle('is-peeking', x >= .48);
-      stage.style.setProperty('--chapter-pointer-x', `${(Math.max(.61, Math.min(.84, x)) * 100).toFixed(1)}%`);
-      stage.style.setProperty('--chapter-pointer-y', `${((event.clientY - box.top) / box.height * 100).toFixed(1)}%`);
-      stage.style.setProperty('--chapter-drift-x', `${(x - .5) * -12}px`);
-      stage.style.setProperty('--chapter-drift-y', `${((event.clientY - box.top) / box.height - .5) * -12}px`);
-    }, { passive: true });
+      const x = (event.clientX / box.width - .5) * 16;
+      const y = ((event.clientY - box.top) / box.height - .5) * 16;
+      stage.style.setProperty('--scene-x', `${x.toFixed(1)}px`);
+      stage.style.setProperty('--scene-y', `${y.toFixed(1)}px`);
+    }, { passive:true });
     stage.addEventListener('pointerleave', () => {
-      stage.classList.remove('is-peeking');
-      stage.style.setProperty('--chapter-drift-x', '0px');
-      stage.style.setProperty('--chapter-drift-y', '0px');
+      stage.style.setProperty('--scene-x', '0px');
+      stage.style.setProperty('--scene-y', '0px');
     });
   }
-
   update();
 })();

@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shiyi Yang · Wendy — Notes, projects & photographs</title>
 <meta name="description" content="A few things I keep: peeling laptop stickers, unfinished ideas, and photographs from the places in between. The personal website of Shiyi Yang (Wendy).">
-<meta name="theme-color" content="#0f1f3d">
+<meta name="theme-color" content="#1c342f">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shiyi Yang (Wendy) — Personal Website">
 <meta property="og:description" content="Stories, small things, projects, and photographs by Shiyi Yang (Wendy).">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1f3d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e8c96a' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c342f'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e4bc91' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     --navy: #0f1f3d;
@@ -1008,11 +1008,13 @@
 <link rel="stylesheet" href="personal.css?v=3">
 <link rel="stylesheet" href="music.css">
 <link rel="stylesheet" href="interactions.css">
-<link rel="stylesheet" href="chapters.css?v=5">
+<link rel="stylesheet" href="chapters.css?v=7">
+<link rel="stylesheet" href="atelier.css?v=1">
 <script src="music.js" defer></script>
 <script src="interactions.js" defer></script>
 <script src="evidence.js" defer></script>
-<script src="chapters.js?v=6" defer></script>
+<script src="chapters.js?v=7" defer></script>
+<script src="atelier.js?v=1" defer></script>
 </head>
 <body>
 
@@ -1055,8 +1057,13 @@
     </div>
     </div>
     <figure class="hero-photo">
-      <img src="assets/portrait.jpg" alt="Portrait of Shiyi Yang (Wendy)" fetchpriority="high">
+      <img src="assets/evidence/admission/frc-filming.jpg" alt="Wendy photographing a school event" fetchpriority="high" width="712" height="960">
     </figure>
+    <div class="hero-collage" aria-hidden="true">
+      <img class="hero-collage-photo hero-collage-photo-one" src="assets/evidence/admission/frc-robot.jpg" alt="" width="540" height="960" decoding="async">
+      <img class="hero-collage-photo hero-collage-photo-two" src="assets/evidence/admission/frc-team.jpg" alt="" width="1280" height="720" decoding="async">
+      <span class="hero-collage-note">camera / robot / the people around it</span>
+    </div>
   </div>
   <div class="hero-hint">A little room for unfinished ideas.</div>
   <a class="hero-scroll-hint" href="#about" aria-label="Meet Wendy">↓</a>
@@ -1084,32 +1091,30 @@
 <!-- SCROLL CHAPTERS -->
 <section id="chapters" class="chapter-story" aria-label="Three chapters of my story">
   <div class="chapter-stage">
-    <div class="chapter-visual chapter-visual-stillness is-active" aria-hidden="true"><img src="assets/chapters/01-stillness.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="chapter-visual chapter-visual-stillness is-active" aria-hidden="true"><img class="chapter-person" src="assets/evidence/admission/frc-filming.jpg" alt="" loading="lazy" decoding="async"><img class="chapter-machine" src="assets/evidence/admission/frc-robot.jpg" alt="" loading="lazy" decoding="async"></div>
     <div class="chapter-visual chapter-visual-build" aria-hidden="true"><img src="assets/chapters/02-the-build.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="chapter-visual chapter-visual-people" aria-hidden="true"><img src="assets/chapters/03-the-people.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="chapter-visual chapter-visual-people" aria-hidden="true"><img src="assets/evidence/admission/frc-team.jpg" alt="" loading="lazy" decoding="async"></div>
     <div class="chapter-wash" aria-hidden="true"></div>
-    <div class="chapter-lens-ring" aria-hidden="true"><span>LOOK CLOSER</span></div>
-    <div class="chapter-glint" aria-hidden="true"></div>
-    <div class="chapter-topline"><span>SHIYI YANG / A FEW CHAPTERS</span><span class="chapter-count">01 / 03</span></div>
+    <div class="chapter-light" aria-hidden="true"><span class="chapter-light-core"></span></div>
+    <svg class="chapter-drawing" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><path d="M-80 537 C180 250 326 366 560 457 S853 594 1051 399 1258 216 1530 287"/><path d="M-50 628 C170 701 283 604 472 519 S765 289 949 376 1261 634 1500 526"/><path d="M163 -40 C291 179 362 206 596 243 S916 328 1066 166 1171 13 1331 -44"/></svg>
+    <div class="chapter-topline"><span>SHIYI YANG / THE ROBOT AND ME</span><span class="chapter-count">01 / 03</span></div>
     <div class="chapter-track" aria-hidden="true"><span></span></div>
     <div class="chapter-controls" role="navigation" aria-label="Jump between chapters">
-      <button type="button" data-chapter-jump="0" aria-label="Chapter 1: I notice first" aria-current="step"><span>01</span></button>
-      <button type="button" data-chapter-jump="1" aria-label="Chapter 2: I make the question tangible"><span>02</span></button>
-      <button type="button" data-chapter-jump="2" aria-label="Chapter 3: I carry it back to people"><span>03</span></button>
+      <button type="button" data-chapter-jump="0" aria-label="Chapter 1: The first spark" aria-current="step"><span>01</span></button>
+      <button type="button" data-chapter-jump="1" aria-label="Chapter 2: The build"><span>02</span></button>
+      <button type="button" data-chapter-jump="2" aria-label="Chapter 3: The people"><span>03</span></button>
     </div>
-    <span class="chapter-scroll-note">Scroll to turn the page ↓</span>
-    <span class="chapter-lens-cue" aria-hidden="true">Move over the photo to reveal it ⤢</span>
-    <button class="chapter-reveal-button" type="button" aria-pressed="false"><span class="chapter-reveal-label">Reveal the photo</span><span aria-hidden="true">⤢</span></button>
+    <span class="chapter-scroll-note">Scroll to follow the story ↓</span>
   </div>
   <div class="chapter-steps">
-    <article class="chapter-step is-active" id="chapter-stillness" style="--chapter-fallback:url('assets/chapters/01-stillness.jpg')">
-      <div class="chapter-copy"><span class="chapter-eyebrow"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-camera"/></svg>01 / The pause</span><h2>I notice first<span>.</span></h2><p>Sometimes the useful thing is to stop: watch the water, frame a photograph, and let an unfinished question stay open a little longer.</p><a href="photography.html">Through my camera <span aria-hidden="true">↗</span></a></div>
+    <article class="chapter-step is-active" id="chapter-stillness" style="--chapter-fallback:url('assets/evidence/admission/frc-filming.jpg')">
+      <div class="chapter-copy"><span class="chapter-eyebrow">01 / The first spark</span><h2>It started with looking closer<span>.</span></h2><p>I brought a camera to robotics. Through the lens, a machine stopped being one object and became hundreds of decisions made by people.</p><a href="#research">See what I began to build <span aria-hidden="true">↗</span></a></div>
     </article>
     <article class="chapter-step" id="chapter-build" style="--chapter-fallback:url('assets/chapters/02-the-build.jpg')">
-      <div class="chapter-copy"><span class="chapter-eyebrow"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-code"/></svg>02 / The build</span><h2>Then I make it real<span>.</span></h2><p>At the robotics pit and at my workbench, a sketch becomes a part that must fit, move, and survive a test. That is where the questions get more interesting.</p><a href="#research">See what I built <span aria-hidden="true">↗</span></a></div>
+      <div class="chapter-copy"><span class="chapter-eyebrow">02 / The build</span><h2>A sketch has to move<span>.</span></h2><p>At the pit and the workbench, an idea has to fit, move, and survive a test. That is where I learned to enjoy the questions hidden inside a working system.</p><a href="#research">See the projects <span aria-hidden="true">↗</span></a></div>
     </article>
-    <article class="chapter-step" id="chapter-people" style="--chapter-fallback:url('assets/chapters/03-the-people.jpg')">
-      <div class="chapter-copy"><span class="chapter-eyebrow"><svg aria-hidden="true" viewBox="0 0 120 120"><use href="#growth-football"/></svg>03 / The people</span><h2>I stay for the people<span>.</span></h2><p>The part I remember after a match or a debate round is often the conversation that continues after the score stops mattering.</p><a href="#activities">Meet the moments <span aria-hidden="true">↗</span></a></div>
+    <article class="chapter-step" id="chapter-people" style="--chapter-fallback:url('assets/evidence/admission/frc-team.jpg')">
+      <div class="chapter-copy"><span class="chapter-eyebrow">03 / The people</span><h2>Nobody builds alone<span>.</span></h2><p>The robot is what I can point to. What stays with me is the team around it: the questions, the late fixes, and the conversations after the match.</p><a href="#activities">Meet the people <span aria-hidden="true">↗</span></a></div>
     </article>
   </div>
 </section>
@@ -1156,17 +1161,22 @@
 
 <!-- EDUCATION -->
 <section id="photo-teaser">
-  <div class="section-inner">
-    <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-camera"></use></svg><div class="section-label">Photography</div>
-    <h2 class="section-title">Through the Lens</h2>
-    <p>Istanbul between robotics matches. A forest park at half past four.
-       The West Bund after sunset. A few places where I stopped to look.</p>
-    <div class="teaser-row">
-      <a href="photography.html#photo-DSC05866" aria-label="Open Hagia Sophia in the photography gallery"><img src="assets/thumbs/city/DSC05866.webp" alt="Hagia Sophia" loading="lazy" decoding="async"></a>
-      <a href="photography.html#photo-DSC07053" aria-label="Open Galata Tower in the photography gallery"><img src="assets/thumbs/city/DSC07053.webp" alt="Galata Tower from the water" loading="lazy" decoding="async"></a>
-      <a href="photography.html#photo-DSC08102" aria-label="Open Poppy Afternoon in the photography gallery"><img src="assets/thumbs/gongqing/DSC08102.webp" alt="Poppy meadow" loading="lazy" decoding="async"></a>
+  <div class="section-inner teaser-layout">
+    <div class="teaser-copy">
+      <svg class="section-sticker" aria-hidden="true" viewBox="0 0 120 120"><use href="#memory-camera"></use></svg>
+      <div class="section-label">Photography / a visual notebook</div>
+      <h2 class="section-title">The world looks different when I <em>stop.</em></h2>
+      <p>Istanbul between robotics matches. A forest park at half past four. The West Bund after sunset. A few places where I stopped to look.</p>
+      <a class="teaser-btn" href="photography.html">Step into the gallery <span aria-hidden="true">↗</span></a>
+      <span class="teaser-footnote">72 frames / four collections / all seen by me</span>
     </div>
-    <a class="teaser-btn" href="photography.html">Take a little wander →</a>
+    <div class="teaser-stage" aria-label="Three photographs from my gallery">
+      <span class="teaser-orbit" aria-hidden="true"></span>
+      <a class="teaser-print teaser-print-one" href="photography.html#photo-DSC05866" aria-label="Open Hagia Sophia in the photography gallery"><img src="assets/thumbs/city/DSC05866.webp" alt="Hagia Sophia" loading="lazy" decoding="async"><span>01 / Istanbul</span></a>
+      <a class="teaser-print teaser-print-two" href="photography.html#photo-DSC07053" aria-label="Open Galata Tower in the photography gallery"><img src="assets/thumbs/city/DSC07053.webp" alt="Galata Tower from the water" loading="lazy" decoding="async"><span>02 / On the water</span></a>
+      <a class="teaser-print teaser-print-three" href="photography.html#photo-DSC08102" aria-label="Open Poppy Afternoon in the photography gallery"><img src="assets/thumbs/gongqing/DSC08102.webp" alt="Poppy meadow" loading="lazy" decoding="async"><span>03 / 4:30 PM</span></a>
+      <span class="teaser-caption" aria-hidden="true">hold a moment / let it move</span>
+    </div>
   </div>
 </section>
 
