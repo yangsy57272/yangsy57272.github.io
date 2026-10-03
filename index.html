@@ -1008,12 +1008,12 @@
 <link rel="stylesheet" href="personal.css?v=3">
 <link rel="stylesheet" href="music.css">
 <link rel="stylesheet" href="interactions.css">
-<link rel="stylesheet" href="chapters.css?v=7">
-<link rel="stylesheet" href="atelier.css?v=1">
+<link rel="stylesheet" href="chapters.css?v=8">
+<link rel="stylesheet" href="atelier.css?v=2">
 <script src="music.js" defer></script>
 <script src="interactions.js" defer></script>
 <script src="evidence.js" defer></script>
-<script src="chapters.js?v=7" defer></script>
+<script src="chapters.js?v=8" defer></script>
 <script src="atelier.js?v=1" defer></script>
 </head>
 <body>
@@ -1052,16 +1052,16 @@
     <p class="hero-tagline">There are more than thirty stickers on my laptop. Some are peeling. I keep them anyway: a small red flower, a Citrus Circuits sticker, a reminder to leave the gap in a proof showing.</p>
     <p class="hero-invitation">Here are a few of the stories I carry with me.</p>
     <div class="sticker-shortcuts" aria-label="A few ways to get to know me"><a href="#curiosity" aria-label="Read the story of a small red flower"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-flower"/></svg><span>Little things</span></a><a href="photography.html" aria-label="Explore my photographs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-camera"/></svg><span>My camera</span></a><a href="#playground" aria-label="Try my puzzles and playground"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-graph"/></svg><span>A question</span></a><a href="#music" aria-label="Listen to my songs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-record"/></svg><span>On repeat</span></a></div><div class="personal-actions">
-      <a class="personal-primary" href="#curiosity">Meet the little things <span aria-hidden="true">↘</span></a>
+      <a class="personal-primary" href="#chapters">Watch my little film <span aria-hidden="true">↘</span></a>
       <a href="photography.html">Wander through my photographs <span aria-hidden="true">↗</span></a>
     </div>
     </div>
     <figure class="hero-photo">
-      <img src="assets/evidence/admission/frc-filming.jpg" alt="Wendy photographing a school event" fetchpriority="high" width="712" height="960">
+      <img src="assets/life/match-day.webp" alt="Cheering with friends at a robotics competition" fetchpriority="high" width="712" height="960">
     </figure>
     <div class="hero-collage" aria-hidden="true">
-      <img class="hero-collage-photo hero-collage-photo-one" src="assets/evidence/admission/frc-robot.jpg" alt="" width="540" height="960" decoding="async">
-      <img class="hero-collage-photo hero-collage-photo-two" src="assets/evidence/admission/frc-team.jpg" alt="" width="1280" height="720" decoding="async">
+      <img class="hero-collage-photo hero-collage-photo-one" src="assets/life/robot-portrait.webp" alt="" width="540" height="960" decoding="async">
+      <img class="hero-collage-photo hero-collage-photo-two" src="assets/life/behind-the-camera.webp" alt="" width="1280" height="720" decoding="async">
       <span class="hero-collage-note">camera / robot / the people around it</span>
     </div>
   </div>
@@ -1088,36 +1088,57 @@
   </figure>
 </section>
 
-<!-- SCROLL CHAPTERS -->
-<section id="chapters" class="chapter-story" aria-label="Three chapters of my story">
-  <div class="chapter-stage">
-    <div class="chapter-visual chapter-visual-stillness is-active" aria-hidden="true"><img class="chapter-person" src="assets/evidence/admission/frc-filming.jpg" alt="" loading="lazy" decoding="async"><img class="chapter-machine" src="assets/evidence/admission/frc-robot.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="chapter-visual chapter-visual-build" aria-hidden="true"><img src="assets/chapters/02-the-build.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="chapter-visual chapter-visual-people" aria-hidden="true"><img src="assets/evidence/admission/frc-team.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="chapter-wash" aria-hidden="true"></div>
-    <div class="chapter-light" aria-hidden="true"><span class="chapter-light-core"></span></div>
-    <svg class="chapter-drawing" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><path d="M-80 537 C180 250 326 366 560 457 S853 594 1051 399 1258 216 1530 287"/><path d="M-50 628 C170 701 283 604 472 519 S765 289 949 376 1261 634 1500 526"/><path d="M163 -40 C291 179 362 206 596 243 S916 328 1066 166 1171 13 1331 -44"/></svg>
-    <div class="chapter-topline"><span>SHIYI YANG / THE ROBOT AND ME</span><span class="chapter-count">01 / 03</span></div>
-    <div class="chapter-track" aria-hidden="true"><span></span></div>
-    <div class="chapter-controls" role="navigation" aria-label="Jump between chapters">
-      <button type="button" data-chapter-jump="0" aria-label="Chapter 1: The first spark" aria-current="step"><span>01</span></button>
-      <button type="button" data-chapter-jump="1" aria-label="Chapter 2: The build"><span>02</span></button>
-      <button type="button" data-chapter-jump="2" aria-label="Chapter 3: The people"><span>03</span></button>
-    </div>
-    <span class="chapter-scroll-note">Scroll to follow the story ↓</span>
+<!-- A film that plays independently of page scrolling. -->
+<section id="chapters" class="film-section" aria-labelledby="film-heading">
+  <header class="film-intro">
+    <div><div class="section-label">A small film · 24 seconds</div><h2 id="film-heading">The robot <em>&amp; me.</em></h2></div>
+    <p>A camera, a machine, and the people around it.<br>A few pieces of my world, in motion.</p>
+  </header>
+  <div class="film-frame">
+    <video id="story-film" controls muted loop playsinline preload="none" poster="assets/films/the-robot-and-me-poster.jpg" aria-label="The robot and me: a 24-second film of Wendy photographing robotics, robot details, and her team" aria-describedby="film-description">
+      <source data-src="assets/films/the-robot-and-me.mp4" type="video/mp4">
+      <p>Your browser cannot play this film. <a href="assets/films/the-robot-and-me.mp4">Download the MP4</a>.</p>
+    </video>
+    <button class="film-start" type="button" aria-label="Play The robot and me"><span aria-hidden="true">▶</span><span>Play the film</span></button>
   </div>
-  <div class="chapter-steps">
-    <article class="chapter-step is-active" id="chapter-stillness" style="--chapter-fallback:url('assets/evidence/admission/frc-filming.jpg')">
-      <div class="chapter-copy"><span class="chapter-eyebrow">01 / The first spark</span><h2>It started with looking closer<span>.</span></h2><p>I brought a camera to robotics. Through the lens, a machine stopped being one object and became hundreds of decisions made by people.</p><a href="#research">See what I began to build <span aria-hidden="true">↗</span></a></div>
-    </article>
-    <article class="chapter-step" id="chapter-build" style="--chapter-fallback:url('assets/chapters/02-the-build.jpg')">
-      <div class="chapter-copy"><span class="chapter-eyebrow">02 / The build</span><h2>A sketch has to move<span>.</span></h2><p>At the pit and the workbench, an idea has to fit, move, and survive a test. That is where I learned to enjoy the questions hidden inside a working system.</p><a href="#research">See the projects <span aria-hidden="true">↗</span></a></div>
-    </article>
-    <article class="chapter-step" id="chapter-people" style="--chapter-fallback:url('assets/evidence/admission/frc-team.jpg')">
-      <div class="chapter-copy"><span class="chapter-eyebrow">03 / The people</span><h2>Nobody builds alone<span>.</span></h2><p>The robot is what I can point to. What stays with me is the team around it: the questions, the late fixes, and the conversations after the match.</p><a href="#activities">Meet the people <span aria-hidden="true">↗</span></a></div>
-    </article>
+  <div class="film-footer"><span id="film-description">Look closer. Make it move. Build together.</span><a href="assets/films/the-robot-and-me.mp4" download>Keep the film ↗</a></div>
+</section>
+
+<section id="life-in-frames" aria-labelledby="life-heading">
+  <div class="life-inner">
+    <header class="life-heading"><div><div class="section-label">The things between</div><h2 id="life-heading">More than <em>the finished thing.</em></h2></div><p>The cheering, the waiting, the friends.<br>These belong in the story, too.</p></header>
+    <div class="life-spread">
+      <figure class="life-print life-print-tall"><button type="button" data-life-photo="match-day" data-caption="The feeling after a match." aria-label="Enlarge cheering at a robotics match"><img src="assets/life/match-day.webp" width="724" height="1086" loading="lazy" decoding="async" alt="Friends cheering together at a robotics competition"></button><figcaption><span>01 / At full volume</span>The feeling after a match.</figcaption></figure>
+      <figure class="life-print life-print-wide"><button type="button" data-life-photo="behind-the-camera" data-caption="Usually, this is where you will find me." aria-label="Enlarge Wendy behind the camera"><img src="assets/life/behind-the-camera.webp" width="1182" height="666" loading="lazy" decoding="async" alt="Wendy photographing the action from the stands"></button><figcaption><span>02 / Behind the lens</span>Usually, this is where you will find me.</figcaption></figure>
+      <figure class="life-print"><button type="button" data-life-photo="on-the-field" data-caption="A different kind of teamwork." aria-label="Enlarge the flag football team"><img src="assets/life/on-the-field.webp" width="1092" height="717" loading="lazy" decoding="async" alt="Flag football players running together across the field"></button><figcaption><span>03 / Outside the workshop</span>A different kind of teamwork.</figcaption></figure>
+      <figure class="life-print"><button type="button" data-life-photo="mirror-moment" data-caption="One more photo before we go." aria-label="Enlarge a mirror photo with a friend"><img src="assets/life/mirror-moment.webp" width="1086" height="723" loading="lazy" decoding="async" alt="A candid mirror photograph of two friends with a camera"></button><figcaption><span>04 / Between things</span>One more photo before we go.</figcaption></figure>
+    </div>
+    <details class="life-album"><summary>Open the rest of my contact sheet <span aria-hidden="true">＋</span></summary><div class="life-contact">
+<figure><button type="button" data-life-photo="robot-portrait" data-caption="A machine in the spotlight." aria-label="Enlarge: A machine in the spotlight."><img src="assets/life/robot-portrait-small.webp" loading="lazy" decoding="async" alt="A machine in the spotlight."></button><figcaption>A machine in the spotlight.</figcaption></figure>
+<figure><button type="button" data-life-photo="mechanism-blue" data-caption="Looking closer at the mechanism." aria-label="Enlarge: Looking closer at the mechanism."><img src="assets/life/mechanism-blue-small.webp" loading="lazy" decoding="async" alt="Looking closer at the mechanism."></button><figcaption>Looking closer at the mechanism.</figcaption></figure>
+<figure><button type="button" data-life-photo="mechanism-light" data-caption="Red light, blue light." aria-label="Enlarge: Red light, blue light."><img src="assets/life/mechanism-light-small.webp" loading="lazy" decoding="async" alt="Red light, blue light."></button><figcaption>Red light, blue light.</figcaption></figure>
+<figure><button type="button" data-life-photo="mechanism-red" data-caption="Every piece has a purpose." aria-label="Enlarge: Every piece has a purpose."><img src="assets/life/mechanism-red-small.webp" loading="lazy" decoding="async" alt="Every piece has a purpose."></button><figcaption>Every piece has a purpose.</figcaption></figure>
+<figure><button type="button" data-life-photo="robot-in-blue" data-caption="Team 6941, on the field." aria-label="Enlarge: Team 6941, on the field."><img src="assets/life/robot-in-blue-small.webp" loading="lazy" decoding="async" alt="Team 6941, on the field."></button><figcaption>Team 6941, on the field.</figcaption></figure>
+<figure><button type="button" data-life-photo="robot-in-red" data-caption="Another angle on 6941." aria-label="Enlarge: Another angle on 6941."><img src="assets/life/robot-in-red-small.webp" loading="lazy" decoding="async" alt="Another angle on 6941."></button><figcaption>Another angle on 6941.</figcaption></figure>
+<figure><button type="button" data-life-photo="carbonpulse" data-caption="CarbonPulse 10541." aria-label="Enlarge: CarbonPulse 10541."><img src="assets/life/carbonpulse-small.webp" loading="lazy" decoding="async" alt="CarbonPulse 10541."></button><figcaption>CarbonPulse 10541.</figcaption></figure>
+<figure><button type="button" data-life-photo="at-the-field" data-caption="At the competition field." aria-label="Enlarge: At the competition field."><img src="assets/life/at-the-field-small.webp" loading="lazy" decoding="async" alt="At the competition field."></button><figcaption>At the competition field.</figcaption></figure>
+<figure><button type="button" data-life-photo="reefscape" data-caption="A moment in the match." aria-label="Enlarge: A moment in the match."><img src="assets/life/reefscape-small.webp" loading="lazy" decoding="async" alt="A moment in the match."></button><figcaption>A moment in the match.</figcaption></figure>
+<figure><button type="button" data-life-photo="between-matches" data-caption="The space between matches." aria-label="Enlarge: The space between matches."><img src="assets/life/between-matches-small.webp" loading="lazy" decoding="async" alt="The space between matches."></button><figcaption>The space between matches.</figcaption></figure>
+<figure><button type="button" data-life-photo="in-the-stands" data-caption="Watching from the stands." aria-label="Enlarge: Watching from the stands."><img src="assets/life/in-the-stands-small.webp" loading="lazy" decoding="async" alt="Watching from the stands."></button><figcaption>Watching from the stands.</figcaption></figure>
+<figure><button type="button" data-life-photo="pit-friends" data-caption="Friends from another pit." aria-label="Enlarge: Friends from another pit."><img src="assets/life/pit-friends-small.webp" loading="lazy" decoding="async" alt="Friends from another pit."></button><figcaption>Friends from another pit.</figcaption></figure>
+<figure><button type="button" data-life-photo="new-friends" data-caption="People met along the way." aria-label="Enlarge: People met along the way."><img src="assets/life/new-friends-small.webp" loading="lazy" decoding="async" alt="People met along the way."></button><figcaption>People met along the way.</figcaption></figure>
+<figure><button type="button" data-life-photo="alliance-one" data-caption="A message on the big screen." aria-label="Enlarge: A message on the big screen."><img src="assets/life/alliance-one-small.webp" loading="lazy" decoding="async" alt="A message on the big screen."></button><figcaption>A message on the big screen.</figcaption></figure>
+<figure><button type="button" data-life-photo="together" data-caption="Everyone in the frame." aria-label="Enlarge: Everyone in the frame."><img src="assets/life/together-small.webp" loading="lazy" decoding="async" alt="Everyone in the frame."></button><figcaption>Everyone in the frame.</figcaption></figure>
+<figure><button type="button" data-life-photo="team-around-it" data-caption="The team around the robot." aria-label="Enlarge: The team around the robot."><img src="assets/life/team-around-it-small.webp" loading="lazy" decoding="async" alt="The team around the robot."></button><figcaption>The team around the robot.</figcaption></figure>
+<figure><button type="button" data-life-photo="ironpulse" data-caption="With IronPulse." aria-label="Enlarge: With IronPulse."><img src="assets/life/ironpulse-small.webp" loading="lazy" decoding="async" alt="With IronPulse."></button><figcaption>With IronPulse.</figcaption></figure>
+<figure><button type="button" data-life-photo="robotics-festival" data-caption="A day at the robotics festival." aria-label="Enlarge: A day at the robotics festival."><img src="assets/life/robotics-festival-small.webp" loading="lazy" decoding="async" alt="A day at the robotics festival."></button><figcaption>A day at the robotics festival.</figcaption></figure>
+<figure><button type="button" data-life-photo="festival-afternoon" data-caption="An afternoon at the festival." aria-label="Enlarge: An afternoon at the festival."><img src="assets/life/festival-afternoon-small.webp" loading="lazy" decoding="async" alt="An afternoon at the festival."></button><figcaption>An afternoon at the festival.</figcaption></figure>
+<figure><button type="button" data-life-photo="classroom" data-caption="The people in my classroom." aria-label="Enlarge: The people in my classroom."><img src="assets/life/classroom-small.webp" loading="lazy" decoding="async" alt="The people in my classroom."></button><figcaption>The people in my classroom.</figcaption></figure>
+<figure><button type="button" data-life-photo="off-the-clock" data-caption="A little room to run." aria-label="Enlarge: A little room to run."><img src="assets/life/off-the-clock-small.webp" loading="lazy" decoding="async" alt="A little room to run."></button><figcaption>A little room to run.</figcaption></figure>
+</div></details>
   </div>
 </section>
+<dialog id="life-lightbox" aria-label="Personal photograph"><button class="life-close" type="button" aria-label="Close photograph">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>
 
 <!-- PERSONAL MOMENTS -->
 <section id="curiosity">
@@ -2579,6 +2600,8 @@
   const sectionItem = (ic, label, id) => ({ ic, label, grp: 'Go to', run: () => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) });
   const ITEMS = [
     sectionItem('👋', 'About me', 'about'),
+    sectionItem('▶', 'The robot and me — watch the film', 'chapters'),
+    sectionItem('◻', 'Personal photo contact sheet', 'life-in-frames'),
     sectionItem('✿', 'The little things — personal stories', 'curiosity'),
     sectionItem('🎓', 'Education & teacher comments', 'education'),
     sectionItem('↗', 'How my interests connect', 'achievements'),

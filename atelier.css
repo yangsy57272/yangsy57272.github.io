@@ -49,7 +49,7 @@ nav .logo { letter-spacing:-.035em; }
   content:""; position:absolute; z-index:2; top:-22px; right:8%; width:85px; height:27px;
   background:#d7b989aa; transform:rotate(8deg); box-shadow:0 1px 2px #65513724;
 }
-#hero .hero-photo::after { content:'Wendy, behind the lens.'; bottom:15px; }
+#hero .hero-photo::after { content:'A moment worth cheering for.'; bottom:15px; }
 .hero-collage { position:absolute; z-index:2; inset:0; pointer-events:none; }
 .hero-collage-photo {
   position:absolute; display:block; object-fit:cover; border:7px solid #fffaf2;
