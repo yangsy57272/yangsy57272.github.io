@@ -3,6 +3,24 @@
   if (!video) return;
   const start = document.querySelector('.film-start');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const films = {
+    art: {src:'assets/films/the-spark-art-film.mp4',poster:'assets/films/the-spark-art-poster.jpg',description:'An imagined world, inspired by my robotics photographs.',label:'The robot and me: an illustrated film of a spark, a blueprint, rotating connections, and a shared workshop'},
+    real: {src:'assets/films/the-robot-and-me.mp4',poster:'assets/films/the-robot-and-me-poster.jpg',description:'Look closer. Make it move. Build together. Real photographs from my life.',label:'The robot and me: a photo film of robotics, friends, and the people around the machine'}
+  };
+  document.querySelectorAll('[data-film]').forEach(button => {
+    button.addEventListener('click', () => {
+      const film = films[button.dataset.film];
+      suspend();
+      video.poster = film.poster;
+      video.setAttribute('aria-label', film.label);
+      video.querySelector('source').dataset.src = film.src;
+      document.getElementById('film-description').textContent = film.description;
+      document.getElementById('film-download').href = film.src;
+      document.querySelectorAll('[data-film]').forEach(b => b.setAttribute('aria-pressed',String(b === button)));
+      loaded = false; manuallyPaused = false; start.hidden = false;
+      play();
+    });
+  });
   let loaded = false;
   let visible = false;
   let manuallyPaused = false;

@@ -1008,12 +1008,12 @@
 <link rel="stylesheet" href="personal.css?v=3">
 <link rel="stylesheet" href="music.css">
 <link rel="stylesheet" href="interactions.css">
-<link rel="stylesheet" href="chapters.css?v=8">
+<link rel="stylesheet" href="chapters.css?v=9">
 <link rel="stylesheet" href="atelier.css?v=2">
 <script src="music.js" defer></script>
 <script src="interactions.js" defer></script>
 <script src="evidence.js" defer></script>
-<script src="chapters.js?v=8" defer></script>
+<script src="chapters.js?v=9" defer></script>
 <script src="atelier.js?v=1" defer></script>
 </head>
 <body>
@@ -1091,17 +1091,21 @@
 <!-- A film that plays independently of page scrolling. -->
 <section id="chapters" class="film-section" aria-labelledby="film-heading">
   <header class="film-intro">
-    <div><div class="section-label">A small film · 24 seconds</div><h2 id="film-heading">The robot <em>&amp; me.</em></h2></div>
-    <p>A camera, a machine, and the people around it.<br>A few pieces of my world, in motion.</p>
+    <div><div class="section-label">Two small films · one world</div><h2 id="film-heading">The robot <em>&amp; me.</em></h2></div>
+    <p>From a spark to a shared workbench.<br>An imagined world, and the real moments behind it.</p>
   </header>
+  <div class="film-selector" role="group" aria-label="Choose a film">
+    <button type="button" data-film="art" aria-pressed="true">The art film <span>00:28</span></button>
+    <button type="button" data-film="real" aria-pressed="false">Real moments <span>00:24</span></button>
+  </div>
   <div class="film-frame">
-    <video id="story-film" controls muted loop playsinline preload="none" poster="assets/films/the-robot-and-me-poster.jpg" aria-label="The robot and me: a 24-second film of Wendy photographing robotics, robot details, and her team" aria-describedby="film-description">
-      <source data-src="assets/films/the-robot-and-me.mp4" type="video/mp4">
-      <p>Your browser cannot play this film. <a href="assets/films/the-robot-and-me.mp4">Download the MP4</a>.</p>
+    <video id="story-film" controls muted loop playsinline preload="none" poster="assets/films/the-spark-art-poster.jpg" aria-label="The robot and me: an illustrated film of a spark, a blueprint, rotating connections, and a shared workshop" aria-describedby="film-description">
+      <source data-src="assets/films/the-spark-art-film.mp4" type="video/mp4">
+      <p>Your browser cannot play this film. <a href="assets/films/the-spark-art-film.mp4">Download the MP4</a>.</p>
     </video>
     <button class="film-start" type="button" aria-label="Play The robot and me"><span aria-hidden="true">▶</span><span>Play the film</span></button>
   </div>
-  <div class="film-footer"><span id="film-description">Look closer. Make it move. Build together.</span><a href="assets/films/the-robot-and-me.mp4" download>Keep the film ↗</a></div>
+  <div class="film-footer"><span id="film-description">An imagined world, inspired by my robotics photographs.</span><a id="film-download" href="assets/films/the-spark-art-film.mp4" download>Keep the film ↗</a></div>
 </section>
 
 <section id="life-in-frames" aria-labelledby="life-heading">

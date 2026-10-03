@@ -62,3 +62,9 @@
   .film-start { gap:.5rem; font-size:.6rem; }
 }
 @media(prefers-reduced-motion:reduce) { .life-print img,.life-contact img,.film-start span,.life-album summary span { transition:none; } }
+.film-selector { display:flex; gap:1.5rem; width:min(1200px,100%); margin:0 auto 1.2rem; border-bottom:1px solid #eee1bd30; }
+.film-selector button { border:0; border-bottom:2px solid transparent; padding:.7rem 0 1rem; background:none; color:#b2bfb0; font:500 .77rem/1.4 Arial,sans-serif; cursor:pointer; }
+.film-selector button span { font-size:.6rem; margin-left:.5rem; color:#b7a280; }
+.film-selector button[aria-pressed="true"] { border-bottom-color:#e6bd7e; color:#fff3dd; }
+.film-selector button:hover { color:#fff3dd; }
+.film-selector button:focus-visible { outline:2px solid #e6bd7e; outline-offset:4px; }
