@@ -1013,7 +1013,7 @@
 <script src="music.js" defer></script>
 <script src="interactions.js" defer></script>
 <script src="evidence.js" defer></script>
-<script src="chapters.js?v=9" defer></script>
+<script src="chapters.js?v=10" defer></script>
 <script src="atelier.js?v=1" defer></script>
 </head>
 <body>
@@ -1052,7 +1052,7 @@
     <p class="hero-tagline">There are more than thirty stickers on my laptop. Some are peeling. I keep them anyway: a small red flower, a Citrus Circuits sticker, a reminder to leave the gap in a proof showing.</p>
     <p class="hero-invitation">Here are a few of the stories I carry with me.</p>
     <div class="sticker-shortcuts" aria-label="A few ways to get to know me"><a href="#curiosity" aria-label="Read the story of a small red flower"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-flower"/></svg><span>Little things</span></a><a href="photography.html" aria-label="Explore my photographs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-camera"/></svg><span>My camera</span></a><a href="#playground" aria-label="Try my puzzles and playground"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-graph"/></svg><span>A question</span></a><a href="#music" aria-label="Listen to my songs"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#memory-record"/></svg><span>On repeat</span></a></div><div class="personal-actions">
-      <a class="personal-primary" href="#chapters">Watch my little film <span aria-hidden="true">↘</span></a>
+      <a class="personal-primary" href="#chapters">Watch my activity film <span aria-hidden="true">↘</span></a>
       <a href="photography.html">Wander through my photographs <span aria-hidden="true">↗</span></a>
     </div>
     </div>
@@ -1091,21 +1091,23 @@
 <!-- A film that plays independently of page scrolling. -->
 <section id="chapters" class="film-section" aria-labelledby="film-heading">
   <header class="film-intro">
-    <div><div class="section-label">Two small films · one world</div><h2 id="film-heading">The robot <em>&amp; me.</em></h2></div>
-    <p>From a spark to a shared workbench.<br>An imagined world, and the real moments behind it.</p>
+    <div><div class="section-label">16 activities · 6 connected themes</div><h2 id="film-heading">A world of <em>connections.</em></h2></div>
+    <p>Maths, engineering, communication and creativity.<br>Leadership and service bring it back to people.</p>
   </header>
   <div class="film-selector" role="group" aria-label="Choose a film">
-    <button type="button" data-film="art" aria-pressed="true">The art film <span>00:28</span></button>
+    <button type="button" data-film="activities" aria-pressed="true">My activities <span>02:24</span></button>
+    <button type="button" data-film="art" aria-pressed="false">The art film <span>00:28</span></button>
     <button type="button" data-film="real" aria-pressed="false">Real moments <span>00:24</span></button>
   </div>
   <div class="film-frame">
-    <video id="story-film" controls muted loop playsinline preload="none" poster="assets/films/the-spark-art-poster.jpg" aria-label="The robot and me: an illustrated film of a spark, a blueprint, rotating connections, and a shared workshop" aria-describedby="film-description">
-      <source data-src="assets/films/the-spark-art-film.mp4" type="video/mp4">
-      <p>Your browser cannot play this film. <a href="assets/films/the-spark-art-film.mp4">Download the MP4</a>.</p>
+    <video id="story-film" controls muted loop playsinline preload="none" poster="assets/activities/thematic-story-01.jpg" aria-label="A world of connections: sixteen activities with real photos, labeled illustrations and golden animation" aria-describedby="film-description">
+      <source data-src="assets/films/a-world-of-connections-real-activities.mp4" type="video/mp4">
+      <p>Your browser cannot play this film. <a href="assets/films/a-world-of-connections-real-activities.mp4">Download the MP4</a>.</p>
     </video>
-    <button class="film-start" type="button" aria-label="Play The robot and me"><span aria-hidden="true">▶</span><span>Play the film</span></button>
+    <button class="film-start" type="button" aria-label="Play A world of connections"><span aria-hidden="true">▶</span><span>Play the film</span></button>
   </div>
-  <div class="film-footer"><span id="film-description">An imagined world, inspired by my robotics photographs.</span><a id="film-download" href="assets/films/the-spark-art-film.mp4" download>Keep the film ↗</a></div>
+  <div class="film-footer"><span id="film-description">My projects, workshops, writing, teamwork and service — in 2 minutes 24 seconds.</span><a id="film-download" href="assets/films/a-world-of-connections-real-activities.mp4" download>Keep the film ↗</a></div>
+  <p class="film-footer"><a href="activity-film.html">Explore my activities · 6 themes · 2:24 ↗</a><span>Workshops, writing, projects, teamwork and service—with the photographs behind them.</span></p>
 </section>
 
 <section id="life-in-frames" aria-labelledby="life-heading">
