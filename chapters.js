@@ -6,7 +6,6 @@
   const films = {
     activities: {src:'assets/films/a-world-of-connections-real-activities.mp4',poster:'assets/activities/thematic-story-01.jpg',description:'My projects, workshops, writing, teamwork and service — in 2 minutes 24 seconds.',label:'A world of connections: sixteen activities with real photos, labeled illustrations and golden animation'},
     art: {src:'assets/films/the-spark-art-film.mp4',poster:'assets/films/the-spark-art-poster.jpg',description:'An imagined world, inspired by my robotics photographs.',label:'The robot and me: an illustrated film of a spark, a blueprint, rotating connections, and a shared workshop'},
-    real: {src:'assets/films/the-robot-and-me.mp4',poster:'assets/films/the-robot-and-me-poster.jpg',description:'Look closer. Make it move. Build together. Real photographs from my life.',label:'The robot and me: a photo film of robotics, friends, and the people around the machine'}
   };
   document.querySelectorAll('[data-film]').forEach(button => {
     button.addEventListener('click', () => {
