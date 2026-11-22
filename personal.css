@@ -395,3 +395,10 @@ body:has(.evidence-viewer[open]) { overflow:hidden; }
 @media(prefers-reduced-motion:reduce) {
   .identity-constellation img,.song-symbol * { transition:none!important; animation:none!important; }
 }
+
+#activities .activity-card { background:#fffdf8; border:1px solid #ddd9ce; border-top:3px solid #859c89; padding:1.25rem; border-radius:.35rem; }
+#activities .activity-card:nth-child(3n+2) { border-top-color:#bd8c76; }
+#activities .activity-card:nth-child(3n) { border-top-color:#9b96ae; }
+#activities .activity-card .detail { font-size:1rem; }
+#activities .activity-card a { display:inline-block; margin-top:.7rem; color:#784b39; text-decoration:underline; text-underline-offset:.2em; }
+.research-card .project-reflection { padding:.85rem 1rem; background:#e8eee4; border-left:3px solid #9e674f; font-family:Georgia,serif; }
