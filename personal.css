@@ -126,6 +126,8 @@ section .section-inner { position:relative; }
 .research-card { padding:2.5rem; gap:2rem; box-shadow:0 6px 16px #493b2505; }
 .research-card h3 { font-size:1.35rem; font-weight:normal; }
 .research-card p { font-size:1rem; line-height:1.85; max-width:780px; }
+.research-card .project-reflection { margin-top:.8rem; }
+.award-reflection { margin:.65rem 0 0; font-size:.9rem; line-height:1.6; color:var(--text-muted); }
 .research-tag { background:#e7e9df !important; color:#586c59 !important; font-weight:500; }
 .meta-pill { background:transparent; border:0; padding:0; color:#8b7964; }
 .meta-pill + .meta-pill::before { content:'·'; margin-right:.6rem; }
