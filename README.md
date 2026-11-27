@@ -1,70 +1,27 @@
-# Shiyi Yang (Wendy) — Personal Website
+# Shiyi Yang · Personal website
 
-Personal portfolio of **Shiyi Yang (Wendy)** — national debate champion, AIME qualifier,
-2× FRC regional champion, and HIMCM global finalist (Top 4%). IB Class of 2027,
-Shanghai Pinghe Bilingual School.
+A portfolio and notebook for mathematics, physical prototypes, writing, photography, songwriting, and small interactive experiments.
 
-**Live site:** https://yangsy57272.github.io/
+## Preview
 
-## Highlights
-
-- Interactive constellation animation in the hero (responds to your mouse; click to add stars)
-- "Follow a question" interactive story paths connecting debate, engineering, and photography
-- Quick-search command palette — press `/` or `Ctrl/⌘ K` to jump to any section, award or PDF
-- "Year by year" dot timeline of every award, linked to the filters and cards
-- Playground: debate-motion generator with prep timer, AIME-style math sprint,
-  and an exposure-triangle camera simulator from my photography workshop
-- Photography gallery with reserved image space, immediate photo display, slideshow, swipe, filmstrip,
-  shareable photo links (`photography.html#photo-DSC05866`) and a sticky album bar
-- Typewriter headline cycling through key achievements
-- Animated count-up statistics and staggered scroll-reveal throughout
-- Filterable awards gallery (29 awards across 6 categories)
-- Full HiMCM Finalist certificate and 26-page competition paper included as PDFs
-- Zero dependencies — one HTML file, works anywhere
-
-## Structure
-
-```
-index.html                        the main site (HTML + CSS + JS, no build step)
-photography.html                  photography gallery (4 collections, 72 photos)
-assets/photos/                    gallery images
-assets/photography-workshop.pdf   workshop deck
-assets/HiMCM-2025-Certificate.pdf HiMCM Finalist certificate
-assets/HiMCM-2025-Paper.pdf       HiMCM 2025 competition paper
-deploy.sh                         one-command deploy to GitHub Pages
-```
-
-## Deploy to GitHub Pages
-
-```bash
-brew install gh        # if not already installed
-gh auth login          # log in to your GitHub account (one time)
-./deploy.sh            # creates the repo, pushes, enables Pages
-```
-
-The script deploys to `<username>.github.io` (your root site) by default.
-To use a different repo name: `./deploy.sh my-website` → the site appears at
-`https://<username>.github.io/my-website/`.
-
-## Local preview
+Clone the repository and run these commands from its root.
 
 ```bash
 python3 -m http.server 8000
-# open http://localhost:8000
 ```
 
-## Personal notebook design
+Open [the local homepage](http://localhost:8000/). The checked-in HTML is ready to serve directly. GitHub Pages serves the root of the `main` branch.
 
-The homepage uses `personal.css` for its warm paper, sage and rust palette, illustrated sticker shortcuts, personal stories, and compact academic records. Photography uses `gallery.css`, journal/contact-sheet layouts, collection covers, and a keyboard-accessible lightbox. The gallery retains all 72 original photos.
+## Editing the site
 
-### Asset credit
+- Edit `site_src/projects.py` for selected project summaries, case studies, and resource links. Each project entry drives its homepage card and case-study page.
+- Edit `site_src/build.py` for the homepage, About, Notes, Studio, Playground, Now, navigation, search entries, and page metadata. Run `python3 site_src/build.py` after changes and include the updated HTML and sitemap in the same commit. The generator uses Python 3.9+ and the standard library.
+- Edit `editorial.css` for typography, color, components, and breakpoints. `editorial.js` handles quick search, old homepage links, and keeping Studio playback to one active item. `puzzle.js` provides the no-three-in-a-line board.
+- Edit `archive.html` for the original notebook, supporting project evidence, awards, sticker stories, and the debate, math, and camera experiments. Bookmarks to those sections on the former homepage still resolve.
+- Edit `photography.html` and `activity-film.html` directly for the full gallery and activity journal. Gallery images use thumbnails with separate full-size files, and media files in Studio load on demand.
 
-`assets/stickers/citrus-circuits.png` is the official Citrus Circuits team mark from [citruscircuits.org](https://www.citruscircuits.org/), used to identify the FRC 1678 pit-sticker memory. It is presented on a paper sticker; it is not a scan of Wendy’s physical sticker. The team mark remains in its original colors. Other small illustrations are original SVG artwork.
+Use `/` or `Ctrl/⌘ K` for search. The archive’s search also indexes awards and their filters. On the puzzle board, use arrow keys to move, Enter or Space to toggle a point, and Tab to reach Undo and Clear board.
 
-## Academic notes and music
+## Credits
 
-- The academic disclosure shows September 2026 expected grades (41/45, subject total 39/42); term grades, SAT and TOEFL are not displayed. Duolingo is 140.
-- Research links include the 2024 HiMCM computing footprint paper, the 2025 evacuation sweep paper, the English B Extended Essay on Barbie, and the no-three-in-line paper. The latter is a website copy with the program-affiliation cover line removed; the original local PDF is untouched.
-- `music.js` shares one HTML audio stream between song cards and the gallery/lightbox controls. Three user-supplied MP3s are hosted under `assets/music/`. Playback starts after a visitor presses Play, with a 35% initial volume. No audio file is requested on initial page load. Tracks advance cyclically after playback ends. The lightbox has its own synchronized controls.
-- Song 01 and Song 03 retain neutral numbered labels because the supplied lyric documents do not specify titles; Time Machine uses the accompanying video filename. Songwriting is credited without asserting vocal performance or production credits.
-- The main academic and extracurricular narrative is a connected growth map: mathematics feeds algorithms, modeling, machine learning, and physical systems; parallel paths connect geometry to combinatorics, debate to communication, and flag football to resilience. The 29-item competition record remains available in a collapsed supporting archive.
+Instrument Serif and Space Grotesk are bundled under the SIL Open Font License. The license files are in `assets/fonts/`. The Citrus Circuits logo in the sticker story is the official team mark from [Citrus Circuits](https://www.citruscircuits.org/).
