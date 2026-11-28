@@ -56,7 +56,7 @@ def page(filename, title, description, body, *, active='', image='assets/life/be
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{escape(page_title)}</title>
       <meta name="description" content="{escape(description, quote=True)}">
-      <meta name="theme-color" content="#eeeee7">
+      <meta name="theme-color" content="#171a15">
       <link rel="canonical" href="{url}">
       <meta property="og:type" content="website">
       <meta property="og:site_name" content="{NAME}">
@@ -114,6 +114,7 @@ def project_card(p):
     if p['style'] == 'grid-study':
         visual = '''<div class="work-art grid-study" aria-hidden="true">
           <span class="plot-axis">y</span><span class="plot-axis plot-axis-x">x</span><span class="plot-line"></span>
+          <span class="plot-note">Three points, one line</span>
           <i style="--x:1;--y:1"></i><i style="--x:3;--y:1"></i><i style="--x:2;--y:2"></i>
           <i style="--x:4;--y:2"></i><i style="--x:4;--y:3"></i><i style="--x:5;--y:3"></i></div>'''
     return f'''<article class="work-card"><a href="{p['slug']}.html">
@@ -126,32 +127,59 @@ def project_card(p):
 def home():
     work = ''.join(project_card(p) for p in PROJECTS)
     return f'''
-    <section class="wrap hero">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> Shiyi Yang / Wendy</p>
-        <h1>Proofs, prototypes<br class="hero-break"> <em>&amp; passing moments.</em></h1>
-        <p class="lede">I’m a student in Shanghai. I work through questions in mathematics, build physical prototypes, and keep a camera close by.</p>
-        <div class="hero-links"><a class="action" href="#work">Explore my work</a><a class="plain-link" href="about.html">A little about me</a></div>
-      </div>
-      <figure class="hero-frame">
-        <div class="hero-image"><img src="assets/life/behind-the-camera.webp" alt="Wendy photographing the action from the stands" width="1182" height="666" fetchpriority="high">
-          <span class="viewfinder" aria-hidden="true"></span>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">Shiyi Yang / Wendy</p>
+          <h1 id="hero-title">Between<br><em>the lines.</em></h1>
+          <p class="lede">I’m a student in Shanghai. I work on proofs, build prototypes, and make things with a camera.</p>
+          <div class="hero-links"><a class="action" href="#work">Explore my work</a><a class="plain-link" href="about.html">About me</a></div>
         </div>
-        <figcaption><span>Behind the camera</span><a href="studio.html">Visit the studio</a></figcaption>
-      </figure>
+        <figure class="hero-frame">
+          <div class="hero-image">
+            <img data-artwork="spark" src="assets/editorial/the-first-spark.webp" alt="An illustrated inventor and a competition robot reaching toward a golden gyroscope" width="1440" height="810" fetchpriority="high">
+            <img data-artwork="blueprint" src="assets/editorial/the-blueprint.webp" alt="The same scene drawn as glowing wireframes around the gold gyroscope" width="1440" height="810" loading="lazy" hidden>
+          </div>
+          <figcaption>
+            <a href="studio.html#spark-film">The Spark <span>· illustrated film</span></a>
+            <div class="frame-controls" role="group" aria-label="Artwork view" hidden>
+              <button type="button" data-art-view="spark" aria-pressed="true">Painting</button>
+              <button type="button" data-art-view="blueprint" aria-pressed="false">Blueprint</button>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
     </section>
     <section class="wrap work" id="work" aria-labelledby="work-heading">
       <div class="section-head"><h2 id="work-heading">Selected work</h2><a href="archive.html#research">Full project archive</a></div>
       <div class="work-grid">{work}</div>
     </section>
+    <section class="studio-spread" aria-labelledby="studio-heading">
+      <div class="wrap studio-spread-inner">
+        <div class="spread-copy">
+          <p class="eyebrow">Photography &amp; film</p>
+          <h2 id="studio-heading">Through <em>the lens.</em></h2>
+          <p>Istanbul between robotics matches. A forest park at half past four. The moments I stop for.</p>
+          <div class="inline-links"><a class="plain-link" href="studio.html">Visit the studio</a><a href="studio.html#music">Listen to my songs</a></div>
+        </div>
+        <div class="spread-prints">
+          <a class="spread-print city-print" href="photography.html#photo-DSC07053">
+            <img src="assets/thumbs/city/DSC07053.webp" alt="" loading="lazy" decoding="async"><span>Galata Tower, Istanbul</span>
+          </a>
+          <a class="spread-print flower-print" href="photography.html#photo-DSC08102">
+            <img src="assets/thumbs/gongqing/DSC08102.webp" alt="" loading="lazy" decoding="async"><span>Poppy Afternoon, Shanghai</span>
+          </a>
+        </div>
+      </div>
+    </section>
     <section class="wrap field-section" aria-labelledby="field-heading">
-      <div class="field-copy"><p class="eyebrow">The notebook</p><h2 id="field-heading">Pages I keep open.</h2>
-        <p>A laptop with more than thirty stickers. Half-formed arguments. Photos from between robotics matches.</p></div>
+      <div class="field-copy"><h2 id="field-heading">Pages I keep open.</h2>
+        <p>A laptop with more than thirty stickers. Arguments that took a few drafts. Questions I’ve left open.</p>
+        <a class="plain-link" href="about.html#stickers">The laptop stickers</a></div>
       <div class="field-links">
-        <a href="notes.html"><strong>Notes &amp; writing</strong><span>Arguments that took a few drafts.</span></a>
-        <a href="studio.html"><strong>The studio</strong><span>Photographs, songwriting and two films.</span></a>
+        <a href="notes.html"><strong>Notes &amp; writing</strong><span>Essays and reflections.</span></a>
         <a href="playground.html"><strong>Playground</strong><span>Try a proof with your hands.</span></a>
-        <a href="now.html"><strong>Now</strong><span>Questions I’ve left open.</span></a>
+        <a href="now.html"><strong>Now</strong><span>Questions I’ve carried forward.</span></a>
       </div>
     </section>'''
 
@@ -159,10 +187,18 @@ def home():
 def case_study(p):
     sections = ''.join(f'<section><h2>{escape(title)}</h2><p>{escape(copy)}</p></section>'
                        for title, copy in p['sections'])
+    study_image = p['study_image']
+    study_caption = escape(p['study_caption'])
     return intro(p['category'], escape(p['title']), escape(p['premise'])) + f'''
       <article class="wrap case-layout">
-        <figure class="case-figure {p['style']}"><img src="{p['image']}" alt="{escape(p['alt'], quote=True)}" fetchpriority="high">
-        <figcaption>{escape(p['evidence'])}</figcaption></figure>
+        <div class="case-plates" aria-label="Project illustrations">
+          <figure class="case-figure {p['style']}"><img src="{p['image']}" alt="{escape(p['alt'], quote=True)}" fetchpriority="high">
+          <figcaption>{escape(p['evidence'])}</figcaption></figure>
+          <figure class="case-figure case-study-print">
+            <a href="{study_image}" aria-label="View full size: {escape(p['study_caption'], quote=True)}"><img src="{study_image}" alt="" loading="lazy" decoding="async"></a>
+            <figcaption>{study_caption}</figcaption>
+          </figure>
+        </div>
         <div class="case-text">{sections}
           <section class="resources"><h2>Project material</h2>{link_list(p['links'])}</section>
           <a class="plain-link" href="index.html#work">All selected work</a>
@@ -227,7 +263,7 @@ def studio():
     <section class="wrap studio-section" id="films"><div class="section-head"><h2>Films</h2><a href="activity-film.html">Read the activity journal</a></div>
       <div class="studio-films">
         <figure><video controls muted playsinline preload="none" poster="assets/activities/thematic-story-01.jpg" src="assets/films/a-world-of-connections-real-activities.mp4" aria-label="A world of connections"></video><figcaption>A world of connections · 2:24 · Silent film</figcaption></figure>
-        <figure><video controls muted playsinline preload="none" poster="assets/films/the-spark-art-poster.jpg" src="assets/films/the-spark-art-film.mp4" aria-label="The Spark art film"></video><figcaption>The Spark · 0:28 · Silent art film</figcaption><details><summary>Read the visual description</summary><p>An inventor and a competition robot reach toward a golden gyroscope. The workshop fades into glowing blueprint lines. The last scene gathers the team around a workbench lit by the same small spark.</p></details></figure>
+        <figure id="spark-film"><video controls muted playsinline preload="none" poster="assets/editorial/the-first-spark.webp" src="assets/films/the-spark-art-film.mp4" aria-label="The Spark art film"></video><figcaption>The Spark · 0:28 · Silent art film</figcaption><details><summary>Read the visual description</summary><p>An inventor and a competition robot reach toward a golden gyroscope. The workshop fades into glowing blueprint lines. The last scene gathers the team around a workbench lit by the same small spark.</p></details></figure>
       </div>
     </section>'''
 
@@ -268,7 +304,7 @@ def now():
 
 def build():
     BUILT_ROUTES.clear()
-    page('index.html', 'Proofs, prototypes & passing moments', 'The personal website of Shiyi Yang (Wendy). Explore mathematics research, engineering prototypes, writing, photography, songs and interactive experiments.', home())
+    page('index.html', 'Between the lines', 'The personal website of Shiyi Yang (Wendy). Explore mathematics research, engineering prototypes, writing, photography, songs and interactive experiments.', home(), image='assets/editorial/the-first-spark.webp')
     page('about.html', 'About Wendy', 'Shiyi Yang on cameras, laptop stickers and getting comfortable sharing unfinished ideas.', about(), active='About', image='assets/life/match-day.webp')
     page('notes.html', 'Notes & writing', 'Essays and reflections by Shiyi Yang on film, AI etiquette and editing.', notes(), active='Notes')
     page('studio.html', 'Photography, music & films', 'Photographs, songs and short films by Shiyi Yang.', studio(), active='Studio', image='assets/thumbs/city/DSC05866.webp')

@@ -89,3 +89,16 @@ for (const player of players) {
     for (const other of players) if (other !== player && !other.paused) other.pause();
   });
 }
+
+const frameControls = document.querySelector('.frame-controls');
+if (frameControls) {
+  const frames = [...document.querySelectorAll('[data-artwork]')];
+  const views = [...frameControls.querySelectorAll('[data-art-view]')];
+  frameControls.hidden = false;
+  for (const view of views) {
+    view.addEventListener('click', () => {
+      for (const button of views) button.setAttribute('aria-pressed', String(view === button));
+      for (const frame of frames) frame.hidden = frame.dataset.artwork !== view.dataset.artView;
+    });
+  }
+}

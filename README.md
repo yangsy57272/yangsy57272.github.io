@@ -16,7 +16,7 @@ Open [the local homepage](http://localhost:8000/). The checked-in HTML is ready 
 
 - Edit `site_src/projects.py` for selected project summaries, case studies, and resource links. Each project entry drives its homepage card and case-study page.
 - Edit `site_src/build.py` for the homepage, About, Notes, Studio, Playground, Now, navigation, search entries, and page metadata. Run `python3 site_src/build.py` after changes and include the updated HTML and sitemap in the same commit. The generator uses Python 3.9+ and the standard library.
-- Edit `editorial.css` for typography, color, components, and breakpoints. `editorial.js` handles quick search, old homepage links, and keeping Studio playback to one active item. `puzzle.js` provides the no-three-in-a-line board.
+- Edit `editorial.css` for typography, color, components, and breakpoints. `editorial.js` handles quick search, old homepage links, and keeping Studio playback to one active item. It also switches between the painting and blueprint on the homepage. Optimized WebP stills come from the existing art film source frames. `puzzle.js` provides the no-three-in-a-line board.
 - Edit `archive.html` for the original notebook, supporting project evidence, awards, sticker stories, and the debate, math, and camera experiments. Bookmarks to those sections on the former homepage still resolve.
 - Edit `photography.html` and `activity-film.html` directly for the full gallery and activity journal. Gallery images use thumbnails with separate full-size files, and media files in Studio load on demand.
 

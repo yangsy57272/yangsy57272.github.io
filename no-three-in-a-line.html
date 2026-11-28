@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>No three in a line | Shiyi Yang</title>
       <meta name="description" content="A grid of dots, a surprisingly short bound, and the proof behind it.">
-      <meta name="theme-color" content="#eeeee7">
+      <meta name="theme-color" content="#171a15">
       <link rel="canonical" href="https://yangsy57272.github.io/no-three-in-a-line.html">
       <meta property="og:type" content="website">
       <meta property="og:site_name" content="Shiyi Yang">
@@ -32,8 +32,14 @@
       <main id="main" tabindex="-1"><header class="wrap page-intro"><p class="eyebrow">Combinatorics / Research</p>
       <h1>No three in a line</h1><p class="lede">A grid of dots, a surprisingly short bound, and the proof behind it.</p></header>
       <article class="wrap case-layout">
-        <figure class="case-figure grid-study"><img src="assets/evidence/no-three-grid-transform.jpg" alt="A figure from the paper showing transformations of points on a grid" fetchpriority="high">
-        <figcaption>Grid transformations from the research paper</figcaption></figure>
+        <div class="case-plates" aria-label="Project illustrations">
+          <figure class="case-figure grid-study"><img src="assets/evidence/no-three-grid-transform.jpg" alt="A figure from the paper showing transformations of points on a grid" fetchpriority="high">
+          <figcaption>Grid transformations from the research paper</figcaption></figure>
+          <figure class="case-figure case-study-print">
+            <a href="assets/evidence/no-three-symmetry.jpg" aria-label="View full size: A grid under the paper’s symmetry operations"><img src="assets/evidence/no-three-symmetry.jpg" alt="" loading="lazy" decoding="async"></a>
+            <figcaption>A grid under the paper’s symmetry operations</figcaption>
+          </figure>
+        </div>
         <div class="case-text"><section><h2>The question</h2><p>How many points fit on a three-row grid if no straight line can pass through three of them? Each row can hold at most two points. Each column can hold at most two as well. Together these give the upper bound min(6, 2n) for n columns.</p></section><section><h2>From drawing to proof</h2><p>Numbering the columns made a diagonal through three rows easier to detect. With equally spaced rows, the middle column must be the average of the other two. I wrote Python to enumerate configurations up to twenty columns and used explicit constructions and counting to prove the bound is attainable.</p></section><section><h2>Try the small case</h2><p>The Playground gives you a three-by-five board to test the same constraint. A conflicting move draws the line through all three points, including diagonals that skip columns.</p></section>
           <section class="resources"><h2>Project material</h2><ul class="text-links"><li><a href="playground.html#no-three-puzzle">Try the grid puzzle</a></li><li><a href="assets/No-Three-In-Line.pdf">Read the research paper (PDF)</a></li><li><a href="archive.html#no-three">Browse the proof diagrams</a></li></ul></section>
           <a class="plain-link" href="index.html#work">All selected work</a>
