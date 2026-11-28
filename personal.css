@@ -115,9 +115,9 @@ section .section-inner { position:relative; }
 #education { background:#e8e9df; color:#293f3e; }
 #education .section-title { color:#293f3e; }
 .edu-card { background:#f7f5ef; border-color:#d4d5c7; }
-#education [style*="color:rgba(255"], #education [style*="color: rgba(255"], .score-box .lbl, .ib-subject, .quote-card p, .quote-attr small { color:#66705f !important; }
-.edu-programme, .ib-grade, .score-box .num { color:#6f7356; }
-.score-box, .ib-subject, .quote-card { background:#fffdf780; border-color:#d8d8c9; }
+#education [style*="color:rgba(255"], #education [style*="color: rgba(255"], .ib-subject, .quote-card p, .quote-attr small { color:#66705f !important; }
+.edu-programme { color:#6f7356; }
+.ib-subject, .quote-card { background:#fffdf780; border-color:#d8d8c9; }
 .quote-attr, .quote-heading { color:#6c785d; }
 .record-details { margin:1.2rem 0; }
 .record-details summary { cursor:pointer; color:#52644e; padding:.7rem 0; font:500 .8rem/1.5 'Helvetica Neue',Arial,sans-serif; }

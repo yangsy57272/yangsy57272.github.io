@@ -17,9 +17,6 @@
 .song-actions button:hover, .song-actions a:hover, .paper-link:hover { color:#314b42; }
 .paper-link { display:inline-block; margin-top:1.3rem; }
 .music-gallery-link { display:inline-block; margin-top:1.5rem; }
-.expected-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem; }
-.expected-grid .ib-subject { gap:1rem; }
-.academic-note { color:#75806b; font:normal .75rem/1.8 'Helvetica Neue',Arial,sans-serif; margin:.8rem 0 1rem; }
 .music-console, .gallery-music, .lightbox-music { display:flex; flex-wrap:wrap; align-items:center; gap:.8rem; color:#324b42; font:500 .72rem/1.5 'Helvetica Neue',Arial,sans-serif; }
 .music-console { margin-top:2rem; padding:1.2rem 1.4rem; border:1px solid #d9d0bc; border-radius:5px; background:#f9f7ef; }
 .music-player-label { display:flex; align-items:center; gap:.5rem; margin-right:auto; }
@@ -59,7 +56,6 @@
  .lightbox-music { gap:.5rem; }
  .lightbox-music .music-volume { width:100%; justify-content:center; }
  .gallery-with-music #lightbox { padding-bottom:120px; }
- .expected-grid { grid-template-columns:1fr; }
 }
 @media(max-width:450px) {
  .music-heading { gap:.7rem; }

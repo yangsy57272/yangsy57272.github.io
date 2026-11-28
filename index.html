@@ -300,37 +300,18 @@
     text-transform: uppercase; color: var(--gold-light);
     margin-bottom: 1.2rem;
   }
-  .score-row {
-    display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.2rem;
-  }
-  .score-box {
-    text-align: center;
-    background: rgba(200,168,75,0.12);
-    border: 1px solid rgba(200,168,75,0.25);
-    border-radius: 8px; padding: 0.7rem 1.2rem;
-  }
-  .score-box .num {
-    font-size: 1.5rem; font-weight: bold; color: var(--gold-light); display: block;
-  }
-  .score-box .lbl {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.45); margin-top: 2px;
-  }
   .ib-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 0.6rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 0.6rem; list-style: none; margin: 0; padding: 0;
   }
   .ib-subject {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 6px; padding: 0.5rem 0.8rem;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.75rem;
-    display: flex; justify-content: space-between;
+    font-size: 0.875rem;
     color: rgba(255,255,255,0.75);
   }
-  .ib-grade { color: var(--gold-light); font-weight: 700; }
 
   /* ── ACHIEVEMENTS ── */
   #achievements { background: var(--bg); }
@@ -1261,11 +1242,16 @@
       </div>
       <div class="edu-programme">International Baccalaureate (IB) Programme · Class of 2027</div>
 
-      <details class="record-details"><summary>Open my expected grades</summary>
-      <p class="academic-note">IB expected grades (EG) · 2026–2027 · September 2026</p>
-      <div class="score-row"><div class="score-box"><span class="num">41 / 45</span><span class="lbl">Expected total</span></div><div class="score-box"><span class="num">39 / 42</span><span class="lbl">Subject total</span></div><div class="score-box"><span class="num">140</span><span class="lbl">Duolingo English Test</span></div></div>
-      <div class="expected-grid"><div class="ib-subject"><span>Mathematics: Analysis &amp; Approaches HL</span><span class="ib-grade">7</span></div><div class="ib-subject"><span>Physics HL</span><span class="ib-grade">7</span></div><div class="ib-subject"><span>English B HL</span><span class="ib-grade">6</span></div><div class="ib-subject"><span>Computer Science HL</span><span class="ib-grade">6</span></div><div class="ib-subject"><span>Chinese A: Language &amp; Literature SL</span><span class="ib-grade">6</span></div><div class="ib-subject"><span>Business Management SL</span><span class="ib-grade">7</span></div><div class="ib-subject"><span>Theory of Knowledge</span><span class="ib-grade">B</span></div><div class="ib-subject"><span>Extended Essay</span><span class="ib-grade">B</span></div></div><p class="academic-note">Expected grades, not final IB results.</p></details></div>
-
+      <ul class="ib-grid" role="list" aria-label="IB courses">
+        <li class="ib-subject">Mathematics: Analysis &amp; Approaches HL</li>
+        <li class="ib-subject">Physics HL</li>
+        <li class="ib-subject">English B HL</li>
+        <li class="ib-subject">Computer Science HL</li>
+        <li class="ib-subject">Chinese A: Language &amp; Literature SL</li>
+        <li class="ib-subject">Business Management SL</li>
+        <li class="ib-subject">Theory of Knowledge</li>
+      </ul>
+    </div>
 
     <details class="record-details"><summary>Notes from my teachers</summary><div class="quote-heading">In Their Words — from my Grade 11 school report</div>
     <div class="quote-grid">
